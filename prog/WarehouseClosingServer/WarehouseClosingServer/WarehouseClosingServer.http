@@ -1,0 +1,6 @@
+@WarehouseClosingServer_HostAddress = http://localhost:5281
+
+GET {{WarehouseClosingServer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
