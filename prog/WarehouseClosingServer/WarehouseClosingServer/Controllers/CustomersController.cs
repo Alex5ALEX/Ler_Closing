@@ -12,7 +12,7 @@ namespace WarehouseClosingServer.Controllers;
 
 
 [ApiController]
-[Route("api/customers")]
+[Route("api/customer")]
 public class CustomersController : Controller
 {
 

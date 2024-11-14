@@ -30,8 +30,7 @@ partial class Form1
     {
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         splitContainer1 = new SplitContainer();
-        groupBox1 = new GroupBox();
-        button1 = new Button();
+        groupBox_Menu = new GroupBox();
         providerMenu = new Button();
         supplyMenu = new Button();
         productMenu = new Button();
@@ -40,17 +39,13 @@ partial class Form1
         customerMenu = new Button();
         pictureBox2 = new PictureBox();
         label1 = new Label();
-        customerGroupBox = new GroupBox();
-        customerLabel = new Label();
-        customertFlowLayoutPanel = new FlowLayoutPanel();
-        customerAddButton = new Button();
+        groupBox_View = new GroupBox();
         ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
         splitContainer1.Panel1.SuspendLayout();
         splitContainer1.Panel2.SuspendLayout();
         splitContainer1.SuspendLayout();
-        groupBox1.SuspendLayout();
+        groupBox_Menu.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-        customerGroupBox.SuspendLayout();
         SuspendLayout();
         // 
         // splitContainer1
@@ -61,48 +56,37 @@ partial class Form1
         // 
         // splitContainer1.Panel1
         // 
-        splitContainer1.Panel1.Controls.Add(groupBox1);
+        splitContainer1.Panel1.Controls.Add(groupBox_Menu);
         // 
         // splitContainer1.Panel2
         // 
-        splitContainer1.Panel2.Controls.Add(customerGroupBox);
-        splitContainer1.Size = new Size(800, 450);
-        splitContainer1.SplitterDistance = 213;
+        splitContainer1.Panel2.Controls.Add(groupBox_View);
+        splitContainer1.Size = new Size(800, 500);
+        splitContainer1.SplitterDistance = 179;
         splitContainer1.TabIndex = 0;
         // 
-        // groupBox1
+        // groupBox_Menu
         // 
-        groupBox1.Controls.Add(button1);
-        groupBox1.Controls.Add(providerMenu);
-        groupBox1.Controls.Add(supplyMenu);
-        groupBox1.Controls.Add(productMenu);
-        groupBox1.Controls.Add(orderMenu);
-        groupBox1.Controls.Add(employeeMenu);
-        groupBox1.Controls.Add(customerMenu);
-        groupBox1.Controls.Add(pictureBox2);
-        groupBox1.Controls.Add(label1);
-        groupBox1.Location = new Point(2, 3);
-        groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(209, 447);
-        groupBox1.TabIndex = 9;
-        groupBox1.TabStop = false;
-        // 
-        // button1
-        // 
-        button1.BackColor = Color.White;
-        button1.Location = new Point(10, 410);
-        button1.Name = "button1";
-        button1.Size = new Size(80, 30);
-        button1.TabIndex = 17;
-        button1.Text = "Exit";
-        button1.UseVisualStyleBackColor = false;
+        groupBox_Menu.Controls.Add(providerMenu);
+        groupBox_Menu.Controls.Add(supplyMenu);
+        groupBox_Menu.Controls.Add(productMenu);
+        groupBox_Menu.Controls.Add(orderMenu);
+        groupBox_Menu.Controls.Add(employeeMenu);
+        groupBox_Menu.Controls.Add(customerMenu);
+        groupBox_Menu.Controls.Add(pictureBox2);
+        groupBox_Menu.Controls.Add(label1);
+        groupBox_Menu.Location = new Point(2, 3);
+        groupBox_Menu.Name = "groupBox_Menu";
+        groupBox_Menu.Size = new Size(177, 497);
+        groupBox_Menu.TabIndex = 9;
+        groupBox_Menu.TabStop = false;
         // 
         // providerMenu
         // 
         providerMenu.BackColor = Color.White;
         providerMenu.Location = new Point(5, 315);
         providerMenu.Name = "providerMenu";
-        providerMenu.Size = new Size(200, 45);
+        providerMenu.Size = new Size(169, 45);
         providerMenu.TabIndex = 16;
         providerMenu.Text = "Providers";
         providerMenu.UseVisualStyleBackColor = false;
@@ -112,7 +96,7 @@ partial class Form1
         supplyMenu.BackColor = Color.White;
         supplyMenu.Location = new Point(5, 270);
         supplyMenu.Name = "supplyMenu";
-        supplyMenu.Size = new Size(200, 45);
+        supplyMenu.Size = new Size(169, 45);
         supplyMenu.TabIndex = 15;
         supplyMenu.Text = "Supplyes";
         supplyMenu.UseVisualStyleBackColor = false;
@@ -122,7 +106,7 @@ partial class Form1
         productMenu.BackColor = Color.White;
         productMenu.Location = new Point(5, 225);
         productMenu.Name = "productMenu";
-        productMenu.Size = new Size(200, 45);
+        productMenu.Size = new Size(169, 45);
         productMenu.TabIndex = 14;
         productMenu.Text = "Products";
         productMenu.UseVisualStyleBackColor = false;
@@ -132,7 +116,7 @@ partial class Form1
         orderMenu.BackColor = Color.White;
         orderMenu.Location = new Point(5, 180);
         orderMenu.Name = "orderMenu";
-        orderMenu.Size = new Size(200, 45);
+        orderMenu.Size = new Size(169, 45);
         orderMenu.TabIndex = 13;
         orderMenu.Text = "Orders";
         orderMenu.UseVisualStyleBackColor = false;
@@ -142,7 +126,7 @@ partial class Form1
         employeeMenu.BackColor = Color.White;
         employeeMenu.Location = new Point(5, 135);
         employeeMenu.Name = "employeeMenu";
-        employeeMenu.Size = new Size(200, 45);
+        employeeMenu.Size = new Size(169, 45);
         employeeMenu.TabIndex = 12;
         employeeMenu.Text = "Employers";
         employeeMenu.UseVisualStyleBackColor = false;
@@ -152,7 +136,7 @@ partial class Form1
         customerMenu.BackColor = Color.White;
         customerMenu.Location = new Point(5, 90);
         customerMenu.Name = "customerMenu";
-        customerMenu.Size = new Size(200, 45);
+        customerMenu.Size = new Size(169, 45);
         customerMenu.TabIndex = 11;
         customerMenu.Text = "Customers";
         customerMenu.UseVisualStyleBackColor = false;
@@ -160,9 +144,9 @@ partial class Form1
         // pictureBox2
         // 
         pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-        pictureBox2.Location = new Point(10, 14);
+        pictureBox2.Location = new Point(5, 14);
         pictureBox2.Name = "pictureBox2";
-        pictureBox2.Size = new Size(89, 67);
+        pictureBox2.Size = new Size(82, 70);
         pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
         pictureBox2.TabIndex = 10;
         pictureBox2.TabStop = false;
@@ -171,57 +155,26 @@ partial class Form1
         // 
         label1.AutoSize = true;
         label1.Font = new Font("Arial", 18F);
-        label1.Location = new Point(116, 19);
+        label1.Location = new Point(87, 19);
         label1.Name = "label1";
         label1.Size = new Size(87, 54);
         label1.TabIndex = 9;
         label1.Text = "Admin \nPanel";
         // 
-        // customerGroupBox
+        // groupBox_View
         // 
-        customerGroupBox.Controls.Add(customerLabel);
-        customerGroupBox.Controls.Add(customertFlowLayoutPanel);
-        customerGroupBox.Controls.Add(customerAddButton);
-        customerGroupBox.Location = new Point(2, 3);
-        customerGroupBox.Name = "customerGroupBox";
-        customerGroupBox.Size = new Size(580, 447);
-        customerGroupBox.TabIndex = 0;
-        customerGroupBox.TabStop = false;
-        // 
-        // customerLabel
-        // 
-        customerLabel.AutoSize = true;
-        customerLabel.Font = new Font("Arial", 18F);
-        customerLabel.Location = new Point(8, 14);
-        customerLabel.Name = "customerLabel";
-        customerLabel.Size = new Size(128, 27);
-        customerLabel.TabIndex = 2;
-        customerLabel.Text = "Customers";
-        // 
-        // customertFlowLayoutPanel
-        // 
-        customertFlowLayoutPanel.AutoScroll = true;
-        customertFlowLayoutPanel.Location = new Point(5, 65);
-        customertFlowLayoutPanel.Name = "customertFlowLayoutPanel";
-        customertFlowLayoutPanel.Size = new Size(566, 375);
-        customertFlowLayoutPanel.TabIndex = 1;
-        // 
-        // customerAddButton
-        // 
-        customerAddButton.BackColor = Color.White;
-        customerAddButton.Location = new Point(474, 14);
-        customerAddButton.Name = "customerAddButton";
-        customerAddButton.Size = new Size(100, 45);
-        customerAddButton.TabIndex = 0;
-        customerAddButton.Text = "Add Customer";
-        customerAddButton.UseVisualStyleBackColor = false;
+        groupBox_View.Location = new Point(2, 3);
+        groupBox_View.Name = "groupBox_View";
+        groupBox_View.Size = new Size(615, 497);
+        groupBox_View.TabIndex = 0;
+        groupBox_View.TabStop = false;
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(800, 450);
+        ClientSize = new Size(800, 500);
         Controls.Add(splitContainer1);
         Name = "Form1";
         Text = "Warehouse";
@@ -229,19 +182,16 @@ partial class Form1
         splitContainer1.Panel2.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
         splitContainer1.ResumeLayout(false);
-        groupBox1.ResumeLayout(false);
-        groupBox1.PerformLayout();
+        groupBox_Menu.ResumeLayout(false);
+        groupBox_Menu.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-        customerGroupBox.ResumeLayout(false);
-        customerGroupBox.PerformLayout();
         ResumeLayout(false);
     }
 
     #endregion
 
     private SplitContainer splitContainer1;
-    private GroupBox groupBox1;
-    private Button button1;
+    private GroupBox groupBox_Menu;
     private Button providerMenu;
     private Button supplyMenu;
     private Button productMenu;
@@ -250,8 +200,5 @@ partial class Form1
     private Button customerMenu;
     private PictureBox pictureBox2;
     private Label label1;
-    private GroupBox customerGroupBox;
-    private Button customerAddButton;
-    private FlowLayoutPanel customertFlowLayoutPanel;
-    private Label customerLabel;
+    private GroupBox groupBox_View;
 }
