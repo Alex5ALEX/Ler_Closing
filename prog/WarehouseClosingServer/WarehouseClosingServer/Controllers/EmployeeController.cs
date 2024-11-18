@@ -18,9 +18,11 @@ public class EmployeeController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetItem()
+    public async Task<IActionResult> GetAllProducts()
     {
-        var сustomers = "I am employee controller";
-        return Ok(сustomers);
+        var employees = await _context.Employees.ToListAsync();
+        return Ok(employees);
     }
+
+
 }

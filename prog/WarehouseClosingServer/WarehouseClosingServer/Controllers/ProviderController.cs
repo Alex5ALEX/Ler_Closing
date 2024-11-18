@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WarehouseClosingServer.Data;
+using WarehouseClosingServer.Models;
 
 namespace WarehouseClosingServer.Controllers;
 
@@ -17,9 +19,9 @@ public class ProviderController : Controller
 
 
     [HttpGet]
-    public async Task<IActionResult> GetItem()
+    public async Task<IActionResult> GetAllProducts()
     {
-        var сustomers = "I am provider controller";
-        return Ok(сustomers);
+        var providers = await _context.Providers.ToListAsync();
+        return Ok(providers);
     }
 }

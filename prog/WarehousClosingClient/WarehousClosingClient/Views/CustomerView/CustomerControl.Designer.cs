@@ -28,45 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            button1 = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            labelMenuName = new Label();
+            buttonAddNew = new Button();
+            flowLayoutPanel = new FlowLayoutPanel();
+            buttonEdit = new Button();
             SuspendLayout();
             // 
-            // label1
+            // labelMenuName
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(3, 7);
-            label1.Name = "label1";
-            label1.Size = new Size(116, 30);
-            label1.TabIndex = 8;
-            label1.Text = "Customers";
+            labelMenuName.AutoSize = true;
+            labelMenuName.Font = new Font("Segoe UI", 16F);
+            labelMenuName.Location = new Point(3, 7);
+            labelMenuName.Name = "labelMenuName";
+            labelMenuName.Size = new Size(116, 30);
+            labelMenuName.TabIndex = 8;
+            labelMenuName.Text = "Customers";
             // 
-            // button1
+            // buttonAddNew
             // 
-            button1.Location = new Point(520, 9);
-            button1.Name = "button1";
-            button1.Size = new Size(87, 34);
-            button1.TabIndex = 7;
-            button1.Text = "Add New";
-            button1.UseVisualStyleBackColor = true;
+            buttonAddNew.Location = new Point(520, 9);
+            buttonAddNew.Name = "buttonAddNew";
+            buttonAddNew.Size = new Size(87, 34);
+            buttonAddNew.TabIndex = 7;
+            buttonAddNew.Text = "Add New";
+            buttonAddNew.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanel
             // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(3, 49);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(604, 439);
-            flowLayoutPanel1.TabIndex = 6;
+            flowLayoutPanel.AutoScroll = true;
+            flowLayoutPanel.Location = new Point(3, 49);
+            flowLayoutPanel.Name = "flowLayoutPanel";
+            flowLayoutPanel.Size = new Size(604, 439);
+            flowLayoutPanel.TabIndex = 6;
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.Location = new Point(417, 9);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(87, 34);
+            buttonEdit.TabIndex = 9;
+            buttonEdit.Text = "Edit";
+            buttonEdit.UseVisualStyleBackColor = true;
             // 
             // CustomerControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label1);
-            Controls.Add(button1);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(buttonEdit);
+            Controls.Add(labelMenuName);
+            Controls.Add(buttonAddNew);
+            Controls.Add(flowLayoutPanel);
             Name = "CustomerControl";
             Size = new Size(610, 495);
             ResumeLayout(false);
@@ -75,8 +86,9 @@
 
         #endregion
 
-        private Label label1;
-        private Button button1;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private Label labelMenuName;
+        private Button buttonAddNew;
+        private FlowLayoutPanel flowLayoutPanel;
+        private Button buttonEdit;
     }
 }

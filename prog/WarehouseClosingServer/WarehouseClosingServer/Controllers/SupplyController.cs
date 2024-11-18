@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WarehouseClosingServer.Data;
 
 namespace WarehouseClosingServer.Controllers;
@@ -15,11 +16,13 @@ public class SupplyController : Controller
         _context = context;
     }
 
+
+
     [HttpGet]
-    public async Task<IActionResult> GetItem()
+    public async Task<IActionResult> GetAllProducts()
     {
-        var сustomers = "I am supply controller";
-        return Ok(сustomers);
+        var supplies = await _context.Supplies.ToListAsync();
+        return Ok(supplies);
     }
 
 }

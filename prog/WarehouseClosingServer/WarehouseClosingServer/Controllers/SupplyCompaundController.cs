@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WarehouseClosingServer.Data;
 
 namespace WarehouseClosingServer.Controllers;
@@ -17,9 +18,9 @@ public class SupplyCompaundController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetItem()
+    public async Task<IActionResult> GetAllProducts()
     {
-        var сustomers = "I am supply_compaund controller";
-        return Ok(сustomers);
+        var supplyCompaunds = await _context.SupplyCompaunds.ToListAsync();
+        return Ok(supplyCompaunds);
     }
 }

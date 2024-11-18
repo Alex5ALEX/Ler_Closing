@@ -33,15 +33,29 @@ public class CustomersController : Controller
     }
 
 
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(string Id)
+    {
+        var customer = await _context.Customers.FindAsync(Guid.Parse(Id));
+
+        if (customer == null)
+        {
+            return NotFound(); // Возвращает 404, если клиент не найден
+        }
+
+        return Ok(customer);
+    }
+
+
     [HttpPost]
-    public IActionResult Set(
+    public async Task<IActionResult> Set(
         string Name,
         string Surname,
         string Phone,
         string Email,
         string Address)
     {
-        var newCustomer = new Customer()
+         var newCustomer = new Customer()
         {
             Name = Name,
             Surname = Surname,
@@ -55,96 +69,8 @@ public class CustomersController : Controller
 
         return Ok("Customer created");
     }
-    /*
+
 
     
 
-    // GET: Customers/Edit/5
-    public async Task<IActionResult> Edit(Guid? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
-
-        var customer = await _context.Customers.FindAsync(id);
-        if (customer == null)
-        {
-            return NotFound();
-        }
-        return View(customer);
-    }
-
-    // POST: Customers/Edit/5
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Surname,Phone,Email,Address")] Customer customer)
-    {
-        if (id != customer.Id)
-        {
-            return NotFound();
-        }
-
-        if (ModelState.IsValid)
-        {
-            try
-            {
-                _context.Update(customer);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CustomerExists(customer.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return RedirectToAction(nameof(Index));
-        }
-        return View(customer);
-    }
-
-    // GET: Customers/Delete/5
-    public async Task<IActionResult> Delete(Guid? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
-
-        var customer = await _context.Customers
-            .FirstOrDefaultAsync(m => m.Id == id);
-        if (customer == null)
-        {
-            return NotFound();
-        }
-
-        return View(customer);
-    }
-
-    // POST: Customers/Delete/5
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(Guid id)
-    {
-        var customer = await _context.Customers.FindAsync(id);
-        if (customer != null)
-        {
-            _context.Customers.Remove(customer);
-        }
-
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
-    }
-
-    private bool CustomerExists(Guid id)
-    {
-        return _context.Customers.Any(e => e.Id == id);
-    }*/
 }
