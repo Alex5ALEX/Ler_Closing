@@ -32,23 +32,25 @@
             buttonAddNew = new Button();
             flowLayoutPanel = new FlowLayoutPanel();
             buttonEdit = new Button();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
             // labelMenuName
             // 
             labelMenuName.AutoSize = true;
             labelMenuName.Font = new Font("Segoe UI", 16F);
-            labelMenuName.Location = new Point(3, 7);
+            labelMenuName.Location = new Point(3, 9);
             labelMenuName.Name = "labelMenuName";
-            labelMenuName.Size = new Size(116, 30);
+            labelMenuName.Size = new Size(133, 35);
             labelMenuName.TabIndex = 8;
             labelMenuName.Text = "Customers";
             // 
             // buttonAddNew
             // 
-            buttonAddNew.Location = new Point(520, 9);
+            buttonAddNew.Location = new Point(594, 11);
+            buttonAddNew.Margin = new Padding(3, 4, 3, 4);
             buttonAddNew.Name = "buttonAddNew";
-            buttonAddNew.Size = new Size(87, 34);
+            buttonAddNew.Size = new Size(99, 43);
             buttonAddNew.TabIndex = 7;
             buttonAddNew.Text = "Add New";
             buttonAddNew.UseVisualStyleBackColor = true;
@@ -56,30 +58,41 @@
             // flowLayoutPanel
             // 
             flowLayoutPanel.AutoScroll = true;
-            flowLayoutPanel.Location = new Point(3, 49);
+            flowLayoutPanel.Location = new Point(3, 62);
+            flowLayoutPanel.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel.Name = "flowLayoutPanel";
-            flowLayoutPanel.Size = new Size(604, 439);
+            flowLayoutPanel.Size = new Size(690, 556);
             flowLayoutPanel.TabIndex = 6;
             // 
             // buttonEdit
             // 
-            buttonEdit.Location = new Point(417, 9);
+            buttonEdit.Location = new Point(477, 11);
+            buttonEdit.Margin = new Padding(3, 4, 3, 4);
             buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(87, 34);
+            buttonEdit.Size = new Size(99, 43);
             buttonEdit.TabIndex = 9;
             buttonEdit.Text = "Edit";
             buttonEdit.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(159, 18);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(244, 26);
+            textBox1.TabIndex = 11;
+            // 
             // CustomerControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(textBox1);
             Controls.Add(buttonEdit);
             Controls.Add(labelMenuName);
             Controls.Add(buttonAddNew);
             Controls.Add(flowLayoutPanel);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "CustomerControl";
-            Size = new Size(610, 495);
+            Size = new Size(697, 627);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -90,5 +103,6 @@
         private Button buttonAddNew;
         private FlowLayoutPanel flowLayoutPanel;
         private Button buttonEdit;
+        private TextBox textBox1;
     }
 }

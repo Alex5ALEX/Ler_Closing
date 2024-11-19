@@ -28,7 +28,7 @@ public partial class CustomerRowControl : UserControl
 
 
 
-        buttonCopy.Click += buttonCopy_Click;
+        buttonCopy.Click += CopyId;
         this.Click += change_selected_Id;
     }
 
@@ -51,7 +51,7 @@ public partial class CustomerRowControl : UserControl
     }
 
 
-    private void buttonCopy_Click(object sender, EventArgs e)
+    private void CopyId(object sender, EventArgs e)
     {
         // Копирование текста в буфер обмена
         Clipboard.SetText(labelIdText.Text);

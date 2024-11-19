@@ -20,20 +20,18 @@ public partial class CustomerAddController : UserControl
 
         InitializeComponent();
 
-        buttonAdd.Click += AddNew;
         buttonBack.Click += Back;
+        buttonAdd.Click += AddItem;
     }
 
     private void Back(object? sender, EventArgs e)
     {
         _mainController.UpdateData();
-
-        //throw new NotImplementedException();
     }
 
-    private async void AddNew(object? sender, EventArgs e)
+    private async void AddItem(object? sender, EventArgs e)
     {
-        await _mainController.PostNewDataInApi(
+        await _mainController.PostCustomer(
         textBoxName.Text,
         textBoxSurname.Text,
         textBoxPhone.Text,

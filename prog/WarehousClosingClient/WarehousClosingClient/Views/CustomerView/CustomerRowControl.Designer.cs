@@ -47,9 +47,9 @@
             // 
             labelId.AutoSize = true;
             labelId.Font = new Font("Segoe UI", 12F);
-            labelId.Location = new Point(16, 10);
+            labelId.Location = new Point(18, 13);
             labelId.Name = "labelId";
-            labelId.Size = new Size(26, 21);
+            labelId.Size = new Size(32, 25);
             labelId.TabIndex = 0;
             labelId.Text = "Id:";
             // 
@@ -57,115 +57,116 @@
             // 
             labelIdText.AutoSize = true;
             labelIdText.Font = new Font("Segoe UI", 12F);
-            labelIdText.Location = new Point(42, 10);
+            labelIdText.Location = new Point(48, 13);
             labelIdText.Name = "labelIdText";
-            labelIdText.Size = new Size(65, 21);
+            labelIdText.Size = new Size(79, 25);
             labelIdText.TabIndex = 1;
             labelIdText.Text = "TEXT_ID";
             // 
             // labelName
             // 
             labelName.AutoSize = true;
-            labelName.Location = new Point(15, 45);
+            labelName.Location = new Point(17, 57);
             labelName.Name = "labelName";
-            labelName.Size = new Size(42, 15);
+            labelName.Size = new Size(48, 19);
             labelName.TabIndex = 2;
             labelName.Text = "Name:";
             // 
             // labelSurname
             // 
             labelSurname.AutoSize = true;
-            labelSurname.Location = new Point(15, 70);
+            labelSurname.Location = new Point(17, 89);
             labelSurname.Name = "labelSurname";
-            labelSurname.Size = new Size(57, 15);
+            labelSurname.Size = new Size(66, 19);
             labelSurname.TabIndex = 3;
             labelSurname.Text = "Surname:";
             // 
             // labelSurnameText
             // 
             labelSurnameText.AutoSize = true;
-            labelSurnameText.Location = new Point(76, 70);
+            labelSurnameText.Location = new Point(87, 89);
             labelSurnameText.Name = "labelSurnameText";
-            labelSurnameText.Size = new Size(92, 15);
+            labelSurnameText.Size = new Size(108, 19);
             labelSurnameText.TabIndex = 5;
             labelSurnameText.Text = "TEXT_SURNAME";
             // 
             // labelNameText
             // 
             labelNameText.AutoSize = true;
-            labelNameText.Location = new Point(76, 45);
+            labelNameText.Location = new Point(87, 57);
             labelNameText.Name = "labelNameText";
-            labelNameText.Size = new Size(71, 15);
+            labelNameText.Size = new Size(83, 19);
             labelNameText.TabIndex = 4;
             labelNameText.Text = "TEXT_NAME";
             // 
             // labelPhone
             // 
             labelPhone.AutoSize = true;
-            labelPhone.Location = new Point(15, 95);
+            labelPhone.Location = new Point(17, 120);
             labelPhone.Name = "labelPhone";
-            labelPhone.Size = new Size(44, 15);
+            labelPhone.Size = new Size(51, 19);
             labelPhone.TabIndex = 6;
             labelPhone.Text = "Phone:";
             // 
             // labelPhoneText
             // 
             labelPhoneText.AutoSize = true;
-            labelPhoneText.Location = new Point(76, 95);
+            labelPhoneText.Location = new Point(87, 120);
             labelPhoneText.Name = "labelPhoneText";
-            labelPhoneText.Size = new Size(77, 15);
+            labelPhoneText.Size = new Size(90, 19);
             labelPhoneText.TabIndex = 7;
             labelPhoneText.Text = "TEXT_PHONE";
             // 
             // labelEmail
             // 
             labelEmail.AutoSize = true;
-            labelEmail.Location = new Point(250, 45);
+            labelEmail.Location = new Point(286, 57);
             labelEmail.Name = "labelEmail";
-            labelEmail.Size = new Size(39, 15);
+            labelEmail.Size = new Size(44, 19);
             labelEmail.TabIndex = 8;
             labelEmail.Text = "Email:";
             // 
             // labelEmailText
             // 
             labelEmailText.AutoSize = true;
-            labelEmailText.Location = new Point(300, 45);
+            labelEmailText.Location = new Point(343, 57);
             labelEmailText.Name = "labelEmailText";
-            labelEmailText.Size = new Size(71, 15);
+            labelEmailText.Size = new Size(84, 19);
             labelEmailText.TabIndex = 9;
             labelEmailText.Text = "TEXT_EMAIL";
             // 
             // labelAddres
             // 
             labelAddres.AutoSize = true;
-            labelAddres.Location = new Point(250, 70);
+            labelAddres.Location = new Point(286, 89);
             labelAddres.Name = "labelAddres";
-            labelAddres.Size = new Size(47, 15);
+            labelAddres.Size = new Size(55, 19);
             labelAddres.TabIndex = 10;
             labelAddres.Text = "Addres:";
             // 
             // labelAddresText
             // 
             labelAddresText.AutoSize = true;
-            labelAddresText.Location = new Point(300, 70);
+            labelAddresText.Location = new Point(343, 89);
             labelAddresText.Name = "labelAddresText";
-            labelAddresText.Size = new Size(80, 15);
+            labelAddresText.Size = new Size(95, 19);
             labelAddresText.TabIndex = 11;
             labelAddresText.Text = "TEXT_ADDRES";
             // 
             // buttonCopy
             // 
             buttonCopy.Font = new Font("Segoe UI", 12F);
-            buttonCopy.Location = new Point(354, 4);
+            buttonCopy.Location = new Point(442, 4);
+            buttonCopy.Margin = new Padding(3, 4, 3, 4);
             buttonCopy.Name = "buttonCopy";
-            buttonCopy.Size = new Size(75, 33);
+            buttonCopy.Size = new Size(86, 42);
             buttonCopy.TabIndex = 12;
             buttonCopy.Text = "Copy Id";
             buttonCopy.UseVisualStyleBackColor = true;
             // 
             // CustomerRowControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(buttonCopy);
             Controls.Add(labelAddresText);
@@ -180,8 +181,9 @@
             Controls.Add(labelName);
             Controls.Add(labelIdText);
             Controls.Add(labelId);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "CustomerRowControl";
-            Size = new Size(580, 120);
+            Size = new Size(663, 152);
             ResumeLayout(false);
             PerformLayout();
         }

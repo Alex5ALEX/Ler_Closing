@@ -23,8 +23,13 @@ namespace WarehousClosingClient
         {
             InitializeComponent();
 
+           
+
+
             // закрытие оп нажатию дефолтной кнопки
             this.FormClosing += new FormClosingEventHandler(Form_FormClosing);
+
+
 
 
             //определение layout-ов

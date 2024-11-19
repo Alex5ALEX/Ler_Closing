@@ -19,9 +19,10 @@ public partial class CustomerControl : UserControl
 {
 
     private readonly HttpClient _httpClient;
+    private readonly Uri _url;
     private CustomerAddController _customerAddController;
-
     public Guid _choisedId { get; set; }
+    private  bool _updateData { get; set; }
 
 
 
@@ -29,7 +30,7 @@ public partial class CustomerControl : UserControl
     public CustomerControl()
     {
         _httpClient = new HttpClient();
-        _httpClient = new Uri("https://localhost:7262/api/customer");
+        _url = new Uri("https://localhost:7262/api/customer");
         _customerAddController = new CustomerAddController(this);
 
 
@@ -79,6 +80,11 @@ public partial class CustomerControl : UserControl
     }
 
 
+    private void updateDataLoop()
+    {
+
+    }
+
 
     /// <summary>
     /// добавление нового customer
@@ -114,11 +120,11 @@ public partial class CustomerControl : UserControl
 
     private async Task<string> GetDataFromApi()
     {
-        string apiUrl = "https://localhost:7262/api/customer"; // API URL
+        //string apiUrl = "https://localhost:7262/api/customer"; // API URL
 
         try
         {
-            var response = await _httpClient.GetAsync(apiUrl);
+            var response = await _httpClient.GetAsync(_url);
             response.EnsureSuccessStatusCode(); // Проверка на успешный статус
 
             var content = await response.Content.ReadAsStringAsync();
@@ -134,28 +140,17 @@ public partial class CustomerControl : UserControl
     }
 
 
-    private async Task<string> GetCustomerById(Guid Id)
+    public async Task<string> GetCustomerById(Guid Id)
     {
-        string apiUrl = "https://localhost:7262/api/customer"; // API URL
+        var response = await _httpClient.GetAsync(_url + $"/{Id}");
 
-        var response = await _httpClient.GetAsync(apiUrl + $"/{Id.ToString()}");
+        //response.EnsureSuccessStatusCode();
 
-        if (response.IsSuccessStatusCode)
-        {
-            return await response.Content.ReadAsStringAsync(); // Возвращает данные клиента как строку
-        }
-        else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-        {
-            return "Customer not found."; // Обработка случая, когда клиент не найден
-        }
-        else
-        {
-            throw new Exception($"Error retrieving customer: {response.StatusCode}");
-        }
+        return await response.Content.ReadAsStringAsync(); 
     }
 
 
-    public async Task<HttpResponseMessage> PostNewDataInApi(
+    public  Task<HttpResponseMessage> PostCustomer(
         string name,
         string surname,
         string phone,
@@ -163,7 +158,7 @@ public partial class CustomerControl : UserControl
         string addres
         )
     {
-        string apiUrl = "https://localhost:7262/api/customer?"; // API URL
+        //string apiUrl = "https://localhost:7262/api/customer?"; // API URL
 
 
 
@@ -176,9 +171,44 @@ public partial class CustomerControl : UserControl
             Address = addres
         };
 
+        //await
+        return  _httpClient.PostAsJsonAsync(_url, customerData);
 
-        return await _httpClient.PostAsJsonAsync(apiUrl, customerData);
+    }
 
+
+    public Task<HttpResponseMessage> PutCustomerById(
+        Guid Id,
+        string name,
+        string surname,
+        string phone,
+        string email,
+        string addres
+        )
+    {
+        var url = _url + $"/{Id}";
+
+        var customerData = new
+        {
+            Name = name,
+            Surname = surname,
+            Phone = phone,
+            Email = email,
+            Address = addres
+        };
+
+
+        //await
+        return _httpClient.PutAsJsonAsync(url, customerData);
+    }
+
+
+    public  Task<HttpResponseMessage> DelCustomer(Guid Id)
+    {
+        var url = _url + $"/{Id}"; 
+
+        //await
+        return  _httpClient.DeleteAsync(url);
     }
 
 }
