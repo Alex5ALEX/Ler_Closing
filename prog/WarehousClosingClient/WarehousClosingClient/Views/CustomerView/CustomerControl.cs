@@ -1,214 +1,89 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Nodes;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using Newtonsoft.Json.Linq;
-using System.Security.Policy;
-using System.Net.Http.Json;
+﻿using Newtonsoft.Json.Linq;
 
+using WarehousClosingClient.Controllers;
+using WarehousClosingClient.Models;
 namespace WarehousClosingClient.Views.CustomerView;
 
 public partial class CustomerControl : UserControl
 {
+    private MainForm mainForm;
+    public CustomerController customerController;
+    private CustomerAddController customerAdd;
 
-    private readonly HttpClient _httpClient;
-    private readonly Uri _url;
-    private CustomerAddController _customerAddController;
-    public Guid _choisedId { get; set; }
-    private  bool _updateData { get; set; }
-
-
+    public List<Customer> customers { get; set; }
+    public Customer choisedCustomer { get; set; }
 
 
-    public CustomerControl()
+
+
+    public CustomerControl(MainForm mainForm)
     {
-        _httpClient = new HttpClient();
-        _url = new Uri("https://localhost:7262/api/customer");
-        _customerAddController = new CustomerAddController(this);
+        this.mainForm = mainForm;
 
 
         InitializeComponent();
+        InitializeData();
         UpdateData();
 
 
-        buttonAddNew.Click += AddNewCustomer;
-        buttonEdit.Click += EditCustomer;
+        buttonMenu.Click += CallMenu;
+
+        buttonAddNew.Click += AddNew;
+        buttonEdit.Click += Edit;
     }
 
 
 
-    /// <summary>
-    /// вывод всех данных customer 
-    /// </summary>
+    private void InitializeData()
+    {
+        choisedCustomer = new Customer();
+        customerController = new CustomerController(mainForm.httpClient);
+        customerAdd = new CustomerAddController(this);
+    }
+
+
+
+    private void CallMenu(object sender, EventArgs e)
+    {
+        mainForm.ShowMenuControl();
+    }
+
+
+
     public async void UpdateData()
     {
         flowLayoutPanel.Controls.Clear();
 
-        var data = await GetDataFromApi();
+        customers = await customerController.GetAllCustomersAsync();
 
-        if (data != null && data != "[]") 
+        foreach (var customer in customers)
         {
-            var customers = JArray.Parse(data); 
-
-            foreach (var customer in customers)
-            {
-
-                //int ordersCount = customer["orders"].Count();
-
-                
-                var customerRow = new CustomerRowControl(
-                    this,
-                    customer["id"].ToString(),
-                    customer["name"].ToString(),
-                    customer["surname"].ToString(),
-                    customer["phone"].ToString(),
-                    customer["email"].ToString(),
-                    customer["address"].ToString());
-                
-
-                flowLayoutPanel.Controls.Add(customerRow);
-            }
-
+            flowLayoutPanel.Controls.Add(new CustomerRowControl(this, customer));
         }
+
     }
 
 
-    private void updateDataLoop()
+    //можно добавить функционал
+    public void HideActionGroupBox()
     {
+        groupBoxAction.Controls.Clear();
 
     }
 
-
-    /// <summary>
-    /// добавление нового customer
-    /// </summary>
-    private void AddNewCustomer(object? sender, EventArgs e)
+    private void AddNew(object? sender, EventArgs e)
     {
-        flowLayoutPanel.Controls.Clear();
-        flowLayoutPanel.Controls.Add(_customerAddController);
+        groupBoxAction.Controls.Clear();
+        groupBoxAction.Controls.Add(customerAdd);
     }
 
-
-
-    /// 
-    /// редактирование customer
-    /// 
-
-    private void EditCustomer(object? sender, EventArgs e)
+    private void Edit(object? sender, EventArgs e)
     {
-        flowLayoutPanel.Controls.Clear();
-        flowLayoutPanel.Controls.Add(new CustomerEditController(this));
+        if (choisedCustomer.Id == Guid.Empty) { return; }
+
+        groupBoxAction.Controls.Clear();
+        groupBoxAction.Controls.Add(new CustomerEditController(this,choisedCustomer));
     }
 
-
-
-
-
-
-
-
-    ///
-    /// методы для работы с бд
-    ///
-
-    private async Task<string> GetDataFromApi()
-    {
-        //string apiUrl = "https://localhost:7262/api/customer"; // API URL
-
-        try
-        {
-            var response = await _httpClient.GetAsync(_url);
-            response.EnsureSuccessStatusCode(); // Проверка на успешный статус
-
-            var content = await response.Content.ReadAsStringAsync();
-
-
-            return content; // Возвращаем содержимое ответа
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"Ошибка: {ex.Message}");
-            return null;
-        }
-    }
-
-
-    public async Task<string> GetCustomerById(Guid Id)
-    {
-        var response = await _httpClient.GetAsync(_url + $"/{Id}");
-
-        //response.EnsureSuccessStatusCode();
-
-        return await response.Content.ReadAsStringAsync(); 
-    }
-
-
-    public  Task<HttpResponseMessage> PostCustomer(
-        string name,
-        string surname,
-        string phone,
-        string email,
-        string addres
-        )
-    {
-        //string apiUrl = "https://localhost:7262/api/customer?"; // API URL
-
-
-
-        var customerData = new
-        {
-            Name = name,
-            Surname = surname,
-            Phone = phone,
-            Email = email,
-            Address = addres
-        };
-
-        //await
-        return  _httpClient.PostAsJsonAsync(_url, customerData);
-
-    }
-
-
-    public Task<HttpResponseMessage> PutCustomerById(
-        Guid Id,
-        string name,
-        string surname,
-        string phone,
-        string email,
-        string addres
-        )
-    {
-        var url = _url + $"/{Id}";
-
-        var customerData = new
-        {
-            Name = name,
-            Surname = surname,
-            Phone = phone,
-            Email = email,
-            Address = addres
-        };
-
-
-        //await
-        return _httpClient.PutAsJsonAsync(url, customerData);
-    }
-
-
-    public  Task<HttpResponseMessage> DelCustomer(Guid Id)
-    {
-        var url = _url + $"/{Id}"; 
-
-        //await
-        return  _httpClient.DeleteAsync(url);
-    }
 
 }

@@ -8,8 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using WarehouseClosingServer.Data;
 using WarehouseClosingServer.Models;
 
-using WarehouseClosingServer.Controllers.PoostModels;
-
 namespace WarehouseClosingServer.Controllers;
 
 
@@ -28,25 +26,20 @@ public class CustomersController : Controller
 
 
     [HttpGet]
-    public async Task<IActionResult> GetAllProducts()
+    public async Task<IActionResult> GetAllCustomers()
     {
         var сustomers = await _context.Customers.ToListAsync();
         return Ok(сustomers);
     }
 
 
-    [HttpGet("{Id}")]
-    public async Task<IActionResult> GetById(Guid Id)
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(Guid id)
     {
-        var customer = _context.Customers.FirstOrDefault(c => c.Id == Id);
+        var customer = await _context.Customers.FindAsync(id);
 
-        if (customer == null)
-        {
-            return NotFound(); // Возвращает 404, если клиент не найден
-        }
-
-
-        //_context.SaveChanges();
+        if (customer == null) {return NotFound(); }
 
         return Ok(customer);
 
@@ -55,26 +48,22 @@ public class CustomersController : Controller
 
     [HttpPost]
     public async Task<IActionResult> Set(
-        [FromBody] PostCustomer customer)
+        [FromBody] Customer customer)
     {
-        var newCustomer = new Customer()
-        {
-            Name = customer.Name,
-            Surname = customer.Surname,
-            Phone = customer.Phone,
-            Email = customer.Email,
-            Address = customer.Address
-        };
+        customer.Id = new Guid();
 
-        _context.Customers.Add(newCustomer);
+        _context.Customers.Add(customer);
         _context.SaveChanges();
 
         return Ok("Customer created");
     }
 
+
+
+
     [HttpPut("{Id}")]
     public async Task<IActionResult> Put(
-        Guid Id, [FromBody] PostCustomer customerGet)
+        Guid Id, [FromBody] Customer customerGet)
     {
         var customer = _context.Customers.FirstOrDefault(c => c.Id == Id);
         
@@ -98,18 +87,12 @@ public class CustomersController : Controller
 
     [HttpDelete("{Id}")]
     public async Task<IActionResult> Delete(Guid Id)
-    {
-
+    { 
         var customer = _context.Customers.FirstOrDefault(c => c.Id == Id);
 
-
-        if (customer == null)
-        {
-            return NotFound();
-        }
+        if (customer == null) {return NotFound();}
 
         _context.Customers.Remove(customer);
-
         _context.SaveChanges();
         
         return Ok("Customer deleted");

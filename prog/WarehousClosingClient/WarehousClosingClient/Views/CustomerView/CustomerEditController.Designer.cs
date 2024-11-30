@@ -42,17 +42,18 @@ partial class CustomerEditController
         labelName = new Label();
         label = new Label();
         labelId = new Label();
-        labelIdText = new Label();
         buttonDelete = new Button();
+        groupBox1 = new GroupBox();
+        richTextBoxId = new RichTextBox();
+        groupBox1.SuspendLayout();
         SuspendLayout();
         // 
         // buttonBack
         // 
         buttonBack.Font = new Font("Segoe UI", 12F);
-        buttonBack.Location = new Point(19, 464);
-        buttonBack.Margin = new Padding(3, 4, 3, 4);
+        buttonBack.Location = new Point(6, 508);
         buttonBack.Name = "buttonBack";
-        buttonBack.Size = new Size(149, 51);
+        buttonBack.Size = new Size(87, 71);
         buttonBack.TabIndex = 25;
         buttonBack.Text = "Back";
         buttonBack.UseVisualStyleBackColor = true;
@@ -60,10 +61,9 @@ partial class CustomerEditController
         // buttonEdit
         // 
         buttonEdit.Font = new Font("Segoe UI", 12F);
-        buttonEdit.Location = new Point(486, 464);
-        buttonEdit.Margin = new Padding(3, 4, 3, 4);
+        buttonEdit.Location = new Point(329, 508);
         buttonEdit.Name = "buttonEdit";
-        buttonEdit.Size = new Size(149, 51);
+        buttonEdit.Size = new Size(87, 71);
         buttonEdit.TabIndex = 24;
         buttonEdit.Text = "Edit";
         buttonEdit.UseVisualStyleBackColor = true;
@@ -71,55 +71,50 @@ partial class CustomerEditController
         // textBoxAddres
         // 
         textBoxAddres.Font = new Font("Segoe UI", 12F);
-        textBoxAddres.Location = new Point(125, 400);
-        textBoxAddres.Margin = new Padding(3, 4, 3, 4);
+        textBoxAddres.Location = new Point(125, 373);
         textBoxAddres.Name = "textBoxAddres";
-        textBoxAddres.Size = new Size(332, 32);
+        textBoxAddres.Size = new Size(291, 29);
         textBoxAddres.TabIndex = 23;
         // 
         // textBoxEmail
         // 
         textBoxEmail.Font = new Font("Segoe UI", 12F);
-        textBoxEmail.Location = new Point(125, 337);
-        textBoxEmail.Margin = new Padding(3, 4, 3, 4);
+        textBoxEmail.Location = new Point(125, 323);
         textBoxEmail.Name = "textBoxEmail";
-        textBoxEmail.Size = new Size(332, 32);
+        textBoxEmail.Size = new Size(291, 29);
         textBoxEmail.TabIndex = 22;
         // 
         // textBoxPhone
         // 
         textBoxPhone.Font = new Font("Segoe UI", 12F);
         textBoxPhone.Location = new Point(125, 269);
-        textBoxPhone.Margin = new Padding(3, 4, 3, 4);
         textBoxPhone.Name = "textBoxPhone";
-        textBoxPhone.Size = new Size(332, 32);
+        textBoxPhone.Size = new Size(291, 29);
         textBoxPhone.TabIndex = 21;
         // 
         // textBoxName
         // 
         textBoxName.Font = new Font("Segoe UI", 12F);
-        textBoxName.Location = new Point(125, 147);
-        textBoxName.Margin = new Padding(3, 4, 3, 4);
+        textBoxName.Location = new Point(125, 173);
         textBoxName.Name = "textBoxName";
-        textBoxName.Size = new Size(332, 32);
+        textBoxName.Size = new Size(291, 29);
         textBoxName.TabIndex = 20;
         // 
         // textBoxSurname
         // 
         textBoxSurname.Font = new Font("Segoe UI", 12F);
-        textBoxSurname.Location = new Point(125, 208);
-        textBoxSurname.Margin = new Padding(3, 4, 3, 4);
+        textBoxSurname.Location = new Point(125, 221);
         textBoxSurname.Name = "textBoxSurname";
-        textBoxSurname.Size = new Size(332, 32);
+        textBoxSurname.Size = new Size(291, 29);
         textBoxSurname.TabIndex = 19;
         // 
         // labelAddres
         // 
         labelAddres.AutoSize = true;
         labelAddres.Font = new Font("Segoe UI", 12F);
-        labelAddres.Location = new Point(23, 410);
+        labelAddres.Location = new Point(36, 381);
         labelAddres.Name = "labelAddres";
-        labelAddres.Size = new Size(75, 25);
+        labelAddres.Size = new Size(62, 21);
         labelAddres.TabIndex = 18;
         labelAddres.Text = "Addres:";
         // 
@@ -127,9 +122,9 @@ partial class CustomerEditController
         // 
         labelEmail.AutoSize = true;
         labelEmail.Font = new Font("Segoe UI", 12F);
-        labelEmail.Location = new Point(23, 347);
+        labelEmail.Location = new Point(36, 331);
         labelEmail.Name = "labelEmail";
-        labelEmail.Size = new Size(62, 25);
+        labelEmail.Size = new Size(51, 21);
         labelEmail.TabIndex = 17;
         labelEmail.Text = "Email:";
         // 
@@ -137,9 +132,9 @@ partial class CustomerEditController
         // 
         labelPhone.AutoSize = true;
         labelPhone.Font = new Font("Segoe UI", 12F);
-        labelPhone.Location = new Point(23, 279);
+        labelPhone.Location = new Point(36, 277);
         labelPhone.Name = "labelPhone";
-        labelPhone.Size = new Size(70, 25);
+        labelPhone.Size = new Size(57, 21);
         labelPhone.TabIndex = 16;
         labelPhone.Text = "Phone:";
         // 
@@ -147,9 +142,9 @@ partial class CustomerEditController
         // 
         labelSurname.AutoSize = true;
         labelSurname.Font = new Font("Segoe UI", 12F);
-        labelSurname.Location = new Point(23, 218);
+        labelSurname.Location = new Point(36, 229);
         labelSurname.Name = "labelSurname";
-        labelSurname.Size = new Size(91, 25);
+        labelSurname.Size = new Size(76, 21);
         labelSurname.TabIndex = 15;
         labelSurname.Text = "Surname:";
         // 
@@ -157,19 +152,19 @@ partial class CustomerEditController
         // 
         labelName.AutoSize = true;
         labelName.Font = new Font("Segoe UI", 12F);
-        labelName.Location = new Point(23, 157);
+        labelName.Location = new Point(36, 181);
         labelName.Name = "labelName";
-        labelName.Size = new Size(66, 25);
+        labelName.Size = new Size(55, 21);
         labelName.TabIndex = 14;
         labelName.Text = "Name:";
         // 
         // label
         // 
         label.AutoSize = true;
-        label.Font = new Font("Segoe UI", 14F);
-        label.Location = new Point(23, 15);
+        label.Font = new Font("Segoe UI", 20F);
+        label.Location = new Point(6, 19);
         label.Name = "label";
-        label.Size = new Size(149, 30);
+        label.Size = new Size(184, 37);
         label.TabIndex = 13;
         label.Text = "Edit Customer";
         // 
@@ -177,58 +172,65 @@ partial class CustomerEditController
         // 
         labelId.AutoSize = true;
         labelId.Font = new Font("Segoe UI", 12F);
-        labelId.Location = new Point(23, 95);
+        labelId.Location = new Point(36, 120);
         labelId.Name = "labelId";
-        labelId.Size = new Size(32, 25);
+        labelId.Size = new Size(26, 21);
         labelId.TabIndex = 26;
         labelId.Text = "Id:";
-        // 
-        // labelIdText
-        // 
-        labelIdText.AutoSize = true;
-        labelIdText.Font = new Font("Segoe UI", 12F);
-        labelIdText.Location = new Point(125, 95);
-        labelIdText.Name = "labelIdText";
-        labelIdText.Size = new Size(79, 25);
-        labelIdText.TabIndex = 27;
-        labelIdText.Text = "ID_TEXT";
         // 
         // buttonDelete
         // 
         buttonDelete.Font = new Font("Segoe UI", 12F);
-        buttonDelete.Location = new Point(250, 464);
-        buttonDelete.Margin = new Padding(3, 4, 3, 4);
+        buttonDelete.Location = new Point(167, 508);
         buttonDelete.Name = "buttonDelete";
-        buttonDelete.Size = new Size(149, 51);
+        buttonDelete.Size = new Size(87, 71);
         buttonDelete.TabIndex = 28;
         buttonDelete.Text = "Delete";
         buttonDelete.UseVisualStyleBackColor = true;
         // 
+        // groupBox1
+        // 
+        groupBox1.Controls.Add(richTextBoxId);
+        groupBox1.Controls.Add(label);
+        groupBox1.Controls.Add(buttonDelete);
+        groupBox1.Controls.Add(labelName);
+        groupBox1.Controls.Add(labelSurname);
+        groupBox1.Controls.Add(labelId);
+        groupBox1.Controls.Add(labelPhone);
+        groupBox1.Controls.Add(buttonBack);
+        groupBox1.Controls.Add(labelEmail);
+        groupBox1.Controls.Add(buttonEdit);
+        groupBox1.Controls.Add(labelAddres);
+        groupBox1.Controls.Add(textBoxAddres);
+        groupBox1.Controls.Add(textBoxSurname);
+        groupBox1.Controls.Add(textBoxEmail);
+        groupBox1.Controls.Add(textBoxName);
+        groupBox1.Controls.Add(textBoxPhone);
+        groupBox1.Location = new Point(0, 0);
+        groupBox1.Name = "groupBox1";
+        groupBox1.Size = new Size(435, 585);
+        groupBox1.TabIndex = 29;
+        groupBox1.TabStop = false;
+        // 
+        // richTextBoxId
+        // 
+        richTextBoxId.Font = new Font("Segoe UI", 12F);
+        richTextBoxId.Location = new Point(125, 70);
+        richTextBoxId.Name = "richTextBoxId";
+        richTextBoxId.Size = new Size(291, 71);
+        richTextBoxId.TabIndex = 29;
+        richTextBoxId.Text = "";
+        // 
         // CustomerEditController
         // 
-        AutoScaleDimensions = new SizeF(8F, 19F);
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        Controls.Add(buttonDelete);
-        Controls.Add(labelIdText);
-        Controls.Add(labelId);
-        Controls.Add(buttonBack);
-        Controls.Add(buttonEdit);
-        Controls.Add(textBoxAddres);
-        Controls.Add(textBoxEmail);
-        Controls.Add(textBoxPhone);
-        Controls.Add(textBoxName);
-        Controls.Add(textBoxSurname);
-        Controls.Add(labelAddres);
-        Controls.Add(labelEmail);
-        Controls.Add(labelPhone);
-        Controls.Add(labelSurname);
-        Controls.Add(labelName);
-        Controls.Add(label);
-        Margin = new Padding(3, 4, 3, 4);
+        Controls.Add(groupBox1);
         Name = "CustomerEditController";
-        Size = new Size(674, 532);
+        Size = new Size(435, 585);
+        groupBox1.ResumeLayout(false);
+        groupBox1.PerformLayout();
         ResumeLayout(false);
-        PerformLayout();
     }
 
     #endregion
@@ -247,6 +249,7 @@ partial class CustomerEditController
     private Label labelName;
     private Label label;
     private Label labelId;
-    private Label labelIdText;
     private Button buttonDelete;
+    private GroupBox groupBox1;
+    private RichTextBox richTextBoxId;
 }

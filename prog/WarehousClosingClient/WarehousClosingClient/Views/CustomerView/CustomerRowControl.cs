@@ -8,59 +8,54 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using WarehousClosingClient.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 namespace WarehousClosingClient.Views.CustomerView;
 
 public partial class CustomerRowControl : UserControl
 {
-    private CustomerControl _mainController;
+    private CustomerControl mainController;
+    private Customer customer;
 
 
-    public CustomerRowControl(CustomerControl _mainController)
+
+    public CustomerRowControl(CustomerControl mainController, Customer customer)
     {
-        this._mainController = _mainController;
+        this.mainController = mainController;
+        this.customer = customer;
+  
 
 
-
-        
         InitializeComponent();
-
-
-
+        InitializeData();
 
 
         buttonCopy.Click += CopyId;
-        this.Click += change_selected_Id;
+        groupBox1.Click += change_selected_Id;
     }
 
-    public CustomerRowControl(
-        CustomerControl _mainController,
-        string id,
-        string name,
-        string surname,
-        string phone,
-        string email,
-        string addres) : this(_mainController)
-    {
-        labelIdText.Text = id;
-        labelNameText.Text = name;
-        labelSurnameText.Text = surname;
-        labelPhoneText.Text = phone;
-        labelEmailText.Text = email;
-        labelAddresText.Text = addres;
 
+    private void InitializeData()
+    {
+        labelIdText.Text = customer.Id.ToString();
+        labelNameText.Text = customer.Name;
+        labelSurnameText.Text = customer.Surname;
+        labelPhoneText.Text = customer.Phone;
+        labelEmailText.Text = customer.Email;
+        labelAddresText.Text = customer.Address;
     }
 
 
     private void CopyId(object sender, EventArgs e)
     {
         // Копирование текста в буфер обмена
-        Clipboard.SetText(labelIdText.Text);
+        Clipboard.SetText(customer.Id.ToString());
     }
 
 
     private void change_selected_Id(object sender, EventArgs e)
     {
-        _mainController._choisedId = Guid.Parse(labelIdText.Text);
+        mainController.choisedCustomer = customer;
     }
 
 

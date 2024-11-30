@@ -10,24 +10,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+using WarehousClosingClient.Models;
 namespace WarehousClosingClient.Views.CustomerView;
 
 public partial class CustomerEditController : UserControl
 {
-    private CustomerControl _mainController;
+    private CustomerControl mainController;
+    private Customer customer;
 
 
-    public CustomerEditController(CustomerControl _mainController)
+
+    public CustomerEditController(CustomerControl mainController, Customer customer)
     {
-        this._mainController = _mainController;
+        this.mainController = mainController;
+        this.customer = customer;
 
         InitializeComponent();
         InitializeData();
 
 
         buttonBack.Click += Back;
-        buttonEdit.Click += EditItem;
-        buttonDelete.Click += DeleteItem;
+        buttonEdit.Click += Edit;
+        buttonDelete.Click += Delete;
     }
 
 
@@ -35,54 +40,63 @@ public partial class CustomerEditController : UserControl
 
     private void Back(object? sender, EventArgs e)
     {
-        _mainController.UpdateData();
-
+        mainController.HideActionGroupBox();
     }
 
 
     private async void InitializeData()
     {
-        labelIdText.Text = _mainController._choisedId.ToString();
-
-        var data = await _mainController.GetCustomerById(_mainController._choisedId);
-
-        var customer = JObject.Parse(data);
-        
-        textBoxName.Text = customer["name"]?.ToString();
-        textBoxSurname.Text = customer["surname"]?.ToString();
-        textBoxPhone.Text = customer["phone"]?.ToString();
-        textBoxEmail.Text = customer["email"]?.ToString();
-        textBoxAddres.Text = customer["address"]?.ToString();
+        richTextBoxId.Text = customer.Id.ToString();
+        textBoxName.Text = customer.Name;
+        textBoxSurname.Text = customer.Surname;
+        textBoxPhone.Text = customer.Phone;
+        textBoxEmail.Text = customer.Email;
+        textBoxAddres.Text = customer.Address;
     }
 
-    private void EditItem(object? sender, EventArgs e)
-    {
-        var response = _mainController.PutCustomerById(
-            Guid.Parse(labelIdText.Text),
-            textBoxName.Text,
-            textBoxSurname.Text,
-            textBoxPhone.Text,
-            textBoxEmail.Text,
-            textBoxAddres.Text
-            );
+       
 
-        if (response.Result.IsSuccessStatusCode) {
-            Back(sender, e);
+    private void Edit(object? sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(textBoxName.Text) ||
+        string.IsNullOrWhiteSpace(textBoxSurname.Text) ||
+        string.IsNullOrWhiteSpace(textBoxPhone.Text) ||
+        string.IsNullOrWhiteSpace(textBoxEmail.Text) ||
+        string.IsNullOrWhiteSpace(textBoxAddres.Text))
+        {
+            MessageBox.Show("Пожалуйста, заполните все поля.");
+            return;
         }
 
-        //Back(sender, e);
+
+        customer.Name = textBoxName.Text;
+        customer.Surname = textBoxSurname.Text;
+        customer.Phone = textBoxPhone.Text;
+        customer.Email = textBoxEmail.Text;
+        customer.Address = textBoxAddres.Text;
+
+        var response = mainController.customerController.PutCustomerById(customer);
+
+        if (response.Result.IsSuccessStatusCode) {
+            mainController.UpdateData();
+        }
     }
 
-    private void DeleteItem(object? sender, EventArgs e)
+
+    private void Delete(object? sender, EventArgs e)
     {
-        var response = _mainController.DelCustomer(_mainController._choisedId);
+        DialogResult result = MessageBox.Show("Are you sure want to delete?", "", MessageBoxButtons.YesNo);
+
+        if (result == DialogResult.No){return;}
+
+
+        var response = mainController.customerController.DelCustomer(customer);
 
         if (response.Result.IsSuccessStatusCode)
         {
+            mainController.UpdateData();
             Back(sender, e);
         }
-
-        //Back(sender, e);
     }
 
 }

@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Xml.Linq;
+using WarehousClosingClient.Models;
 
 namespace WarehousClosingClient.Views.CustomerView;
 
 public partial class CustomerAddController : UserControl
 {
-    private CustomerControl _mainController;
+    private CustomerControl mainController;
 
     public CustomerAddController(CustomerControl mainController)
     {
-        _mainController = mainController;
+        this.mainController = mainController;
 
         InitializeComponent();
 
@@ -26,18 +29,35 @@ public partial class CustomerAddController : UserControl
 
     private void Back(object? sender, EventArgs e)
     {
-        _mainController.UpdateData();
+        mainController.HideActionGroupBox();
     }
 
-    private async void AddItem(object? sender, EventArgs e)
+
+
+    private void AddItem(object? sender, EventArgs e)
     {
-        await _mainController.PostCustomer(
-        textBoxName.Text,
-        textBoxSurname.Text,
-        textBoxPhone.Text,
-        textBoxEmail.Text,
-        textBoxAddres.Text
-        );
+        if (string.IsNullOrWhiteSpace(textBoxName.Text) ||
+        string.IsNullOrWhiteSpace(textBoxSurname.Text) ||
+        string.IsNullOrWhiteSpace(textBoxPhone.Text) ||
+        string.IsNullOrWhiteSpace(textBoxEmail.Text) ||
+        string.IsNullOrWhiteSpace(textBoxAddres.Text))
+        {
+            MessageBox.Show("Пожалуйста, заполните все поля.");
+            return;
+        }
+
+
+        Customer customer = new Customer()
+        {
+            Name = textBoxName.Text,
+            Surname = textBoxSurname.Text,
+            Phone = textBoxPhone.Text,
+            Email = textBoxEmail.Text,
+            Address = textBoxAddres.Text
+        };
+
+
+        var response = mainController.customerController.PostCustomer(customer);
 
 
         textBoxSurname.Text = "";
@@ -46,12 +66,14 @@ public partial class CustomerAddController : UserControl
         textBoxEmail.Text = "";
         textBoxAddres.Text = "";
 
-        _mainController.UpdateData();
+
+        if (response.Result.IsSuccessStatusCode)
+        {
+            mainController.UpdateData();
+        }
 
         //throw new NotImplementedException();
     }
-
-
 
 
 }
