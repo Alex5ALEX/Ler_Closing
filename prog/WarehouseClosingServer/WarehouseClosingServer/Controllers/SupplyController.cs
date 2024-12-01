@@ -43,7 +43,6 @@ public class SupplyController : Controller
     public async Task<IActionResult> Set(
         [FromBody] Supply supply)
     {
-        supply.Id = new Guid();
 
         _context.Supplies.Add(supply);
         _context.SaveChanges();

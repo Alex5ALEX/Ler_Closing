@@ -51,9 +51,10 @@ partial class ProviderEditController
         // buttonBack
         // 
         buttonBack.Font = new Font("Segoe UI", 12F);
-        buttonBack.Location = new Point(6, 508);
+        buttonBack.Location = new Point(7, 643);
+        buttonBack.Margin = new Padding(3, 4, 3, 4);
         buttonBack.Name = "buttonBack";
-        buttonBack.Size = new Size(87, 71);
+        buttonBack.Size = new Size(99, 90);
         buttonBack.TabIndex = 25;
         buttonBack.Text = "Back";
         buttonBack.UseVisualStyleBackColor = true;
@@ -61,9 +62,10 @@ partial class ProviderEditController
         // buttonEdit
         // 
         buttonEdit.Font = new Font("Segoe UI", 12F);
-        buttonEdit.Location = new Point(329, 508);
+        buttonEdit.Location = new Point(376, 643);
+        buttonEdit.Margin = new Padding(3, 4, 3, 4);
         buttonEdit.Name = "buttonEdit";
-        buttonEdit.Size = new Size(87, 71);
+        buttonEdit.Size = new Size(99, 90);
         buttonEdit.TabIndex = 24;
         buttonEdit.Text = "Edit";
         buttonEdit.UseVisualStyleBackColor = true;
@@ -71,50 +73,55 @@ partial class ProviderEditController
         // textBoxAddres
         // 
         textBoxAddres.Font = new Font("Segoe UI", 12F);
-        textBoxAddres.Location = new Point(125, 389);
+        textBoxAddres.Location = new Point(143, 493);
+        textBoxAddres.Margin = new Padding(3, 4, 3, 4);
         textBoxAddres.Name = "textBoxAddres";
-        textBoxAddres.Size = new Size(291, 29);
+        textBoxAddres.Size = new Size(332, 32);
         textBoxAddres.TabIndex = 23;
         // 
         // textBoxEmail
         // 
         textBoxEmail.Font = new Font("Segoe UI", 12F);
-        textBoxEmail.Location = new Point(125, 339);
+        textBoxEmail.Location = new Point(143, 429);
+        textBoxEmail.Margin = new Padding(3, 4, 3, 4);
         textBoxEmail.Name = "textBoxEmail";
-        textBoxEmail.Size = new Size(291, 29);
+        textBoxEmail.Size = new Size(332, 32);
         textBoxEmail.TabIndex = 22;
         // 
         // textBoxPhone
         // 
         textBoxPhone.Font = new Font("Segoe UI", 12F);
-        textBoxPhone.Location = new Point(125, 285);
+        textBoxPhone.Location = new Point(143, 361);
+        textBoxPhone.Margin = new Padding(3, 4, 3, 4);
         textBoxPhone.Name = "textBoxPhone";
-        textBoxPhone.Size = new Size(291, 29);
+        textBoxPhone.Size = new Size(332, 32);
         textBoxPhone.TabIndex = 21;
         // 
         // textBoxCompany
         // 
         textBoxCompany.Font = new Font("Segoe UI", 12F);
-        textBoxCompany.Location = new Point(125, 173);
+        textBoxCompany.Location = new Point(143, 219);
+        textBoxCompany.Margin = new Padding(3, 4, 3, 4);
         textBoxCompany.Name = "textBoxCompany";
-        textBoxCompany.Size = new Size(291, 29);
+        textBoxCompany.Size = new Size(332, 32);
         textBoxCompany.TabIndex = 20;
         // 
         // textBoxContactPerson
         // 
         textBoxContactPerson.Font = new Font("Segoe UI", 12F);
-        textBoxContactPerson.Location = new Point(125, 234);
+        textBoxContactPerson.Location = new Point(143, 296);
+        textBoxContactPerson.Margin = new Padding(3, 4, 3, 4);
         textBoxContactPerson.Name = "textBoxContactPerson";
-        textBoxContactPerson.Size = new Size(291, 29);
+        textBoxContactPerson.Size = new Size(332, 32);
         textBoxContactPerson.TabIndex = 19;
         // 
         // labelAddres
         // 
         labelAddres.AutoSize = true;
         labelAddres.Font = new Font("Segoe UI", 12F);
-        labelAddres.Location = new Point(37, 397);
+        labelAddres.Location = new Point(42, 503);
         labelAddres.Name = "labelAddres";
-        labelAddres.Size = new Size(62, 21);
+        labelAddres.Size = new Size(75, 25);
         labelAddres.TabIndex = 18;
         labelAddres.Text = "Addres:";
         // 
@@ -122,9 +129,9 @@ partial class ProviderEditController
         // 
         labelEmail.AutoSize = true;
         labelEmail.Font = new Font("Segoe UI", 12F);
-        labelEmail.Location = new Point(37, 347);
+        labelEmail.Location = new Point(42, 440);
         labelEmail.Name = "labelEmail";
-        labelEmail.Size = new Size(51, 21);
+        labelEmail.Size = new Size(62, 25);
         labelEmail.TabIndex = 17;
         labelEmail.Text = "Email:";
         // 
@@ -132,9 +139,9 @@ partial class ProviderEditController
         // 
         labelPhone.AutoSize = true;
         labelPhone.Font = new Font("Segoe UI", 12F);
-        labelPhone.Location = new Point(36, 293);
+        labelPhone.Location = new Point(41, 371);
         labelPhone.Name = "labelPhone";
-        labelPhone.Size = new Size(57, 21);
+        labelPhone.Size = new Size(70, 25);
         labelPhone.TabIndex = 16;
         labelPhone.Text = "Phone:";
         // 
@@ -142,9 +149,9 @@ partial class ProviderEditController
         // 
         labelContactPerson.AutoSize = true;
         labelContactPerson.Font = new Font("Segoe UI", 12F);
-        labelContactPerson.Location = new Point(37, 221);
+        labelContactPerson.Location = new Point(42, 280);
         labelContactPerson.Name = "labelContactPerson";
-        labelContactPerson.Size = new Size(63, 42);
+        labelContactPerson.Size = new Size(77, 50);
         labelContactPerson.TabIndex = 15;
         labelContactPerson.Text = "Contact\nPerson:";
         // 
@@ -152,9 +159,9 @@ partial class ProviderEditController
         // 
         labelCompany.AutoSize = true;
         labelCompany.Font = new Font("Segoe UI", 12F);
-        labelCompany.Location = new Point(36, 181);
+        labelCompany.Location = new Point(41, 229);
         labelCompany.Name = "labelCompany";
-        labelCompany.Size = new Size(80, 21);
+        labelCompany.Size = new Size(96, 25);
         labelCompany.TabIndex = 14;
         labelCompany.Text = "Company:";
         // 
@@ -162,28 +169,29 @@ partial class ProviderEditController
         // 
         label.AutoSize = true;
         label.Font = new Font("Segoe UI", 20F);
-        label.Location = new Point(6, 19);
+        label.Location = new Point(7, 24);
         label.Name = "label";
-        label.Size = new Size(184, 37);
+        label.Size = new Size(193, 42);
         label.TabIndex = 13;
-        label.Text = "Edit Customer";
+        label.Text = "Edit Provider";
         // 
         // labelId
         // 
         labelId.AutoSize = true;
         labelId.Font = new Font("Segoe UI", 12F);
-        labelId.Location = new Point(36, 120);
+        labelId.Location = new Point(41, 152);
         labelId.Name = "labelId";
-        labelId.Size = new Size(26, 21);
+        labelId.Size = new Size(32, 25);
         labelId.TabIndex = 26;
         labelId.Text = "Id:";
         // 
         // buttonDelete
         // 
         buttonDelete.Font = new Font("Segoe UI", 12F);
-        buttonDelete.Location = new Point(167, 508);
+        buttonDelete.Location = new Point(191, 643);
+        buttonDelete.Margin = new Padding(3, 4, 3, 4);
         buttonDelete.Name = "buttonDelete";
-        buttonDelete.Size = new Size(87, 71);
+        buttonDelete.Size = new Size(99, 90);
         buttonDelete.TabIndex = 28;
         buttonDelete.Text = "Delete";
         buttonDelete.UseVisualStyleBackColor = true;
@@ -207,27 +215,31 @@ partial class ProviderEditController
         groupBox1.Controls.Add(textBoxCompany);
         groupBox1.Controls.Add(textBoxPhone);
         groupBox1.Location = new Point(0, 0);
+        groupBox1.Margin = new Padding(3, 4, 3, 4);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(435, 585);
+        groupBox1.Padding = new Padding(3, 4, 3, 4);
+        groupBox1.Size = new Size(497, 741);
         groupBox1.TabIndex = 29;
         groupBox1.TabStop = false;
         // 
         // richTextBoxId
         // 
         richTextBoxId.Font = new Font("Segoe UI", 12F);
-        richTextBoxId.Location = new Point(125, 70);
+        richTextBoxId.Location = new Point(143, 89);
+        richTextBoxId.Margin = new Padding(3, 4, 3, 4);
         richTextBoxId.Name = "richTextBoxId";
-        richTextBoxId.Size = new Size(291, 71);
+        richTextBoxId.Size = new Size(332, 89);
         richTextBoxId.TabIndex = 29;
         richTextBoxId.Text = "";
         // 
         // ProviderEditController
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 19F);
         AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(groupBox1);
+        Margin = new Padding(3, 4, 3, 4);
         Name = "ProviderEditController";
-        Size = new Size(435, 585);
+        Size = new Size(497, 741);
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
         ResumeLayout(false);

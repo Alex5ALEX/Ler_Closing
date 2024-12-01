@@ -64,7 +64,7 @@ public partial class MainForm : Form
         orderControl = new OrderControl(this);
         productControl = new ProductControl(this);
         providerControl = new ProviderControl(this);
-        supplyControl = new SupplyControl();
+        supplyControl = new SupplyControl(this);
 
         groupBoxMenu.Visible = false;
     }

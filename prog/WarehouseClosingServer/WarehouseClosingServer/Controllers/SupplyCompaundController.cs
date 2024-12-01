@@ -30,7 +30,7 @@ public class SupplyCompaundController : Controller
 
 
 
-    [HttpGet("{id_supply}")]
+    [HttpGet("by_supply/{id_supply}")]
     public async Task<IActionResult> GetByIdSupply(Guid id_supply)
     {
         var compaund = await _context.SupplyCompaunds.Where(o => o.Id_Supply == id_supply).ToListAsync();
@@ -41,7 +41,7 @@ public class SupplyCompaundController : Controller
     }
 
 
-    [HttpGet("{id_product}")]
+    [HttpGet("by_product/{id_product}")]
     public async Task<IActionResult> GetByIdProducts(Guid id_product)
     {
         var compaund = await _context.SupplyCompaunds.Where(o => o.Id_Product == id_product).ToListAsync();

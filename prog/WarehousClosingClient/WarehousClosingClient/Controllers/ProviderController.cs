@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,13 +64,22 @@ public class ProviderController
 
 
 
-    public async Task<string> GetProviderById(Guid Id)
+    public async Task<Provider> GetProviderById(Guid Id)
     {
-        var response = await httpClient.GetAsync(url + $"/{Id}");
+        var response = await httpClient.GetAsync(url + $"/{Id.ToString()}");
 
-        //response.EnsureSuccessStatusCode();
 
-        return await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            return new Provider();
+            //throw new Exception($"Ошибка при получении данных: {response.StatusCode}");
+        }
+
+        var data = await response.Content.ReadAsStringAsync();
+
+        var content = JsonConvert.DeserializeObject<Provider>(data);
+
+        return content;
     }
 
 
@@ -92,4 +102,22 @@ public class ProviderController
     {
         return httpClient.DeleteAsync($"{url}/{provider.Id.ToString()}");
     }
+
+
+
+    public async Task<bool> providerExist(Guid Id)
+    {
+        var response = await GetProviderById(Id);
+
+        if (response.Id == Guid.Empty)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+
 }
