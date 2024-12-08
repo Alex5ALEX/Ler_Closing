@@ -30,9 +30,6 @@
         {
             labelName = new Label();
             labelNameText = new Label();
-            labelId = new Label();
-            labelIdText = new Label();
-            buttonCopy = new Button();
             labelPrice = new Label();
             labelPriceText = new Label();
             groupBox1 = new GroupBox();
@@ -43,7 +40,7 @@
             // 
             labelName.AutoSize = true;
             labelName.Font = new Font("Segoe UI", 12F);
-            labelName.Location = new Point(16, 56);
+            labelName.Location = new Point(18, 28);
             labelName.Name = "labelName";
             labelName.Size = new Size(55, 21);
             labelName.TabIndex = 2;
@@ -53,48 +50,17 @@
             // 
             labelNameText.AutoSize = true;
             labelNameText.Font = new Font("Segoe UI", 12F);
-            labelNameText.Location = new Point(94, 56);
+            labelNameText.Location = new Point(79, 28);
             labelNameText.Name = "labelNameText";
             labelNameText.Size = new Size(94, 21);
             labelNameText.TabIndex = 4;
             labelNameText.Text = "TEXT_NAME";
             // 
-            // labelId
-            // 
-            labelId.AutoSize = true;
-            labelId.Font = new Font("Segoe UI", 12F);
-            labelId.Location = new Point(16, 16);
-            labelId.Name = "labelId";
-            labelId.Size = new Size(26, 21);
-            labelId.TabIndex = 0;
-            labelId.Text = "Id:";
-            // 
-            // labelIdText
-            // 
-            labelIdText.AutoSize = true;
-            labelIdText.Font = new Font("Segoe UI", 12F);
-            labelIdText.Location = new Point(48, 16);
-            labelIdText.Name = "labelIdText";
-            labelIdText.Size = new Size(65, 21);
-            labelIdText.TabIndex = 1;
-            labelIdText.Text = "TEXT_ID";
-            // 
-            // buttonCopy
-            // 
-            buttonCopy.BackgroundImage = Properties.Resources.copy1_picture;
-            buttonCopy.BackgroundImageLayout = ImageLayout.Stretch;
-            buttonCopy.Font = new Font("Segoe UI", 12F);
-            buttonCopy.Location = new Point(386, 10);
-            buttonCopy.Name = "buttonCopy";
-            buttonCopy.Size = new Size(40, 35);
-            buttonCopy.TabIndex = 12;
-            buttonCopy.UseVisualStyleBackColor = true;
-            // 
             // labelPrice
             // 
             labelPrice.AutoSize = true;
             labelPrice.Font = new Font("Segoe UI", 12F);
-            labelPrice.Location = new Point(385, 56);
+            labelPrice.Location = new Point(387, 28);
             labelPrice.Name = "labelPrice";
             labelPrice.Size = new Size(47, 21);
             labelPrice.TabIndex = 13;
@@ -104,7 +70,7 @@
             // 
             labelPriceText.AutoSize = true;
             labelPriceText.Font = new Font("Segoe UI", 12F);
-            labelPriceText.Location = new Point(463, 56);
+            labelPriceText.Location = new Point(440, 28);
             labelPriceText.Name = "labelPriceText";
             labelPriceText.Size = new Size(94, 21);
             labelPriceText.TabIndex = 14;
@@ -116,12 +82,9 @@
             groupBox1.Controls.Add(labelPriceText);
             groupBox1.Controls.Add(labelName);
             groupBox1.Controls.Add(labelPrice);
-            groupBox1.Controls.Add(buttonCopy);
-            groupBox1.Controls.Add(labelIdText);
-            groupBox1.Controls.Add(labelId);
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(770, 100);
+            groupBox1.Size = new Size(873, 65);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             // 
@@ -129,9 +92,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             Controls.Add(groupBox1);
             Name = "ProductRowControl";
-            Size = new Size(770, 100);
+            Size = new Size(873, 65);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -140,9 +104,6 @@
         #endregion
         private Label labelName;
         private Label labelNameText;
-        private Label labelId;
-        private Label labelIdText;
-        private Button buttonCopy;
         private Label labelPrice;
         private Label labelPriceText;
         private GroupBox groupBox1;

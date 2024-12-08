@@ -30,14 +30,23 @@ public partial class CustomerRowControl : UserControl
         InitializeData();
 
 
-        buttonCopy.Click += CopyId;
+       
         groupBox1.Click += change_selected_Id;
+        labelName.Click += change_selected_Id;
+        labelNameText.Click += change_selected_Id;
+        labelSurname.Click += change_selected_Id;
+        labelSurnameText.Click += change_selected_Id;
+        labelPhone.Click += change_selected_Id;
+        labelPhoneText.Click += change_selected_Id;
+        labelEmail.Click += change_selected_Id;
+        labelEmailText.Click += change_selected_Id;
+        labelAddres.Click += change_selected_Id;
+        labelAddresText.Click += change_selected_Id;
     }
 
 
     private void InitializeData()
     {
-        labelIdText.Text = customer.Id.ToString();
         labelNameText.Text = customer.Name;
         labelSurnameText.Text = customer.Surname;
         labelPhoneText.Text = customer.Phone;

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBoxMain = new GroupBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             labelHello = new Label();
+            buttonMenu = new Button();
             groupBoxMenu = new GroupBox();
-            buttonHideMenu = new Button();
             labelMenu = new Label();
             providerOption = new Button();
             supplyOption = new Button();
@@ -39,34 +39,37 @@
             orderOption = new Button();
             employeeOption = new Button();
             customerOption = new Button();
-            buttonMenu = new Button();
-            groupBoxMain.SuspendLayout();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            ReportOption = new Button();
             groupBoxMenu.SuspendLayout();
             SuspendLayout();
-            // 
-            // groupBoxMain
-            // 
-            groupBoxMain.Controls.Add(labelHello);
-            groupBoxMain.Controls.Add(buttonMenu);
-            groupBoxMain.Location = new Point(0, 0);
-            groupBoxMain.Name = "groupBoxMain";
-            groupBoxMain.Size = new Size(1260, 680);
-            groupBoxMain.TabIndex = 0;
-            groupBoxMain.TabStop = false;
             // 
             // labelHello
             // 
             labelHello.AutoSize = true;
             labelHello.Font = new Font("SWScrps", 28F);
-            labelHello.Location = new Point(590, 324);
+            labelHello.Location = new Point(592, 333);
             labelHello.Name = "labelHello";
             labelHello.Size = new Size(95, 53);
             labelHello.TabIndex = 2;
             labelHello.Text = "Hello";
             // 
+            // buttonMenu
+            // 
+            buttonMenu.BackColor = SystemColors.ControlLightLight;
+            buttonMenu.FlatStyle = FlatStyle.Flat;
+            buttonMenu.Font = new Font("Segoe UI", 12F);
+            buttonMenu.Location = new Point(3, 3);
+            buttonMenu.Name = "buttonMenu";
+            buttonMenu.Size = new Size(80, 60);
+            buttonMenu.TabIndex = 0;
+            buttonMenu.Text = "Menu";
+            buttonMenu.UseVisualStyleBackColor = false;
+            // 
             // groupBoxMenu
             // 
-            groupBoxMenu.Controls.Add(buttonHideMenu);
+            groupBoxMenu.BackColor = SystemColors.ControlLightLight;
+            groupBoxMenu.Controls.Add(ReportOption);
             groupBoxMenu.Controls.Add(labelMenu);
             groupBoxMenu.Controls.Add(providerOption);
             groupBoxMenu.Controls.Add(supplyOption);
@@ -74,28 +77,22 @@
             groupBoxMenu.Controls.Add(orderOption);
             groupBoxMenu.Controls.Add(employeeOption);
             groupBoxMenu.Controls.Add(customerOption);
+            groupBoxMenu.FlatStyle = FlatStyle.Flat;
+            groupBoxMenu.ForeColor = SystemColors.ControlText;
             groupBoxMenu.Location = new Point(0, 0);
             groupBoxMenu.Name = "groupBoxMenu";
-            groupBoxMenu.Size = new Size(200, 680);
+            groupBoxMenu.Size = new Size(202, 681);
             groupBoxMenu.TabIndex = 1;
             groupBoxMenu.TabStop = false;
-            // 
-            // buttonHideMenu
-            // 
-            buttonHideMenu.BackColor = Color.FromArgb(240, 240, 240);
-            buttonHideMenu.Font = new Font("Segoe UI", 12F);
-            buttonHideMenu.Location = new Point(6, 619);
-            buttonHideMenu.Name = "buttonHideMenu";
-            buttonHideMenu.Size = new Size(94, 55);
-            buttonHideMenu.TabIndex = 30;
-            buttonHideMenu.Text = "Hide\nMenu";
-            buttonHideMenu.UseVisualStyleBackColor = false;
             // 
             // labelMenu
             // 
             labelMenu.AutoSize = true;
+            labelMenu.BackColor = SystemColors.ControlLightLight;
+            labelMenu.FlatStyle = FlatStyle.Flat;
             labelMenu.Font = new Font("Segoe UI", 24F);
-            labelMenu.Location = new Point(5, 19);
+            labelMenu.ForeColor = SystemColors.ControlText;
+            labelMenu.Location = new Point(6, 19);
             labelMenu.Name = "labelMenu";
             labelMenu.Size = new Size(102, 45);
             labelMenu.TabIndex = 29;
@@ -103,8 +100,10 @@
             // 
             // providerOption
             // 
-            providerOption.BackColor = Color.FromArgb(240, 240, 240);
+            providerOption.BackColor = SystemColors.ControlLightLight;
+            providerOption.FlatStyle = FlatStyle.Flat;
             providerOption.Font = new Font("Segoe UI", 12F);
+            providerOption.ForeColor = SystemColors.ControlText;
             providerOption.Location = new Point(6, 336);
             providerOption.Name = "providerOption";
             providerOption.Size = new Size(188, 45);
@@ -114,19 +113,23 @@
             // 
             // supplyOption
             // 
-            supplyOption.BackColor = Color.FromArgb(240, 240, 240);
+            supplyOption.BackColor = SystemColors.ControlLightLight;
+            supplyOption.FlatStyle = FlatStyle.Flat;
             supplyOption.Font = new Font("Segoe UI", 12F);
-            supplyOption.Location = new Point(5, 285);
+            supplyOption.ForeColor = SystemColors.ControlText;
+            supplyOption.Location = new Point(6, 285);
             supplyOption.Name = "supplyOption";
-            supplyOption.Size = new Size(189, 45);
+            supplyOption.Size = new Size(188, 45);
             supplyOption.TabIndex = 27;
-            supplyOption.Text = "Supplyes";
+            supplyOption.Text = "Supplies";
             supplyOption.UseVisualStyleBackColor = false;
             // 
             // productOption
             // 
-            productOption.BackColor = Color.FromArgb(240, 240, 240);
+            productOption.BackColor = SystemColors.ControlLightLight;
+            productOption.FlatStyle = FlatStyle.Flat;
             productOption.Font = new Font("Segoe UI", 12F);
+            productOption.ForeColor = SystemColors.ControlText;
             productOption.Location = new Point(6, 234);
             productOption.Name = "productOption";
             productOption.Size = new Size(189, 45);
@@ -136,8 +139,10 @@
             // 
             // orderOption
             // 
-            orderOption.BackColor = Color.FromArgb(240, 240, 240);
+            orderOption.BackColor = SystemColors.ControlLightLight;
+            orderOption.FlatStyle = FlatStyle.Flat;
             orderOption.Font = new Font("Segoe UI", 12F);
+            orderOption.ForeColor = SystemColors.ControlText;
             orderOption.Location = new Point(6, 183);
             orderOption.Name = "orderOption";
             orderOption.Size = new Size(189, 45);
@@ -147,8 +152,10 @@
             // 
             // employeeOption
             // 
-            employeeOption.BackColor = Color.FromArgb(240, 240, 240);
+            employeeOption.BackColor = SystemColors.ControlLightLight;
+            employeeOption.FlatStyle = FlatStyle.Flat;
             employeeOption.Font = new Font("Segoe UI", 12F);
+            employeeOption.ForeColor = SystemColors.ControlText;
             employeeOption.Location = new Point(6, 132);
             employeeOption.Name = "employeeOption";
             employeeOption.Size = new Size(188, 45);
@@ -158,7 +165,8 @@
             // 
             // customerOption
             // 
-            customerOption.BackColor = Color.FromArgb(240, 240, 240);
+            customerOption.BackColor = SystemColors.ControlLightLight;
+            customerOption.FlatStyle = FlatStyle.Flat;
             customerOption.Font = new Font("Segoe UI", 12F);
             customerOption.Location = new Point(6, 81);
             customerOption.Name = "customerOption";
@@ -167,36 +175,40 @@
             customerOption.Text = "Customers";
             customerOption.UseVisualStyleBackColor = false;
             // 
-            // buttonMenu
+            // ReportOption
             // 
-            buttonMenu.BackColor = Color.FromArgb(240, 240, 240);
-            buttonMenu.Font = new Font("Segoe UI", 12F);
-            buttonMenu.Location = new Point(5, 15);
-            buttonMenu.Name = "buttonMenu";
-            buttonMenu.Size = new Size(80, 60);
-            buttonMenu.TabIndex = 0;
-            buttonMenu.Text = "Menu";
-            buttonMenu.UseVisualStyleBackColor = false;
+            ReportOption.BackColor = SystemColors.ControlLightLight;
+            ReportOption.FlatStyle = FlatStyle.Flat;
+            ReportOption.Font = new Font("Segoe UI", 12F);
+            ReportOption.ForeColor = SystemColors.ControlText;
+            ReportOption.Location = new Point(6, 624);
+            ReportOption.Name = "ReportOption";
+            ReportOption.Size = new Size(188, 45);
+            ReportOption.TabIndex = 30;
+            ReportOption.Text = "Report";
+            ReportOption.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1264, 681);
-            Controls.Add(groupBoxMain);
+            Controls.Add(labelHello);
             Controls.Add(groupBoxMenu);
+            Controls.Add(buttonMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "MainForm";
-            Text = "MainForm";
-            groupBoxMain.ResumeLayout(false);
-            groupBoxMain.PerformLayout();
+            Text = "Warehouse";
             groupBoxMenu.ResumeLayout(false);
             groupBoxMenu.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private GroupBox groupBoxMain;
         private Button buttonMenu;
         private GroupBox groupBoxMenu;
         private Label labelHello;
@@ -208,5 +220,7 @@
         private Button customerOption;
         private Button buttonHideMenu;
         private Label labelMenu;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button ReportOption;
     }
 }

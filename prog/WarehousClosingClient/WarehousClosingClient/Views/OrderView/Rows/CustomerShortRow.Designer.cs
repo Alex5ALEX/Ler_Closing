@@ -1,6 +1,6 @@
-﻿namespace WarehousClosingClient.Views.OrderView
+﻿namespace WarehousClosingClient.Views.OrderView.Rows
 {
-    partial class ProductAddRowControl
+    partial class CustomerShortRow
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -29,41 +29,30 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            numericUpDown1 = new NumericUpDown();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(numericUpDown1);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(399, 90);
-            groupBox1.TabIndex = 0;
+            groupBox1.Size = new Size(334, 90);
+            groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Font = new Font("Segoe UI", 12F);
-            numericUpDown1.Location = new Point(274, 17);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 29);
-            numericUpDown1.TabIndex = 5;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(61, 54);
+            label4.Location = new Point(85, 54);
             label4.Name = "label4";
             label4.Size = new Size(52, 21);
             label4.TabIndex = 4;
@@ -73,7 +62,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(61, 19);
+            label3.Location = new Point(85, 19);
             label3.Name = "label3";
             label3.Size = new Size(52, 21);
             label3.TabIndex = 3;
@@ -85,9 +74,9 @@
             label2.Font = new Font("Segoe UI", 12F);
             label2.Location = new Point(3, 54);
             label2.Name = "label2";
-            label2.Size = new Size(47, 21);
+            label2.Size = new Size(76, 21);
             label2.TabIndex = 2;
-            label2.Text = "Price:";
+            label2.Text = "Surname:";
             // 
             // label1
             // 
@@ -99,16 +88,15 @@
             label1.TabIndex = 1;
             label1.Text = "Name:";
             // 
-            // OrderAddRowControl
+            // CustomerShortRow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(groupBox1);
-            Name = "OrderAddRowControl";
-            Size = new Size(400, 90);
+            Name = "CustomerShortRow";
+            Size = new Size(334, 90);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
 
@@ -119,6 +107,5 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private NumericUpDown numericUpDown1;
     }
 }

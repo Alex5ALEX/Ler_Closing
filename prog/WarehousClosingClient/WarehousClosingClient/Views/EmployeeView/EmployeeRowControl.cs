@@ -23,21 +23,31 @@ public partial class EmployeeRowControl : UserControl
     {
         this.mainController = mainController;
         this.employee = employee;
-  
+
 
 
         InitializeComponent();
         InitializeData();
 
 
-        buttonCopy.Click += CopyId;
         groupBox1.Click += change_selected_Id;
+        labelName.Click += change_selected_Id;
+        labelNameText.Click += change_selected_Id;
+        labelSurname.Click += change_selected_Id;
+        labelSurnameText.Click += change_selected_Id;
+        labelPhone.Click += change_selected_Id;
+        labelPhoneText.Click += change_selected_Id;
+        labelEmail.Click += change_selected_Id;
+        labelEmailText.Click  += change_selected_Id;
+        labelJobtitle.Click += change_selected_Id;
+        labelJobtitleText.Click += change_selected_Id;
+        labelAddres.Click += change_selected_Id;
+        labelAddresText.Click += change_selected_Id;
     }
 
 
     private void InitializeData()
     {
-        labelIdText.Text = employee.Id.ToString();
         labelNameText.Text = employee.Name;
         labelSurnameText.Text = employee.Surname;
         labelJobtitleText.Text = employee.JobTitle;

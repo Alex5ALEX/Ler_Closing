@@ -32,29 +32,30 @@
             buttonAddNew = new Button();
             flowLayoutPanel = new FlowLayoutPanel();
             buttonEdit = new Button();
-            groupBox = new GroupBox();
             groupBoxList = new GroupBox();
             groupBoxAction = new GroupBox();
             buttonMenu = new Button();
-            groupBox.SuspendLayout();
+            pictureBox1 = new PictureBox();
             groupBoxList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // labelMenuName
             // 
             labelMenuName.AutoSize = true;
-            labelMenuName.Font = new Font("Segoe UI", 24F);
-            labelMenuName.Location = new Point(159, 30);
+            labelMenuName.Font = new Font("Segoe UI", 30F);
+            labelMenuName.Location = new Point(89, 3);
             labelMenuName.Name = "labelMenuName";
-            labelMenuName.Size = new Size(152, 45);
+            labelMenuName.Size = new Size(187, 54);
             labelMenuName.TabIndex = 8;
             labelMenuName.Text = "Providers";
             // 
             // buttonAddNew
             // 
-            buttonAddNew.Location = new Point(714, 22);
+            buttonAddNew.FlatStyle = FlatStyle.Flat;
+            buttonAddNew.Location = new Point(1164, 9);
             buttonAddNew.Name = "buttonAddNew";
-            buttonAddNew.Size = new Size(87, 51);
+            buttonAddNew.Size = new Size(80, 50);
             buttonAddNew.TabIndex = 7;
             buttonAddNew.Text = "Add New";
             buttonAddNew.UseVisualStyleBackColor = true;
@@ -62,73 +63,78 @@
             // flowLayoutPanel
             // 
             flowLayoutPanel.AutoScroll = true;
-            flowLayoutPanel.Location = new Point(6, 79);
+            flowLayoutPanel.Location = new Point(9, 19);
             flowLayoutPanel.Name = "flowLayoutPanel";
-            flowLayoutPanel.Size = new Size(795, 570);
+            flowLayoutPanel.Size = new Size(896, 593);
             flowLayoutPanel.TabIndex = 6;
             // 
             // buttonEdit
             // 
-            buttonEdit.Location = new Point(614, 22);
+            buttonEdit.FlatStyle = FlatStyle.Flat;
+            buttonEdit.Location = new Point(1051, 9);
             buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(87, 51);
+            buttonEdit.Size = new Size(80, 50);
             buttonEdit.TabIndex = 9;
             buttonEdit.Text = "Edit";
             buttonEdit.UseVisualStyleBackColor = true;
             // 
-            // groupBox
-            // 
-            groupBox.Controls.Add(groupBoxList);
-            groupBox.Controls.Add(groupBoxAction);
-            groupBox.Controls.Add(buttonMenu);
-            groupBox.Controls.Add(labelMenuName);
-            groupBox.Location = new Point(0, 0);
-            groupBox.Name = "groupBox";
-            groupBox.Size = new Size(1260, 680);
-            groupBox.TabIndex = 12;
-            groupBox.TabStop = false;
-            // 
             // groupBoxList
             // 
-            groupBoxList.Controls.Add(buttonEdit);
             groupBoxList.Controls.Add(flowLayoutPanel);
-            groupBoxList.Controls.Add(buttonAddNew);
-            groupBoxList.Location = new Point(447, 15);
+            groupBoxList.Location = new Point(349, 62);
             groupBoxList.Name = "groupBoxList";
-            groupBoxList.Size = new Size(810, 655);
+            groupBoxList.Size = new Size(908, 615);
             groupBoxList.TabIndex = 11;
             groupBoxList.TabStop = false;
             // 
             // groupBoxAction
             // 
-            groupBoxAction.Location = new Point(5, 85);
+            groupBoxAction.Location = new Point(3, 62);
             groupBoxAction.Name = "groupBoxAction";
-            groupBoxAction.Size = new Size(435, 585);
+            groupBoxAction.Size = new Size(340, 615);
             groupBoxAction.TabIndex = 10;
             groupBoxAction.TabStop = false;
             // 
             // buttonMenu
             // 
-            buttonMenu.BackColor = Color.FromArgb(240, 240, 240);
+            buttonMenu.BackColor = SystemColors.ControlLightLight;
+            buttonMenu.FlatStyle = FlatStyle.Flat;
             buttonMenu.Font = new Font("Segoe UI", 12F);
-            buttonMenu.Location = new Point(5, 15);
+            buttonMenu.Location = new Point(3, 3);
             buttonMenu.Name = "buttonMenu";
-            buttonMenu.Size = new Size(80, 60);
+            buttonMenu.Size = new Size(80, 55);
             buttonMenu.TabIndex = 0;
             buttonMenu.Text = "Menu";
             buttonMenu.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.Provider;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(20, 90);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(300, 300);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // ProviderControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(groupBox);
+            BackColor = SystemColors.ControlLightLight;
+            Controls.Add(pictureBox1);
+            Controls.Add(buttonEdit);
+            Controls.Add(buttonAddNew);
+            Controls.Add(groupBoxList);
+            Controls.Add(groupBoxAction);
+            Controls.Add(buttonMenu);
+            Controls.Add(labelMenuName);
             Name = "ProviderControl";
             Size = new Size(1260, 680);
-            groupBox.ResumeLayout(false);
-            groupBox.PerformLayout();
             groupBoxList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -137,9 +143,9 @@
         private Button buttonAddNew;
         private FlowLayoutPanel flowLayoutPanel;
         private Button buttonEdit;
-        private GroupBox groupBox;
         private Button buttonMenu;
         private GroupBox groupBoxList;
         private GroupBox groupBoxAction;
+        private PictureBox pictureBox1;
     }
 }

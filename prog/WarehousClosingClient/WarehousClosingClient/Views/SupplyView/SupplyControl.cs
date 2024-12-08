@@ -79,19 +79,22 @@ public partial class SupplyControl : UserControl
     //можно добавить функционал
     public void HideActionGroupBox()
     {
+        pictureBox1.Visible = true;
         groupBoxAction.Controls.Clear();
     }
 
     private void AddNew(object? sender, EventArgs e)
     {
         groupBoxAction.Controls.Clear();
-        supplyAdd.InitializeData();
+        pictureBox1.Visible = false;
+        supplyAdd.InitData();
         groupBoxAction.Controls.Add(supplyAdd);
     }
 
     private void Edit(object? sender, EventArgs e)
     {
         if(choisedSupply.Id == Guid.Empty) { return; }
+        pictureBox1.Visible = false;
         groupBoxAction.Controls.Clear();
         groupBoxAction.Controls.Add(new SupplyEditController(this, choisedSupply));
     }

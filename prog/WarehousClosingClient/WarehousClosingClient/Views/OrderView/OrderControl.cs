@@ -79,20 +79,22 @@ public partial class OrderControl : UserControl
     //можно добавить функционал
     public void HideActionGroupBox()
     {
+        pictureBox1.Visible = true;
         groupBoxAction.Controls.Clear();
     }
 
     private void AddNew(object? sender, EventArgs e)
     {
+        pictureBox1.Visible = false;
         groupBoxAction.Controls.Clear();
-        orderAdd.InitializeData();
+        orderAdd.InitData();
         groupBoxAction.Controls.Add(orderAdd);
     }
 
     private void Edit(object? sender, EventArgs e)
     {
         if(choisedOrder.Id == Guid.Empty) { return; }
-
+        pictureBox1.Visible = false;
         groupBoxAction.Controls.Clear();
         groupBoxAction.Controls.Add(new OrderEditController(this, choisedOrder));
     }

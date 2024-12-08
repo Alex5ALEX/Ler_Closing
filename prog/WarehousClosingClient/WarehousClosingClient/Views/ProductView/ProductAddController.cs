@@ -43,10 +43,10 @@ public partial class ProductAddController : UserControl
             return;
         }
 
-        
+
         decimal price = 0;
 
-        if(!decimal.TryParse(textBoxPrice.Text, out price))
+        if (!decimal.TryParse(textBoxPrice.Text, out price))
         {
             MessageBox.Show("Цена введена не корректно.");
             return;
@@ -74,6 +74,5 @@ public partial class ProductAddController : UserControl
 
         //throw new NotImplementedException();
     }
-
 
 }

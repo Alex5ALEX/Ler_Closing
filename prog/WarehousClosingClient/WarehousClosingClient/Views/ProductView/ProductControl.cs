@@ -67,12 +67,13 @@ public partial class ProductControl : UserControl
     //можно добавить функционал
     public void HideActionGroupBox()
     {
+        pictureBox1.Visible = true;
         groupBoxAction.Controls.Clear();
-
     }
 
     private void AddNew(object? sender, EventArgs e)
     {
+        pictureBox1.Visible = false;
         groupBoxAction.Controls.Clear();
         groupBoxAction.Controls.Add(productAdd);
     }
@@ -81,6 +82,7 @@ public partial class ProductControl : UserControl
     {
         if (choisedProduct.Id == Guid.Empty) { return; }
 
+        pictureBox1.Visible = false;
         groupBoxAction.Controls.Clear();
         groupBoxAction.Controls.Add(new ProductEditController(this,choisedProduct));
     }

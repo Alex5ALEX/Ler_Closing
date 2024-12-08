@@ -39,11 +39,11 @@ partial class EmployeeAddController
         textBoxPhone = new TextBox();
         textBoxEmail = new TextBox();
         textBoxAddres = new TextBox();
-        buttonAdd = new Button();
-        buttonBack = new Button();
         groupBox1 = new GroupBox();
         labelJobtitle = new Label();
         textBoxJobtitle = new TextBox();
+        buttonBack = new Button();
+        buttonAdd = new Button();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -61,7 +61,7 @@ partial class EmployeeAddController
         // 
         labelName.AutoSize = true;
         labelName.Font = new Font("Segoe UI", 12F);
-        labelName.Location = new Point(27, 115);
+        labelName.Location = new Point(23, 76);
         labelName.Name = "labelName";
         labelName.Size = new Size(55, 21);
         labelName.TabIndex = 1;
@@ -71,7 +71,7 @@ partial class EmployeeAddController
         // 
         labelSurname.AutoSize = true;
         labelSurname.Font = new Font("Segoe UI", 12F);
-        labelSurname.Location = new Point(27, 157);
+        labelSurname.Location = new Point(23, 132);
         labelSurname.Name = "labelSurname";
         labelSurname.Size = new Size(76, 21);
         labelSurname.TabIndex = 2;
@@ -81,7 +81,7 @@ partial class EmployeeAddController
         // 
         labelPhone.AutoSize = true;
         labelPhone.Font = new Font("Segoe UI", 12F);
-        labelPhone.Location = new Point(27, 247);
+        labelPhone.Location = new Point(21, 247);
         labelPhone.Name = "labelPhone";
         labelPhone.Size = new Size(57, 21);
         labelPhone.TabIndex = 3;
@@ -91,7 +91,7 @@ partial class EmployeeAddController
         // 
         labelEmail.AutoSize = true;
         labelEmail.Font = new Font("Segoe UI", 12F);
-        labelEmail.Location = new Point(27, 297);
+        labelEmail.Location = new Point(23, 303);
         labelEmail.Name = "labelEmail";
         labelEmail.Size = new Size(51, 21);
         labelEmail.TabIndex = 4;
@@ -101,7 +101,7 @@ partial class EmployeeAddController
         // 
         labelAddres.AutoSize = true;
         labelAddres.Font = new Font("Segoe UI", 12F);
-        labelAddres.Location = new Point(27, 347);
+        labelAddres.Location = new Point(21, 359);
         labelAddres.Name = "labelAddres";
         labelAddres.Size = new Size(62, 21);
         labelAddres.TabIndex = 5;
@@ -110,7 +110,7 @@ partial class EmployeeAddController
         // textBoxSurname
         // 
         textBoxSurname.Font = new Font("Segoe UI", 12F);
-        textBoxSurname.Location = new Point(108, 149);
+        textBoxSurname.Location = new Point(23, 156);
         textBoxSurname.Name = "textBoxSurname";
         textBoxSurname.Size = new Size(291, 29);
         textBoxSurname.TabIndex = 6;
@@ -118,7 +118,7 @@ partial class EmployeeAddController
         // textBoxName
         // 
         textBoxName.Font = new Font("Segoe UI", 12F);
-        textBoxName.Location = new Point(108, 107);
+        textBoxName.Location = new Point(23, 100);
         textBoxName.Name = "textBoxName";
         textBoxName.Size = new Size(291, 29);
         textBoxName.TabIndex = 7;
@@ -126,7 +126,7 @@ partial class EmployeeAddController
         // textBoxPhone
         // 
         textBoxPhone.Font = new Font("Segoe UI", 12F);
-        textBoxPhone.Location = new Point(108, 239);
+        textBoxPhone.Location = new Point(23, 271);
         textBoxPhone.Name = "textBoxPhone";
         textBoxPhone.Size = new Size(291, 29);
         textBoxPhone.TabIndex = 8;
@@ -134,7 +134,7 @@ partial class EmployeeAddController
         // textBoxEmail
         // 
         textBoxEmail.Font = new Font("Segoe UI", 12F);
-        textBoxEmail.Location = new Point(108, 289);
+        textBoxEmail.Location = new Point(21, 327);
         textBoxEmail.Name = "textBoxEmail";
         textBoxEmail.Size = new Size(291, 29);
         textBoxEmail.TabIndex = 9;
@@ -142,39 +142,20 @@ partial class EmployeeAddController
         // textBoxAddres
         // 
         textBoxAddres.Font = new Font("Segoe UI", 12F);
-        textBoxAddres.Location = new Point(108, 339);
+        textBoxAddres.Location = new Point(21, 383);
         textBoxAddres.Name = "textBoxAddres";
         textBoxAddres.Size = new Size(291, 29);
         textBoxAddres.TabIndex = 10;
         // 
-        // buttonAdd
-        // 
-        buttonAdd.Font = new Font("Segoe UI", 12F);
-        buttonAdd.Location = new Point(307, 509);
-        buttonAdd.Name = "buttonAdd";
-        buttonAdd.Size = new Size(122, 70);
-        buttonAdd.TabIndex = 11;
-        buttonAdd.Text = "Add";
-        buttonAdd.UseVisualStyleBackColor = true;
-        // 
-        // buttonBack
-        // 
-        buttonBack.Font = new Font("Segoe UI", 12F);
-        buttonBack.Location = new Point(6, 509);
-        buttonBack.Name = "buttonBack";
-        buttonBack.Size = new Size(122, 70);
-        buttonBack.TabIndex = 12;
-        buttonBack.Text = "Back";
-        buttonBack.UseVisualStyleBackColor = true;
-        // 
         // groupBox1
         // 
+        groupBox1.BackColor = SystemColors.ControlLightLight;
+        groupBox1.Controls.Add(buttonBack);
+        groupBox1.Controls.Add(buttonAdd);
         groupBox1.Controls.Add(labelJobtitle);
         groupBox1.Controls.Add(textBoxJobtitle);
         groupBox1.Controls.Add(label);
-        groupBox1.Controls.Add(buttonBack);
         groupBox1.Controls.Add(labelName);
-        groupBox1.Controls.Add(buttonAdd);
         groupBox1.Controls.Add(labelSurname);
         groupBox1.Controls.Add(textBoxAddres);
         groupBox1.Controls.Add(labelPhone);
@@ -186,7 +167,7 @@ partial class EmployeeAddController
         groupBox1.Controls.Add(textBoxSurname);
         groupBox1.Location = new Point(0, 0);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(435, 585);
+        groupBox1.Size = new Size(340, 615);
         groupBox1.TabIndex = 13;
         groupBox1.TabStop = false;
         // 
@@ -194,7 +175,7 @@ partial class EmployeeAddController
         // 
         labelJobtitle.AutoSize = true;
         labelJobtitle.Font = new Font("Segoe UI", 12F);
-        labelJobtitle.Location = new Point(27, 202);
+        labelJobtitle.Location = new Point(23, 188);
         labelJobtitle.Name = "labelJobtitle";
         labelJobtitle.Size = new Size(63, 21);
         labelJobtitle.TabIndex = 13;
@@ -203,10 +184,34 @@ partial class EmployeeAddController
         // textBoxJobtitle
         // 
         textBoxJobtitle.Font = new Font("Segoe UI", 12F);
-        textBoxJobtitle.Location = new Point(108, 194);
+        textBoxJobtitle.Location = new Point(23, 215);
         textBoxJobtitle.Name = "textBoxJobtitle";
         textBoxJobtitle.Size = new Size(291, 29);
         textBoxJobtitle.TabIndex = 14;
+        // 
+        // buttonBack
+        // 
+        buttonBack.BackColor = SystemColors.ControlLightLight;
+        buttonBack.FlatStyle = FlatStyle.Flat;
+        buttonBack.Font = new Font("Segoe UI", 12F);
+        buttonBack.Location = new Point(9, 559);
+        buttonBack.Name = "buttonBack";
+        buttonBack.Size = new Size(100, 50);
+        buttonBack.TabIndex = 16;
+        buttonBack.Text = "Back";
+        buttonBack.UseVisualStyleBackColor = false;
+        // 
+        // buttonAdd
+        // 
+        buttonAdd.BackColor = Color.SpringGreen;
+        buttonAdd.FlatStyle = FlatStyle.Flat;
+        buttonAdd.Font = new Font("Segoe UI", 12F);
+        buttonAdd.Location = new Point(237, 559);
+        buttonAdd.Name = "buttonAdd";
+        buttonAdd.Size = new Size(100, 50);
+        buttonAdd.TabIndex = 15;
+        buttonAdd.Text = "Add";
+        buttonAdd.UseVisualStyleBackColor = false;
         // 
         // EmployeeAddController
         // 
@@ -214,7 +219,7 @@ partial class EmployeeAddController
         AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(groupBox1);
         Name = "EmployeeAddController";
-        Size = new Size(435, 585);
+        Size = new Size(340, 615);
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
         ResumeLayout(false);
@@ -233,9 +238,9 @@ partial class EmployeeAddController
     private TextBox textBoxPhone;
     private TextBox textBoxEmail;
     private TextBox textBoxAddres;
-    private Button buttonAdd;
-    private Button buttonBack;
     private GroupBox groupBox1;
     private Label labelJobtitle;
     private TextBox textBoxJobtitle;
+    private Button buttonBack;
+    private Button buttonAdd;
 }

@@ -1,17 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-
+﻿using WarehousClosingClient.Views.SupplyView.Rows;
 using WarehousClosingClient.Models;
 namespace WarehousClosingClient.Views.SupplyView;
 
@@ -20,9 +7,12 @@ public partial class SupplyEditController : UserControl
     private SupplyControl mainController;
     private Supply supply;
 
-    private List<SupplyCompaund> supplyCompaunds { get; set; } = [];
-    private List<ProductAddRowControl> productRow { get; set; } = [];
+    private List<SupplyCompaund> supplyCompaundRow { get; set; } = [];
+    private List<ProductShortRow> productRow { get; set; } = [];
+    private List<ProviderShortRow> providerRow { get; set; } = [];
 
+
+    public Provider choisedProvider { get; set; }
 
 
     public SupplyEditController(SupplyControl mainController, Supply supply)
@@ -31,7 +21,7 @@ public partial class SupplyEditController : UserControl
         this.supply = supply;
 
         InitializeComponent();
-        InitializeData();
+        InitData();
 
 
         buttonBack.Click += Back;
@@ -48,69 +38,94 @@ public partial class SupplyEditController : UserControl
     }
 
 
-    private async void InitializeData()
+    private async void InitData()
     {
-        textBoxId.Text = supply.Id.ToString();
-        textBoxDate.Text =  supply.Date.ToString("dd MM yyyy");
+        dateTimePicker.Value = supply.Date;
         textBoxPrice.Text = supply.Price.ToString();
-        textBoxProvider.Text = supply.Id_Provider.ToString();
 
+        choisedProvider = await mainController.providerController.GetProviderById(supply.Id_Provider);
+        ShowProvider();
 
-        supplyCompaunds = await mainController.supplyCompaundController.GetSupplyCompaundByIdSupply(supply.Id);
-
-        foreach (var item in supplyCompaunds)
-        {
-            Product token = await mainController.productController.GetProductById(item.Id_Product);
-            
-            if(token.Id == Guid.Empty) { continue; }
-
-            var temp = new ProductAddRowControl(token);
-            temp.SetQuantity(item.Quantity);
-            productRow.Add(temp);
-            flowLayoutPanel1.Controls.Add(temp);
-        }
+        InitProducts();
+        InitProviders();
     }
 
-       
+
+    public async void InitProducts()
+    {
+        flowLayoutPanelProducts.Controls.Clear();
+        productRow.Clear();
+
+        var products = await mainController.productController.GetAllProductsAsync();
+
+        foreach (var item in products)
+        {
+            var token = new ProductShortRow(item);
+            productRow.Add(token);
+            flowLayoutPanelProducts.Controls.Add(token);
+        }
+
+        supplyCompaundRow = await mainController.supplyCompaundController.GetSupplyCompaundByIdSupply(supply.Id);
+
+        foreach (var item in supplyCompaundRow)
+        {
+            foreach (var productline in productRow)
+            {
+                if (productline.product.Id == item.Id_Product)
+                {
+                    productline.SetQuantity(item.Quantity);
+                }
+
+            }
+        }
+
+    }
+
+
+
+    public async void InitProviders()
+    {
+        flowLayoutPanelProviders.Controls.Clear();
+        productRow.Clear();
+
+        var providers = await mainController.providerController.GetAllProvidersAsync();
+
+
+        foreach (var provider in providers)
+        {
+            var token = new ProviderShortRow(this, provider);
+            providerRow.Add(token);
+            flowLayoutPanelProviders.Controls.Add(token);
+        }
+
+    }
+
+
+
+
+
+
+    //action
+
+    public void ShowProvider()
+    {
+        label1.Text = choisedProvider.Company;
+        label2.Text = choisedProvider.ContactPerson;
+        label3.Text = choisedProvider.Phone;
+        label4.Text = choisedProvider.Email;
+    }
+
+
 
     private async void Edit(object? sender, EventArgs e)
     {
-
+        
         //проверка что пользователь ввел все поля
-        if (string.IsNullOrWhiteSpace(textBoxDate.Text) ||
-        string.IsNullOrWhiteSpace(textBoxPrice.Text) ||
-        string.IsNullOrWhiteSpace(textBoxProvider.Text))
+        if (string.IsNullOrWhiteSpace(textBoxPrice.Text))
         {
             MessageBox.Show("Пожалуйста, заполните все поля.");
             return;
         }
-
-
-        //проверка на правильный ввод даты
-        DateTime date = DateTime.Now;
-
-        if (!DateTime.TryParseExact(textBoxDate.Text, "d M yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date))
-        {
-            MessageBox.Show("Дата введена не верно. Введите в формате: dd MM yyyy");
-            return;
-        }
-
-
-
-        Guid idProvider = Guid.Empty;
-
-        if (!Guid.TryParse(textBoxProvider.Text, out idProvider))
-        {
-            MessageBox.Show("id введен ен верно");
-            return;
-        }
-
-        if (!await mainController.providerController.providerExist(idProvider))
-        {
-            MessageBox.Show("Поставщика не существует");
-            return;
-        }
-
 
         decimal price = 0;
 
@@ -121,50 +136,55 @@ public partial class SupplyEditController : UserControl
         }
 
 
-        
-        if (await editSupply(date, idProvider, price))
-        {
-            textBoxDate.Text = string.Empty;
-            textBoxPrice.Text = string.Empty;
-            textBoxProvider.Text = string.Empty;
-
-            InitializeData();
-            mainController.UpdateData();
-        }
-    }
-
-    
-    private async Task<bool> editSupply(DateTime date, Guid idProvider, decimal price)
-    {
-        supply.Date = date;
-        supply.Id_Provider = idProvider;
+        supply.Date = dateTimePicker.Value;
+        supply.Id_Provider = choisedProvider.Id;
         supply.Price = price;
 
-        
-        var response = await mainController.supplyController.PutSupply(supply);
 
         foreach (var item in productRow)//List<ProductAddRowControl>
-        { 
+        {
+            bool temp1 = false;
 
-            foreach(var temp in supplyCompaunds)//List<SupplyCompaund>
+            foreach (var temp in supplyCompaundRow)//List<SupplyCompaund>
             {
 
-                if(item.product.Id == temp.Id_Product)
+                if (item.product.Id == temp.Id_Product)
                 {
-                    
-                    if(item.GetQuantity() != temp.Quantity)
+
+                    if (item.GetQuantity() != temp.Quantity)
                     {
                         temp.Quantity = item.GetQuantity();
                         mainController.supplyCompaundController.PutSupplyCompaund(temp);
                     }
                 }
             }
-           
+            if(temp1 == false)
+            {
+                if(item.GetQuantity() > 0)
+                {
+                    SupplyCompaund compaund = new SupplyCompaund()
+                    {
+                        Id_Supply = supply.Id,
+                        Id_Product = item.product.Id,
+                        Quantity = item.GetQuantity()
+                    };
+
+
+                    var responseCompaund = await mainController.supplyCompaundController.PostSupplyCompaund(compaund);
+
+                    if (responseCompaund.IsSuccessStatusCode) { continue; }
+                }
+            }
+
         }
 
-        return true;//вернуть если успешно
+
+        InitData();
+        mainController.UpdateData();
+        
     }
 
+    
 
     private void Delete(object? sender, EventArgs e)
     {
@@ -175,7 +195,7 @@ public partial class SupplyEditController : UserControl
 
         var response = mainController.supplyController.DelSupply(supply);
 
-        foreach (var item in supplyCompaunds)
+        foreach (var item in supplyCompaundRow)
         {
             mainController.supplyCompaundController.DelSupplyCompaund(item);
         }

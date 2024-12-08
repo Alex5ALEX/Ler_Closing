@@ -33,9 +33,9 @@ partial class ProductAddController
         labelPrice = new Label();
         textBoxPrice = new TextBox();
         textBoxName = new TextBox();
-        buttonAdd = new Button();
-        buttonBack = new Button();
         groupBox1 = new GroupBox();
+        buttonBack = new Button();
+        buttonAdd = new Button();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -53,7 +53,7 @@ partial class ProductAddController
         // 
         labelName.AutoSize = true;
         labelName.Font = new Font("Segoe UI", 12F);
-        labelName.Location = new Point(27, 115);
+        labelName.Location = new Point(27, 77);
         labelName.Name = "labelName";
         labelName.Size = new Size(55, 21);
         labelName.TabIndex = 1;
@@ -63,7 +63,7 @@ partial class ProductAddController
         // 
         labelPrice.AutoSize = true;
         labelPrice.Font = new Font("Segoe UI", 12F);
-        labelPrice.Location = new Point(27, 157);
+        labelPrice.Location = new Point(27, 133);
         labelPrice.Name = "labelPrice";
         labelPrice.Size = new Size(47, 21);
         labelPrice.TabIndex = 2;
@@ -72,7 +72,7 @@ partial class ProductAddController
         // textBoxPrice
         // 
         textBoxPrice.Font = new Font("Segoe UI", 12F);
-        textBoxPrice.Location = new Point(108, 149);
+        textBoxPrice.Location = new Point(27, 157);
         textBoxPrice.Name = "textBoxPrice";
         textBoxPrice.Size = new Size(291, 29);
         textBoxPrice.TabIndex = 6;
@@ -80,53 +80,58 @@ partial class ProductAddController
         // textBoxName
         // 
         textBoxName.Font = new Font("Segoe UI", 12F);
-        textBoxName.Location = new Point(108, 107);
+        textBoxName.Location = new Point(27, 101);
         textBoxName.Name = "textBoxName";
         textBoxName.Size = new Size(291, 29);
         textBoxName.TabIndex = 7;
         // 
-        // buttonAdd
-        // 
-        buttonAdd.Font = new Font("Segoe UI", 12F);
-        buttonAdd.Location = new Point(307, 509);
-        buttonAdd.Name = "buttonAdd";
-        buttonAdd.Size = new Size(122, 70);
-        buttonAdd.TabIndex = 11;
-        buttonAdd.Text = "Add";
-        buttonAdd.UseVisualStyleBackColor = true;
-        // 
-        // buttonBack
-        // 
-        buttonBack.Font = new Font("Segoe UI", 12F);
-        buttonBack.Location = new Point(6, 509);
-        buttonBack.Name = "buttonBack";
-        buttonBack.Size = new Size(122, 70);
-        buttonBack.TabIndex = 12;
-        buttonBack.Text = "Back";
-        buttonBack.UseVisualStyleBackColor = true;
-        // 
         // groupBox1
         // 
-        groupBox1.Controls.Add(label);
         groupBox1.Controls.Add(buttonBack);
-        groupBox1.Controls.Add(labelName);
         groupBox1.Controls.Add(buttonAdd);
+        groupBox1.Controls.Add(label);
+        groupBox1.Controls.Add(labelName);
         groupBox1.Controls.Add(labelPrice);
         groupBox1.Controls.Add(textBoxName);
         groupBox1.Controls.Add(textBoxPrice);
         groupBox1.Location = new Point(0, 0);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(435, 585);
+        groupBox1.Size = new Size(340, 615);
         groupBox1.TabIndex = 13;
         groupBox1.TabStop = false;
+        // 
+        // buttonBack
+        // 
+        buttonBack.BackColor = SystemColors.ControlLightLight;
+        buttonBack.FlatStyle = FlatStyle.Flat;
+        buttonBack.Font = new Font("Segoe UI", 12F);
+        buttonBack.Location = new Point(6, 562);
+        buttonBack.Name = "buttonBack";
+        buttonBack.Size = new Size(100, 50);
+        buttonBack.TabIndex = 14;
+        buttonBack.Text = "Back";
+        buttonBack.UseVisualStyleBackColor = false;
+        // 
+        // buttonAdd
+        // 
+        buttonAdd.BackColor = Color.SpringGreen;
+        buttonAdd.FlatStyle = FlatStyle.Flat;
+        buttonAdd.Font = new Font("Segoe UI", 12F);
+        buttonAdd.Location = new Point(234, 562);
+        buttonAdd.Name = "buttonAdd";
+        buttonAdd.Size = new Size(100, 50);
+        buttonAdd.TabIndex = 13;
+        buttonAdd.Text = "Add";
+        buttonAdd.UseVisualStyleBackColor = false;
         // 
         // ProductAddController
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
+        BackColor = SystemColors.ControlLightLight;
         Controls.Add(groupBox1);
         Name = "ProductAddController";
-        Size = new Size(435, 585);
+        Size = new Size(340, 615);
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
         ResumeLayout(false);
@@ -139,7 +144,7 @@ partial class ProductAddController
     private Label labelPrice;
     private TextBox textBoxPrice;
     private TextBox textBoxName;
-    private Button buttonAdd;
-    private Button buttonBack;
     private GroupBox groupBox1;
+    private Button buttonBack;
+    private Button buttonAdd;
 }

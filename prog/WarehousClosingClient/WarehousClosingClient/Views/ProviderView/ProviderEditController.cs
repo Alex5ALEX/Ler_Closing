@@ -10,21 +10,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
+using WarehousClosingClient.Logic;
 using WarehousClosingClient.Models;
+
 namespace WarehousClosingClient.Views.ProviderView;
 
 public partial class ProviderEditController : UserControl
 {
     private ProviderControl mainController;
     private Provider provider;
-
+    private Validation validation;
 
 
     public ProviderEditController(ProviderControl mainController, Provider provider)
     {
         this.mainController = mainController;
         this.provider = provider;
+        validation = new Validation();
 
         InitializeComponent();
         InitializeData();
@@ -46,7 +48,6 @@ public partial class ProviderEditController : UserControl
 
     private async void InitializeData()
     {
-        richTextBoxId.Text = provider.Id.ToString();
         textBoxCompany.Text = provider.Company;
         textBoxContactPerson.Text = provider.ContactPerson;
         textBoxPhone.Text = provider.Phone;
@@ -54,7 +55,7 @@ public partial class ProviderEditController : UserControl
         textBoxAddres.Text = provider.Address;
     }
 
-       
+
 
     private void Edit(object? sender, EventArgs e)
     {
@@ -68,6 +69,8 @@ public partial class ProviderEditController : UserControl
             return;
         }
 
+        if (!validation.ValidatePhone(textBoxPhone.Text)) { MessageBox.Show("Телефон введен не верно!"); return; };
+        if (!validation.ValidateEmail(textBoxEmail.Text)) { MessageBox.Show("Email введен не верно!"); return; };
 
         provider.Company = textBoxCompany.Text;
         provider.ContactPerson = textBoxContactPerson.Text;
@@ -77,7 +80,8 @@ public partial class ProviderEditController : UserControl
 
         var response = mainController.providerController.PutProviderById(provider);
 
-        if (response.Result.IsSuccessStatusCode) {
+        if (response.Result.IsSuccessStatusCode)
+        {
             mainController.UpdateData();
         }
     }
@@ -87,7 +91,7 @@ public partial class ProviderEditController : UserControl
     {
         DialogResult result = MessageBox.Show("Are you sure want to delete?", "", MessageBoxButtons.YesNo);
 
-        if (result == DialogResult.No){return;}
+        if (result == DialogResult.No) { return; }
 
 
         var response = mainController.providerController.DelProvider(provider);
@@ -98,5 +102,6 @@ public partial class ProviderEditController : UserControl
             Back(sender, e);
         }
     }
+
 
 }

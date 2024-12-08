@@ -29,161 +29,249 @@ partial class SupplyAddController
     private void InitializeComponent()
     {
         label = new Label();
-        labelDate = new Label();
         labelPrice = new Label();
-        labelProvider = new Label();
         textBoxPrice = new TextBox();
-        textBoxDate = new TextBox();
-        textBoxProvider = new TextBox();
-        buttonAdd = new Button();
-        buttonBack = new Button();
         groupBox1 = new GroupBox();
-        flowLayoutPanel1 = new FlowLayoutPanel();
+        buttonBack = new Button();
+        buttonAdd = new Button();
+        dateTimePicker = new DateTimePicker();
+        labelDate = new Label();
+        groupBox2 = new GroupBox();
+        label4 = new Label();
+        label3 = new Label();
+        label2 = new Label();
+        label1 = new Label();
+        tabPageProvider = new TabPage();
+        flowLayoutPanelProviders = new FlowLayoutPanel();
+        tabPageProducts = new TabPage();
+        flowLayoutPanelProducts = new FlowLayoutPanel();
+        tabControl = new TabControl();
         groupBox1.SuspendLayout();
+        groupBox2.SuspendLayout();
+        tabPageProvider.SuspendLayout();
+        tabPageProducts.SuspendLayout();
+        tabControl.SuspendLayout();
         SuspendLayout();
         // 
         // label
         // 
         label.AutoSize = true;
         label.Font = new Font("Segoe UI", 20F);
-        label.Location = new Point(7, 24);
+        label.Location = new Point(6, 19);
         label.Name = "label";
-        label.Size = new Size(175, 42);
+        label.Size = new Size(154, 37);
         label.TabIndex = 0;
         label.Text = "Add Supply";
-        // 
-        // labelDate
-        // 
-        labelDate.AutoSize = true;
-        labelDate.Font = new Font("Segoe UI", 12F);
-        labelDate.Location = new Point(17, 133);
-        labelDate.Name = "labelDate";
-        labelDate.Size = new Size(55, 25);
-        labelDate.TabIndex = 1;
-        labelDate.Text = "Date:";
         // 
         // labelPrice
         // 
         labelPrice.AutoSize = true;
         labelPrice.Font = new Font("Segoe UI", 12F);
-        labelPrice.Location = new Point(17, 186);
+        labelPrice.Location = new Point(17, 123);
         labelPrice.Name = "labelPrice";
-        labelPrice.Size = new Size(58, 25);
+        labelPrice.Size = new Size(47, 21);
         labelPrice.TabIndex = 2;
         labelPrice.Text = "Price:";
-        // 
-        // labelProvider
-        // 
-        labelProvider.AutoSize = true;
-        labelProvider.Font = new Font("Segoe UI", 12F);
-        labelProvider.Location = new Point(17, 236);
-        labelProvider.Name = "labelProvider";
-        labelProvider.Size = new Size(87, 25);
-        labelProvider.TabIndex = 3;
-        labelProvider.Text = "Provider:";
         // 
         // textBoxPrice
         // 
         textBoxPrice.Font = new Font("Segoe UI", 12F);
-        textBoxPrice.Location = new Point(120, 176);
-        textBoxPrice.Margin = new Padding(3, 4, 3, 4);
+        textBoxPrice.Location = new Point(17, 146);
         textBoxPrice.Name = "textBoxPrice";
-        textBoxPrice.Size = new Size(322, 32);
+        textBoxPrice.Size = new Size(282, 29);
         textBoxPrice.TabIndex = 6;
-        // 
-        // textBoxDate
-        // 
-        textBoxDate.Font = new Font("Segoe UI", 12F);
-        textBoxDate.Location = new Point(120, 123);
-        textBoxDate.Margin = new Padding(3, 4, 3, 4);
-        textBoxDate.Name = "textBoxDate";
-        textBoxDate.Size = new Size(322, 32);
-        textBoxDate.TabIndex = 7;
-        // 
-        // textBoxProvider
-        // 
-        textBoxProvider.Font = new Font("Segoe UI", 12F);
-        textBoxProvider.Location = new Point(120, 229);
-        textBoxProvider.Margin = new Padding(3, 4, 3, 4);
-        textBoxProvider.Name = "textBoxProvider";
-        textBoxProvider.Size = new Size(322, 32);
-        textBoxProvider.TabIndex = 8;
-        // 
-        // buttonAdd
-        // 
-        buttonAdd.Font = new Font("Segoe UI", 12F);
-        buttonAdd.Location = new Point(303, 645);
-        buttonAdd.Margin = new Padding(3, 4, 3, 4);
-        buttonAdd.Name = "buttonAdd";
-        buttonAdd.Size = new Size(139, 89);
-        buttonAdd.TabIndex = 11;
-        buttonAdd.Text = "Add";
-        buttonAdd.UseVisualStyleBackColor = true;
-        // 
-        // buttonBack
-        // 
-        buttonBack.Font = new Font("Segoe UI", 12F);
-        buttonBack.Location = new Point(7, 645);
-        buttonBack.Margin = new Padding(3, 4, 3, 4);
-        buttonBack.Name = "buttonBack";
-        buttonBack.Size = new Size(139, 89);
-        buttonBack.TabIndex = 12;
-        buttonBack.Text = "Back";
-        buttonBack.UseVisualStyleBackColor = true;
         // 
         // groupBox1
         // 
-        groupBox1.Controls.Add(flowLayoutPanel1);
-        groupBox1.Controls.Add(label);
-        groupBox1.Controls.Add(buttonBack);
+        groupBox1.Controls.Add(tabControl);
+        groupBox1.Controls.Add(groupBox2);
+        groupBox1.Controls.Add(dateTimePicker);
         groupBox1.Controls.Add(labelDate);
+        groupBox1.Controls.Add(buttonBack);
         groupBox1.Controls.Add(buttonAdd);
+        groupBox1.Controls.Add(label);
         groupBox1.Controls.Add(labelPrice);
-        groupBox1.Controls.Add(labelProvider);
-        groupBox1.Controls.Add(textBoxProvider);
-        groupBox1.Controls.Add(textBoxDate);
         groupBox1.Controls.Add(textBoxPrice);
         groupBox1.Location = new Point(0, 0);
-        groupBox1.Margin = new Padding(3, 4, 3, 4);
         groupBox1.Name = "groupBox1";
-        groupBox1.Padding = new Padding(3, 4, 3, 4);
-        groupBox1.Size = new Size(949, 741);
+        groupBox1.Size = new Size(680, 585);
         groupBox1.TabIndex = 13;
         groupBox1.TabStop = false;
         // 
-        // flowLayoutPanel1
+        // buttonBack
         // 
-        flowLayoutPanel1.AutoScroll = true;
-        flowLayoutPanel1.Location = new Point(456, 28);
-        flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
-        flowLayoutPanel1.Name = "flowLayoutPanel1";
-        flowLayoutPanel1.Size = new Size(486, 706);
-        flowLayoutPanel1.TabIndex = 13;
+        buttonBack.BackColor = SystemColors.ControlLightLight;
+        buttonBack.FlatStyle = FlatStyle.Flat;
+        buttonBack.Font = new Font("Segoe UI", 12F);
+        buttonBack.Location = new Point(6, 529);
+        buttonBack.Name = "buttonBack";
+        buttonBack.Size = new Size(100, 50);
+        buttonBack.TabIndex = 19;
+        buttonBack.Text = "Back";
+        buttonBack.UseVisualStyleBackColor = false;
+        // 
+        // buttonAdd
+        // 
+        buttonAdd.BackColor = Color.SpringGreen;
+        buttonAdd.FlatStyle = FlatStyle.Flat;
+        buttonAdd.Font = new Font("Segoe UI", 12F);
+        buttonAdd.Location = new Point(197, 529);
+        buttonAdd.Name = "buttonAdd";
+        buttonAdd.Size = new Size(100, 50);
+        buttonAdd.TabIndex = 18;
+        buttonAdd.Text = "Add";
+        buttonAdd.UseVisualStyleBackColor = false;
+        // 
+        // dateTimePicker
+        // 
+        dateTimePicker.CalendarFont = new Font("Segoe UI", 12F);
+        dateTimePicker.Font = new Font("Segoe UI", 12F);
+        dateTimePicker.Location = new Point(17, 91);
+        dateTimePicker.Name = "dateTimePicker";
+        dateTimePicker.Size = new Size(282, 29);
+        dateTimePicker.TabIndex = 21;
+        // 
+        // labelDate
+        // 
+        labelDate.AutoSize = true;
+        labelDate.Font = new Font("Segoe UI", 12F);
+        labelDate.Location = new Point(17, 67);
+        labelDate.Name = "labelDate";
+        labelDate.Size = new Size(45, 21);
+        labelDate.TabIndex = 20;
+        labelDate.Text = "Date:";
+        // 
+        // groupBox2
+        // 
+        groupBox2.Controls.Add(label4);
+        groupBox2.Controls.Add(label3);
+        groupBox2.Controls.Add(label2);
+        groupBox2.Controls.Add(label1);
+        groupBox2.Font = new Font("Segoe UI", 12F);
+        groupBox2.Location = new Point(17, 200);
+        groupBox2.Name = "groupBox2";
+        groupBox2.Size = new Size(282, 130);
+        groupBox2.TabIndex = 22;
+        groupBox2.TabStop = false;
+        groupBox2.Text = "Provider";
+        // 
+        // label4
+        // 
+        label4.AutoSize = true;
+        label4.Location = new Point(18, 91);
+        label4.Name = "label4";
+        label4.Size = new Size(0, 21);
+        label4.TabIndex = 3;
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.Location = new Point(18, 57);
+        label3.Name = "label3";
+        label3.Size = new Size(0, 21);
+        label3.TabIndex = 2;
+        // 
+        // label2
+        // 
+        label2.AutoSize = true;
+        label2.Location = new Point(148, 25);
+        label2.Name = "label2";
+        label2.Size = new Size(0, 21);
+        label2.TabIndex = 1;
+        // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Location = new Point(18, 25);
+        label1.Name = "label1";
+        label1.Size = new Size(0, 21);
+        label1.TabIndex = 0;
+        // 
+        // tabPageProvider
+        // 
+        tabPageProvider.Controls.Add(flowLayoutPanelProviders);
+        tabPageProvider.Location = new Point(4, 30);
+        tabPageProvider.Name = "tabPageProvider";
+        tabPageProvider.Padding = new Padding(3);
+        tabPageProvider.Size = new Size(354, 529);
+        tabPageProvider.TabIndex = 1;
+        tabPageProvider.Text = "Provider";
+        tabPageProvider.UseVisualStyleBackColor = true;
+        // 
+        // flowLayoutPanelProviders
+        // 
+        flowLayoutPanelProviders.AutoScroll = true;
+        flowLayoutPanelProviders.Location = new Point(0, 0);
+        flowLayoutPanelProviders.Name = "flowLayoutPanelProviders";
+        flowLayoutPanelProviders.Size = new Size(354, 529);
+        flowLayoutPanelProviders.TabIndex = 0;
+        // 
+        // tabPageProducts
+        // 
+        tabPageProducts.Controls.Add(flowLayoutPanelProducts);
+        tabPageProducts.Location = new Point(4, 30);
+        tabPageProducts.Name = "tabPageProducts";
+        tabPageProducts.Padding = new Padding(3);
+        tabPageProducts.Size = new Size(354, 529);
+        tabPageProducts.TabIndex = 0;
+        tabPageProducts.Text = "Products";
+        tabPageProducts.UseVisualStyleBackColor = true;
+        // 
+        // flowLayoutPanelProducts
+        // 
+        flowLayoutPanelProducts.AutoScroll = true;
+        flowLayoutPanelProducts.Location = new Point(0, 0);
+        flowLayoutPanelProducts.Name = "flowLayoutPanelProducts";
+        flowLayoutPanelProducts.Size = new Size(354, 529);
+        flowLayoutPanelProducts.TabIndex = 0;
+        // 
+        // tabControl
+        // 
+        tabControl.Controls.Add(tabPageProducts);
+        tabControl.Controls.Add(tabPageProvider);
+        tabControl.Font = new Font("Segoe UI", 12F);
+        tabControl.Location = new Point(312, 16);
+        tabControl.Name = "tabControl";
+        tabControl.SelectedIndex = 0;
+        tabControl.Size = new Size(362, 563);
+        tabControl.TabIndex = 23;
         // 
         // SupplyAddController
         // 
-        AutoScaleDimensions = new SizeF(8F, 19F);
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
+        BackColor = SystemColors.ControlLightLight;
         Controls.Add(groupBox1);
-        Margin = new Padding(3, 4, 3, 4);
         Name = "SupplyAddController";
-        Size = new Size(949, 741);
+        Size = new Size(680, 585);
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
+        groupBox2.ResumeLayout(false);
+        groupBox2.PerformLayout();
+        tabPageProvider.ResumeLayout(false);
+        tabPageProducts.ResumeLayout(false);
+        tabControl.ResumeLayout(false);
         ResumeLayout(false);
     }
 
     #endregion
 
     private Label label;
-    private Label labelDate;
     private Label labelPrice;
-    private Label labelProvider;
     private TextBox textBoxPrice;
-    private TextBox textBoxDate;
-    private TextBox textBoxProvider;
-    private Button buttonAdd;
-    private Button buttonBack;
     private GroupBox groupBox1;
-    private FlowLayoutPanel flowLayoutPanel1;
+    private Button buttonBack;
+    private Button buttonAdd;
+    private DateTimePicker dateTimePicker;
+    private Label labelDate;
+    private GroupBox groupBox2;
+    private Label label4;
+    private Label label3;
+    private Label label2;
+    private Label label1;
+    private TabControl tabControl;
+    private TabPage tabPageProducts;
+    private FlowLayoutPanel flowLayoutPanelProducts;
+    private TabPage tabPageProvider;
+    private FlowLayoutPanel flowLayoutPanelProviders;
 }

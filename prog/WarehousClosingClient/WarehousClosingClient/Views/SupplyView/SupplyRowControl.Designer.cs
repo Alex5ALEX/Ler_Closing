@@ -28,48 +28,26 @@ partial class SupplyRowControl
     /// </summary>
     private void InitializeComponent()
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplyRowControl));
-        labelId = new Label();
-        labelIdText = new Label();
         labelDate = new Label();
         labelPrice = new Label();
         labelPriceText = new Label();
         labelDateText = new Label();
-        labelIdProvider = new Label();
-        labelProviderText = new Label();
-        buttonCopy = new Button();
         groupBox1 = new GroupBox();
-        buttonCopyProvider = new Button();
+        groupBox2 = new GroupBox();
+        label1 = new Label();
+        label2 = new Label();
+        label3 = new Label();
         groupBox1.SuspendLayout();
+        groupBox2.SuspendLayout();
         SuspendLayout();
-        // 
-        // labelId
-        // 
-        labelId.AutoSize = true;
-        labelId.Font = new Font("Segoe UI", 12F);
-        labelId.Location = new Point(7, 24);
-        labelId.Name = "labelId";
-        labelId.Size = new Size(32, 25);
-        labelId.TabIndex = 0;
-        labelId.Text = "Id:";
-        // 
-        // labelIdText
-        // 
-        labelIdText.AutoSize = true;
-        labelIdText.Font = new Font("Segoe UI", 12F);
-        labelIdText.Location = new Point(7, 58);
-        labelIdText.Name = "labelIdText";
-        labelIdText.Size = new Size(79, 25);
-        labelIdText.TabIndex = 1;
-        labelIdText.Text = "TEXT_ID";
         // 
         // labelDate
         // 
         labelDate.AutoSize = true;
         labelDate.Font = new Font("Segoe UI", 12F);
-        labelDate.Location = new Point(7, 85);
+        labelDate.Location = new Point(4, 19);
         labelDate.Name = "labelDate";
-        labelDate.Size = new Size(55, 25);
+        labelDate.Size = new Size(45, 21);
         labelDate.TabIndex = 2;
         labelDate.Text = "Date:";
         // 
@@ -77,9 +55,9 @@ partial class SupplyRowControl
         // 
         labelPrice.AutoSize = true;
         labelPrice.Font = new Font("Segoe UI", 12F);
-        labelPrice.Location = new Point(4, 110);
+        labelPrice.Location = new Point(6, 49);
         labelPrice.Name = "labelPrice";
-        labelPrice.Size = new Size(58, 25);
+        labelPrice.Size = new Size(47, 21);
         labelPrice.TabIndex = 3;
         labelPrice.Text = "Price:";
         // 
@@ -87,110 +65,97 @@ partial class SupplyRowControl
         // 
         labelPriceText.AutoSize = true;
         labelPriceText.Font = new Font("Segoe UI", 12F);
-        labelPriceText.Location = new Point(62, 110);
+        labelPriceText.Location = new Point(56, 49);
         labelPriceText.Name = "labelPriceText";
-        labelPriceText.Size = new Size(148, 25);
+        labelPriceText.Size = new Size(43, 21);
         labelPriceText.TabIndex = 5;
-        labelPriceText.Text = "TEXT_SURNAME";
+        labelPriceText.Text = "TEXT";
         // 
         // labelDateText
         // 
         labelDateText.AutoSize = true;
         labelDateText.Font = new Font("Segoe UI", 12F);
-        labelDateText.Location = new Point(65, 85);
+        labelDateText.Location = new Point(55, 19);
         labelDateText.Name = "labelDateText";
-        labelDateText.Size = new Size(53, 25);
+        labelDateText.Size = new Size(43, 21);
         labelDateText.TabIndex = 4;
         labelDateText.Text = "TEXT";
         // 
-        // labelIdProvider
-        // 
-        labelIdProvider.AutoSize = true;
-        labelIdProvider.Font = new Font("Segoe UI", 12F);
-        labelIdProvider.Location = new Point(7, 146);
-        labelIdProvider.Name = "labelIdProvider";
-        labelIdProvider.Size = new Size(111, 25);
-        labelIdProvider.TabIndex = 6;
-        labelIdProvider.Text = "Id_Provider:";
-        // 
-        // labelProviderText
-        // 
-        labelProviderText.AutoSize = true;
-        labelProviderText.Font = new Font("Segoe UI", 12F);
-        labelProviderText.Location = new Point(8, 173);
-        labelProviderText.Name = "labelProviderText";
-        labelProviderText.Size = new Size(148, 25);
-        labelProviderText.TabIndex = 7;
-        labelProviderText.Text = "TEXT_PROVIDER";
-        // 
-        // buttonCopy
-        // 
-        buttonCopy.BackgroundImage = (Image)resources.GetObject("buttonCopy.BackgroundImage");
-        buttonCopy.BackgroundImageLayout = ImageLayout.Stretch;
-        buttonCopy.Font = new Font("Segoe UI", 12F);
-        buttonCopy.Location = new Point(43, 15);
-        buttonCopy.Margin = new Padding(3, 4, 3, 4);
-        buttonCopy.Name = "buttonCopy";
-        buttonCopy.Size = new Size(34, 35);
-        buttonCopy.TabIndex = 12;
-        buttonCopy.UseVisualStyleBackColor = true;
-        // 
         // groupBox1
         // 
-        groupBox1.Controls.Add(buttonCopyProvider);
+        groupBox1.Controls.Add(groupBox2);
         groupBox1.Controls.Add(labelPrice);
         groupBox1.Controls.Add(labelDateText);
         groupBox1.Controls.Add(labelPriceText);
-        groupBox1.Controls.Add(labelProviderText);
         groupBox1.Controls.Add(labelDate);
-        groupBox1.Controls.Add(buttonCopy);
-        groupBox1.Controls.Add(labelIdProvider);
-        groupBox1.Controls.Add(labelIdText);
-        groupBox1.Controls.Add(labelId);
         groupBox1.Location = new Point(0, 0);
-        groupBox1.Margin = new Padding(3, 4, 3, 4);
         groupBox1.Name = "groupBox1";
-        groupBox1.Padding = new Padding(3, 4, 3, 4);
-        groupBox1.Size = new Size(429, 204);
+        groupBox1.Size = new Size(535, 161);
         groupBox1.TabIndex = 13;
         groupBox1.TabStop = false;
         // 
-        // buttonCopyProvider
+        // groupBox2
         // 
-        buttonCopyProvider.BackgroundImage = (Image)resources.GetObject("buttonCopyProvider.BackgroundImage");
-        buttonCopyProvider.BackgroundImageLayout = ImageLayout.Stretch;
-        buttonCopyProvider.Font = new Font("Segoe UI", 12F);
-        buttonCopyProvider.Location = new Point(129, 138);
-        buttonCopyProvider.Margin = new Padding(3, 4, 3, 4);
-        buttonCopyProvider.Name = "buttonCopyProvider";
-        buttonCopyProvider.Size = new Size(34, 35);
-        buttonCopyProvider.TabIndex = 14;
-        buttonCopyProvider.UseVisualStyleBackColor = true;
+        groupBox2.Controls.Add(label3);
+        groupBox2.Controls.Add(label2);
+        groupBox2.Controls.Add(label1);
+        groupBox2.Font = new Font("Segoe UI", 12F);
+        groupBox2.Location = new Point(195, 19);
+        groupBox2.Name = "groupBox2";
+        groupBox2.Size = new Size(334, 133);
+        groupBox2.TabIndex = 15;
+        groupBox2.TabStop = false;
+        groupBox2.Text = "Provider";
+        // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Location = new Point(19, 30);
+        label1.Name = "label1";
+        label1.Size = new Size(52, 21);
+        label1.TabIndex = 0;
+        label1.Text = "label1";
+        // 
+        // label2
+        // 
+        label2.AutoSize = true;
+        label2.Location = new Point(19, 63);
+        label2.Name = "label2";
+        label2.Size = new Size(52, 21);
+        label2.TabIndex = 1;
+        label2.Text = "label2";
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.Location = new Point(19, 95);
+        label3.Name = "label3";
+        label3.Size = new Size(52, 21);
+        label3.TabIndex = 2;
+        label3.Text = "label3";
         // 
         // SupplyRowControl
         // 
-        AutoScaleDimensions = new SizeF(8F, 19F);
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(groupBox1);
-        Margin = new Padding(3, 4, 3, 4);
         Name = "SupplyRowControl";
-        Size = new Size(431, 204);
+        Size = new Size(535, 161);
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
+        groupBox2.ResumeLayout(false);
+        groupBox2.PerformLayout();
         ResumeLayout(false);
     }
 
     #endregion
-
-    private Label labelId;
-    private Label labelIdText;
     private Label labelDate;
     private Label labelPrice;
     private Label labelPriceText;
     private Label labelDateText;
-    private Label labelIdProvider;
-    private Label labelProviderText;
-    private Button buttonCopy;
     private GroupBox groupBox1;
-    private Button buttonCopyProvider;
+    private GroupBox groupBox2;
+    private Label label1;
+    private Label label2;
+    private Label label3;
 }

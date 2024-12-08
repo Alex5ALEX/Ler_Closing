@@ -10,24 +10,24 @@ using System.Windows.Forms;
 
 using WarehousClosingClient.Models;
 
-namespace WarehousClosingClient.Views.SupplyView;
+namespace WarehousClosingClient.Views.SupplyView.Rows;
 
-public partial class ProductAddRowControl : UserControl
+public partial class ProductShortRow : UserControl
 {
     public Product product;
 
-    public ProductAddRowControl(Product product)
+    public ProductShortRow(Product product)
     {
         this.product = product;
 
         InitializeComponent();
-        InitializeData();
+        InitData();
         
     }
 
 
 
-    private void InitializeData()
+    private void InitData()
     {
         label3.Text = product.Name.ToString();
         label4.Text = product.Price.ToString("0.00");
@@ -37,8 +37,6 @@ public partial class ProductAddRowControl : UserControl
     {
         numericUpDown1.Value = quantity;
     }
-
-
 
     public int GetQuantity()
     {

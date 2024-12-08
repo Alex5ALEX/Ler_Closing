@@ -68,11 +68,12 @@ public partial class ProviderControl : UserControl
     public void HideActionGroupBox()
     {
         groupBoxAction.Controls.Clear();
-
+        pictureBox1.Visible = true;
     }
 
     private void AddNew(object? sender, EventArgs e)
     {
+        pictureBox1.Visible = false;
         groupBoxAction.Controls.Clear();
         groupBoxAction.Controls.Add(providerAdd);
     }
@@ -81,6 +82,7 @@ public partial class ProviderControl : UserControl
     {
         if (choisedProvider.Id == Guid.Empty) { return; }
 
+        pictureBox1.Visible = false;
         groupBoxAction.Controls.Clear();
         groupBoxAction.Controls.Add(new ProviderEditController(this, choisedProvider));
     }

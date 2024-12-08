@@ -1,6 +1,6 @@
-﻿namespace WarehousClosingClient.Views.SupplyView;
+﻿namespace WarehousClosingClient.Views.SupplyView.Rows;
 
-partial class ProductAddRowControl
+partial class ProductShortRow
 {
     /// <summary> 
     /// Обязательная переменная конструктора.
@@ -47,14 +47,14 @@ partial class ProductAddRowControl
         groupBox1.Controls.Add(label1);
         groupBox1.Location = new Point(0, 0);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(399, 90);
+        groupBox1.Size = new Size(334, 90);
         groupBox1.TabIndex = 0;
         groupBox1.TabStop = false;
         // 
         // numericUpDown1
         // 
         numericUpDown1.Font = new Font("Segoe UI", 12F);
-        numericUpDown1.Location = new Point(274, 17);
+        numericUpDown1.Location = new Point(208, 52);
         numericUpDown1.Name = "numericUpDown1";
         numericUpDown1.Size = new Size(120, 29);
         numericUpDown1.TabIndex = 5;
@@ -99,13 +99,14 @@ partial class ProductAddRowControl
         label1.TabIndex = 1;
         label1.Text = "Name:";
         // 
-        // OrderAddRowControl
+        // ProductAddRowControl
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
+        BackColor = SystemColors.ControlLightLight;
         Controls.Add(groupBox1);
-        Name = "OrderAddRowControl";
-        Size = new Size(400, 90);
+        Name = "ProductAddRowControl";
+        Size = new Size(334, 90);
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();

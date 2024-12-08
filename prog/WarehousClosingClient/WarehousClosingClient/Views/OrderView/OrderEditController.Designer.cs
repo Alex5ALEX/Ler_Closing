@@ -28,201 +28,328 @@ partial class OrderEditController
     /// </summary>
     private void InitializeComponent()
     {
+        label = new Label();
+        groupBox1 = new GroupBox();
+        groupBox3 = new GroupBox();
+        label5 = new Label();
+        label6 = new Label();
+        label7 = new Label();
+        label8 = new Label();
+        groupBox2 = new GroupBox();
+        label4 = new Label();
+        label3 = new Label();
+        label2 = new Label();
+        label1 = new Label();
+        dateTimePicker = new DateTimePicker();
+        labelDate = new Label();
+        buttonDelete = new Button();
         buttonBack = new Button();
         buttonEdit = new Button();
-        label = new Label();
-        buttonDelete = new Button();
-        groupBox1 = new GroupBox();
-        labelId = new Label();
-        textBoxId = new TextBox();
-        labelDate = new Label();
-        labelCustomer = new Label();
-        labelEmployee = new Label();
-        textBoxEmployee = new TextBox();
-        textBoxDate = new TextBox();
-        textBoxCustomer = new TextBox();
-        flowLayoutPanel1 = new FlowLayoutPanel();
+        tabControl = new TabControl();
+        tabPageProducts = new TabPage();
+        flowLayoutPanelProducts = new FlowLayoutPanel();
+        tabPageCustomer = new TabPage();
+        flowLayoutPanelCustomers = new FlowLayoutPanel();
+        tabPageEmployee = new TabPage();
+        flowLayoutPanelEmployers = new FlowLayoutPanel();
         groupBox1.SuspendLayout();
+        groupBox3.SuspendLayout();
+        groupBox2.SuspendLayout();
+        tabControl.SuspendLayout();
+        tabPageProducts.SuspendLayout();
+        tabPageCustomer.SuspendLayout();
+        tabPageEmployee.SuspendLayout();
         SuspendLayout();
-        // 
-        // buttonBack
-        // 
-        buttonBack.Font = new Font("Segoe UI", 12F);
-        buttonBack.Location = new Point(7, 643);
-        buttonBack.Margin = new Padding(3, 4, 3, 4);
-        buttonBack.Name = "buttonBack";
-        buttonBack.Size = new Size(99, 90);
-        buttonBack.TabIndex = 25;
-        buttonBack.Text = "Back";
-        buttonBack.UseVisualStyleBackColor = true;
-        // 
-        // buttonEdit
-        // 
-        buttonEdit.Font = new Font("Segoe UI", 12F);
-        buttonEdit.Location = new Point(345, 643);
-        buttonEdit.Margin = new Padding(3, 4, 3, 4);
-        buttonEdit.Name = "buttonEdit";
-        buttonEdit.Size = new Size(99, 90);
-        buttonEdit.TabIndex = 24;
-        buttonEdit.Text = "Edit";
-        buttonEdit.UseVisualStyleBackColor = true;
         // 
         // label
         // 
         label.AutoSize = true;
         label.Font = new Font("Segoe UI", 20F);
-        label.Location = new Point(7, 24);
+        label.Location = new Point(6, 19);
         label.Name = "label";
-        label.Size = new Size(158, 42);
+        label.Size = new Size(138, 37);
         label.TabIndex = 13;
         label.Text = "Edit Order";
         // 
-        // buttonDelete
-        // 
-        buttonDelete.Font = new Font("Segoe UI", 12F);
-        buttonDelete.Location = new Point(173, 643);
-        buttonDelete.Margin = new Padding(3, 4, 3, 4);
-        buttonDelete.Name = "buttonDelete";
-        buttonDelete.Size = new Size(99, 90);
-        buttonDelete.TabIndex = 28;
-        buttonDelete.Text = "Delete";
-        buttonDelete.UseVisualStyleBackColor = true;
-        // 
         // groupBox1
         // 
-        groupBox1.Controls.Add(labelId);
-        groupBox1.Controls.Add(textBoxId);
-        groupBox1.Controls.Add(label);
-        groupBox1.Controls.Add(labelDate);
+        groupBox1.Controls.Add(tabControl);
         groupBox1.Controls.Add(buttonDelete);
-        groupBox1.Controls.Add(labelCustomer);
         groupBox1.Controls.Add(buttonBack);
-        groupBox1.Controls.Add(labelEmployee);
         groupBox1.Controls.Add(buttonEdit);
-        groupBox1.Controls.Add(textBoxEmployee);
-        groupBox1.Controls.Add(textBoxDate);
-        groupBox1.Controls.Add(textBoxCustomer);
+        groupBox1.Controls.Add(groupBox3);
+        groupBox1.Controls.Add(groupBox2);
+        groupBox1.Controls.Add(dateTimePicker);
+        groupBox1.Controls.Add(labelDate);
+        groupBox1.Controls.Add(label);
         groupBox1.Location = new Point(0, 0);
-        groupBox1.Margin = new Padding(3, 4, 3, 4);
         groupBox1.Name = "groupBox1";
-        groupBox1.Padding = new Padding(3, 4, 3, 4);
-        groupBox1.Size = new Size(949, 741);
+        groupBox1.Size = new Size(680, 585);
         groupBox1.TabIndex = 29;
         groupBox1.TabStop = false;
         // 
-        // labelId
+        // groupBox3
         // 
-        labelId.AutoSize = true;
-        labelId.Font = new Font("Segoe UI", 12F);
-        labelId.Location = new Point(19, 113);
-        labelId.Name = "labelId";
-        labelId.Size = new Size(32, 25);
-        labelId.TabIndex = 36;
-        labelId.Text = "Id:";
+        groupBox3.Controls.Add(label5);
+        groupBox3.Controls.Add(label6);
+        groupBox3.Controls.Add(label7);
+        groupBox3.Controls.Add(label8);
+        groupBox3.Font = new Font("Segoe UI", 12F);
+        groupBox3.Location = new Point(16, 310);
+        groupBox3.Name = "groupBox3";
+        groupBox3.Size = new Size(282, 130);
+        groupBox3.TabIndex = 23;
+        groupBox3.TabStop = false;
+        groupBox3.Text = "Employee";
         // 
-        // textBoxId
+        // label5
         // 
-        textBoxId.Font = new Font("Segoe UI", 12F);
-        textBoxId.Location = new Point(122, 103);
-        textBoxId.Margin = new Padding(3, 4, 3, 4);
-        textBoxId.Name = "textBoxId";
-        textBoxId.Size = new Size(322, 32);
-        textBoxId.TabIndex = 37;
+        label5.AutoSize = true;
+        label5.Location = new Point(18, 100);
+        label5.Name = "label5";
+        label5.Size = new Size(0, 21);
+        label5.TabIndex = 7;
+        // 
+        // label6
+        // 
+        label6.AutoSize = true;
+        label6.Location = new Point(18, 68);
+        label6.Name = "label6";
+        label6.Size = new Size(0, 21);
+        label6.TabIndex = 6;
+        // 
+        // label7
+        // 
+        label7.AutoSize = true;
+        label7.Location = new Point(148, 34);
+        label7.Name = "label7";
+        label7.Size = new Size(0, 21);
+        label7.TabIndex = 5;
+        // 
+        // label8
+        // 
+        label8.AutoSize = true;
+        label8.Location = new Point(18, 34);
+        label8.Name = "label8";
+        label8.Size = new Size(0, 21);
+        label8.TabIndex = 4;
+        // 
+        // groupBox2
+        // 
+        groupBox2.Controls.Add(label4);
+        groupBox2.Controls.Add(label3);
+        groupBox2.Controls.Add(label2);
+        groupBox2.Controls.Add(label1);
+        groupBox2.Font = new Font("Segoe UI", 12F);
+        groupBox2.Location = new Point(16, 149);
+        groupBox2.Name = "groupBox2";
+        groupBox2.Size = new Size(282, 130);
+        groupBox2.TabIndex = 22;
+        groupBox2.TabStop = false;
+        groupBox2.Text = "Customer";
+        // 
+        // label4
+        // 
+        label4.AutoSize = true;
+        label4.Location = new Point(18, 91);
+        label4.Name = "label4";
+        label4.Size = new Size(0, 21);
+        label4.TabIndex = 3;
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.Location = new Point(18, 57);
+        label3.Name = "label3";
+        label3.Size = new Size(0, 21);
+        label3.TabIndex = 2;
+        // 
+        // label2
+        // 
+        label2.AutoSize = true;
+        label2.Location = new Point(148, 25);
+        label2.Name = "label2";
+        label2.Size = new Size(0, 21);
+        label2.TabIndex = 1;
+        // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Location = new Point(18, 25);
+        label1.Name = "label1";
+        label1.Size = new Size(0, 21);
+        label1.TabIndex = 0;
+        // 
+        // dateTimePicker
+        // 
+        dateTimePicker.CalendarFont = new Font("Segoe UI", 12F);
+        dateTimePicker.Font = new Font("Segoe UI", 12F);
+        dateTimePicker.Location = new Point(16, 92);
+        dateTimePicker.Name = "dateTimePicker";
+        dateTimePicker.Size = new Size(282, 29);
+        dateTimePicker.TabIndex = 21;
         // 
         // labelDate
         // 
         labelDate.AutoSize = true;
         labelDate.Font = new Font("Segoe UI", 12F);
-        labelDate.Location = new Point(19, 172);
+        labelDate.Location = new Point(16, 68);
         labelDate.Name = "labelDate";
-        labelDate.Size = new Size(55, 25);
-        labelDate.TabIndex = 30;
+        labelDate.Size = new Size(45, 21);
+        labelDate.TabIndex = 20;
         labelDate.Text = "Date:";
         // 
-        // labelCustomer
+        // buttonDelete
         // 
-        labelCustomer.AutoSize = true;
-        labelCustomer.Font = new Font("Segoe UI", 12F);
-        labelCustomer.Location = new Point(19, 225);
-        labelCustomer.Name = "labelCustomer";
-        labelCustomer.Size = new Size(97, 25);
-        labelCustomer.TabIndex = 31;
-        labelCustomer.Text = "Customer:";
+        buttonDelete.BackColor = Color.Red;
+        buttonDelete.FlatStyle = FlatStyle.Flat;
+        buttonDelete.Font = new Font("Segoe UI", 12F);
+        buttonDelete.ForeColor = SystemColors.ControlText;
+        buttonDelete.Location = new Point(108, 529);
+        buttonDelete.Name = "buttonDelete";
+        buttonDelete.Size = new Size(90, 50);
+        buttonDelete.TabIndex = 31;
+        buttonDelete.Text = "Delete";
+        buttonDelete.UseVisualStyleBackColor = false;
         // 
-        // labelEmployee
+        // buttonBack
         // 
-        labelEmployee.AutoSize = true;
-        labelEmployee.Font = new Font("Segoe UI", 12F);
-        labelEmployee.Location = new Point(19, 284);
-        labelEmployee.Name = "labelEmployee";
-        labelEmployee.Size = new Size(98, 25);
-        labelEmployee.TabIndex = 32;
-        labelEmployee.Text = "Employee:";
+        buttonBack.FlatStyle = FlatStyle.Flat;
+        buttonBack.Font = new Font("Segoe UI", 12F);
+        buttonBack.ForeColor = SystemColors.ControlText;
+        buttonBack.Location = new Point(6, 529);
+        buttonBack.Name = "buttonBack";
+        buttonBack.Size = new Size(90, 50);
+        buttonBack.TabIndex = 30;
+        buttonBack.Text = "Back";
+        buttonBack.UseVisualStyleBackColor = true;
         // 
-        // textBoxEmployee
+        // buttonEdit
         // 
-        textBoxEmployee.Font = new Font("Segoe UI", 12F);
-        textBoxEmployee.Location = new Point(122, 274);
-        textBoxEmployee.Margin = new Padding(3, 4, 3, 4);
-        textBoxEmployee.Name = "textBoxEmployee";
-        textBoxEmployee.Size = new Size(322, 32);
-        textBoxEmployee.TabIndex = 35;
+        buttonEdit.BackColor = Color.Aqua;
+        buttonEdit.FlatStyle = FlatStyle.Flat;
+        buttonEdit.Font = new Font("Segoe UI", 12F);
+        buttonEdit.ForeColor = SystemColors.ControlText;
+        buttonEdit.Location = new Point(208, 529);
+        buttonEdit.Name = "buttonEdit";
+        buttonEdit.Size = new Size(90, 50);
+        buttonEdit.TabIndex = 29;
+        buttonEdit.Text = "Edit";
+        buttonEdit.UseVisualStyleBackColor = false;
         // 
-        // textBoxDate
+        // tabControl
         // 
-        textBoxDate.Font = new Font("Segoe UI", 12F);
-        textBoxDate.Location = new Point(122, 162);
-        textBoxDate.Margin = new Padding(3, 4, 3, 4);
-        textBoxDate.Name = "textBoxDate";
-        textBoxDate.Size = new Size(322, 32);
-        textBoxDate.TabIndex = 34;
+        tabControl.Controls.Add(tabPageProducts);
+        tabControl.Controls.Add(tabPageCustomer);
+        tabControl.Controls.Add(tabPageEmployee);
+        tabControl.Font = new Font("Segoe UI", 12F);
+        tabControl.Location = new Point(312, 16);
+        tabControl.Name = "tabControl";
+        tabControl.SelectedIndex = 0;
+        tabControl.Size = new Size(362, 563);
+        tabControl.TabIndex = 32;
         // 
-        // textBoxCustomer
+        // tabPageProducts
         // 
-        textBoxCustomer.Font = new Font("Segoe UI", 12F);
-        textBoxCustomer.Location = new Point(122, 215);
-        textBoxCustomer.Margin = new Padding(3, 4, 3, 4);
-        textBoxCustomer.Name = "textBoxCustomer";
-        textBoxCustomer.Size = new Size(322, 32);
-        textBoxCustomer.TabIndex = 33;
+        tabPageProducts.Controls.Add(flowLayoutPanelProducts);
+        tabPageProducts.Location = new Point(4, 30);
+        tabPageProducts.Name = "tabPageProducts";
+        tabPageProducts.Padding = new Padding(3);
+        tabPageProducts.Size = new Size(354, 529);
+        tabPageProducts.TabIndex = 0;
+        tabPageProducts.Text = "Products";
+        tabPageProducts.UseVisualStyleBackColor = true;
         // 
-        // flowLayoutPanel1
+        // flowLayoutPanelProducts
         // 
-        flowLayoutPanel1.AutoScroll = true;
-        flowLayoutPanel1.Location = new Point(451, 18);
-        flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
-        flowLayoutPanel1.Name = "flowLayoutPanel1";
-        flowLayoutPanel1.Size = new Size(486, 716);
-        flowLayoutPanel1.TabIndex = 36;
+        flowLayoutPanelProducts.AutoScroll = true;
+        flowLayoutPanelProducts.Location = new Point(0, 0);
+        flowLayoutPanelProducts.Name = "flowLayoutPanelProducts";
+        flowLayoutPanelProducts.Size = new Size(354, 529);
+        flowLayoutPanelProducts.TabIndex = 0;
+        // 
+        // tabPageCustomer
+        // 
+        tabPageCustomer.Controls.Add(flowLayoutPanelCustomers);
+        tabPageCustomer.Location = new Point(4, 30);
+        tabPageCustomer.Name = "tabPageCustomer";
+        tabPageCustomer.Padding = new Padding(3);
+        tabPageCustomer.Size = new Size(354, 529);
+        tabPageCustomer.TabIndex = 1;
+        tabPageCustomer.Text = "Customer";
+        tabPageCustomer.UseVisualStyleBackColor = true;
+        // 
+        // flowLayoutPanelCustomers
+        // 
+        flowLayoutPanelCustomers.AutoScroll = true;
+        flowLayoutPanelCustomers.Location = new Point(0, 0);
+        flowLayoutPanelCustomers.Name = "flowLayoutPanelCustomers";
+        flowLayoutPanelCustomers.Size = new Size(354, 529);
+        flowLayoutPanelCustomers.TabIndex = 0;
+        // 
+        // tabPageEmployee
+        // 
+        tabPageEmployee.Controls.Add(flowLayoutPanelEmployers);
+        tabPageEmployee.Location = new Point(4, 30);
+        tabPageEmployee.Name = "tabPageEmployee";
+        tabPageEmployee.Padding = new Padding(3);
+        tabPageEmployee.Size = new Size(354, 529);
+        tabPageEmployee.TabIndex = 2;
+        tabPageEmployee.Text = "Employee";
+        tabPageEmployee.UseVisualStyleBackColor = true;
+        // 
+        // flowLayoutPanelEmployers
+        // 
+        flowLayoutPanelEmployers.AutoScroll = true;
+        flowLayoutPanelEmployers.Location = new Point(0, 0);
+        flowLayoutPanelEmployers.Name = "flowLayoutPanelEmployers";
+        flowLayoutPanelEmployers.Size = new Size(354, 529);
+        flowLayoutPanelEmployers.TabIndex = 0;
         // 
         // OrderEditController
         // 
-        AutoScaleDimensions = new SizeF(8F, 19F);
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        Controls.Add(flowLayoutPanel1);
+        BackColor = SystemColors.ControlLightLight;
         Controls.Add(groupBox1);
-        Margin = new Padding(3, 4, 3, 4);
         Name = "OrderEditController";
-        Size = new Size(949, 741);
+        Size = new Size(680, 585);
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
+        groupBox3.ResumeLayout(false);
+        groupBox3.PerformLayout();
+        groupBox2.ResumeLayout(false);
+        groupBox2.PerformLayout();
+        tabControl.ResumeLayout(false);
+        tabPageProducts.ResumeLayout(false);
+        tabPageCustomer.ResumeLayout(false);
+        tabPageEmployee.ResumeLayout(false);
         ResumeLayout(false);
     }
 
     #endregion
-
+    private Label label;
+    private GroupBox groupBox1;
+    private GroupBox groupBox3;
+    private Label label5;
+    private Label label6;
+    private Label label7;
+    private Label label8;
+    private GroupBox groupBox2;
+    private Label label4;
+    private Label label3;
+    private Label label2;
+    private Label label1;
+    private DateTimePicker dateTimePicker;
+    private Label labelDate;
+    private Button buttonDelete;
     private Button buttonBack;
     private Button buttonEdit;
-    private Label label;
-    private Button buttonDelete;
-    private GroupBox groupBox1;
-    private FlowLayoutPanel flowLayoutPanel1;
-    private Label labelDate;
-    private Label labelCustomer;
-    private Label labelEmployee;
-    private TextBox textBoxEmployee;
-    private TextBox textBoxDate;
-    private TextBox textBoxCustomer;
-    private Label labelId;
-    private TextBox textBoxId;
+    private TabControl tabControl;
+    private TabPage tabPageProducts;
+    private FlowLayoutPanel flowLayoutPanelProducts;
+    private TabPage tabPageCustomer;
+    private FlowLayoutPanel flowLayoutPanelCustomers;
+    private TabPage tabPageEmployee;
+    private FlowLayoutPanel flowLayoutPanelEmployers;
 }

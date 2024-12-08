@@ -30,14 +30,17 @@ public partial class ProductRowControl : UserControl
         InitializeData();
 
 
-        buttonCopy.Click += CopyId;
+        
         groupBox1.Click += change_selected_Id;
+        labelName.Click += change_selected_Id;
+        labelNameText.Click += change_selected_Id;
+        labelPrice.Click += change_selected_Id;
+        labelPriceText.Click += change_selected_Id;
     }
 
 
     private void InitializeData()
     {
-        labelIdText.Text = product.Id.ToString();
         labelNameText.Text = product.Name;
         labelPriceText.Text = product.Price.ToString();
     }

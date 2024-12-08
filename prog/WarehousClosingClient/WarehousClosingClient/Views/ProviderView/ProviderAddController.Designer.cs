@@ -39,9 +39,9 @@
             textBoxPhone = new TextBox();
             textBoxEmail = new TextBox();
             textBoxAddres = new TextBox();
-            buttonAdd = new Button();
-            buttonBack = new Button();
             groupBox1 = new GroupBox();
+            buttonBack = new Button();
+            buttonAdd = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,9 +49,9 @@
             // 
             label.AutoSize = true;
             label.Font = new Font("Segoe UI", 20F);
-            label.Location = new Point(7, 24);
+            label.Location = new Point(6, 19);
             label.Name = "label";
-            label.Size = new Size(196, 42);
+            label.Size = new Size(172, 37);
             label.TabIndex = 0;
             label.Text = "Add Provider";
             // 
@@ -59,9 +59,9 @@
             // 
             labelCompany.AutoSize = true;
             labelCompany.Font = new Font("Segoe UI", 12F);
-            labelCompany.Location = new Point(31, 153);
+            labelCompany.Location = new Point(27, 71);
             labelCompany.Name = "labelCompany";
-            labelCompany.Size = new Size(96, 25);
+            labelCompany.Size = new Size(80, 21);
             labelCompany.TabIndex = 1;
             labelCompany.Text = "Company:";
             // 
@@ -69,19 +69,19 @@
             // 
             labelContactPersom.AutoSize = true;
             labelContactPersom.Font = new Font("Segoe UI", 12F);
-            labelContactPersom.Location = new Point(31, 199);
+            labelContactPersom.Location = new Point(27, 127);
             labelContactPersom.Name = "labelContactPersom";
-            labelContactPersom.Size = new Size(77, 50);
+            labelContactPersom.Size = new Size(117, 21);
             labelContactPersom.TabIndex = 2;
-            labelContactPersom.Text = "Contact\nPerson:";
+            labelContactPersom.Text = "Contact Person:";
             // 
             // labelPhone
             // 
             labelPhone.AutoSize = true;
             labelPhone.Font = new Font("Segoe UI", 12F);
-            labelPhone.Location = new Point(37, 285);
+            labelPhone.Location = new Point(26, 183);
             labelPhone.Name = "labelPhone";
-            labelPhone.Size = new Size(70, 25);
+            labelPhone.Size = new Size(57, 21);
             labelPhone.TabIndex = 3;
             labelPhone.Text = "Phone:";
             // 
@@ -89,9 +89,9 @@
             // 
             labelEmail.AutoSize = true;
             labelEmail.Font = new Font("Segoe UI", 12F);
-            labelEmail.Location = new Point(37, 348);
+            labelEmail.Location = new Point(26, 239);
             labelEmail.Name = "labelEmail";
-            labelEmail.Size = new Size(62, 25);
+            labelEmail.Size = new Size(51, 21);
             labelEmail.TabIndex = 4;
             labelEmail.Text = "Email:";
             // 
@@ -99,85 +99,59 @@
             // 
             labelAddres.AutoSize = true;
             labelAddres.Font = new Font("Segoe UI", 12F);
-            labelAddres.Location = new Point(37, 412);
+            labelAddres.Location = new Point(26, 295);
             labelAddres.Name = "labelAddres";
-            labelAddres.Size = new Size(75, 25);
+            labelAddres.Size = new Size(62, 21);
             labelAddres.TabIndex = 5;
             labelAddres.Text = "Addres:";
             // 
             // textBoxContactPerson
             // 
             textBoxContactPerson.Font = new Font("Segoe UI", 12F);
-            textBoxContactPerson.Location = new Point(129, 215);
-            textBoxContactPerson.Margin = new Padding(3, 4, 3, 4);
+            textBoxContactPerson.Location = new Point(27, 151);
             textBoxContactPerson.Name = "textBoxContactPerson";
-            textBoxContactPerson.Size = new Size(332, 32);
+            textBoxContactPerson.Size = new Size(291, 29);
             textBoxContactPerson.TabIndex = 6;
             // 
             // textBoxCompany
             // 
             textBoxCompany.Font = new Font("Segoe UI", 12F);
-            textBoxCompany.Location = new Point(129, 143);
-            textBoxCompany.Margin = new Padding(3, 4, 3, 4);
+            textBoxCompany.Location = new Point(27, 95);
             textBoxCompany.Name = "textBoxCompany";
-            textBoxCompany.Size = new Size(332, 32);
+            textBoxCompany.Size = new Size(291, 29);
             textBoxCompany.TabIndex = 7;
             // 
             // textBoxPhone
             // 
             textBoxPhone.Font = new Font("Segoe UI", 12F);
-            textBoxPhone.Location = new Point(129, 275);
-            textBoxPhone.Margin = new Padding(3, 4, 3, 4);
+            textBoxPhone.Location = new Point(26, 207);
             textBoxPhone.Name = "textBoxPhone";
-            textBoxPhone.Size = new Size(332, 32);
+            textBoxPhone.Size = new Size(291, 29);
             textBoxPhone.TabIndex = 8;
             // 
             // textBoxEmail
             // 
             textBoxEmail.Font = new Font("Segoe UI", 12F);
-            textBoxEmail.Location = new Point(129, 338);
-            textBoxEmail.Margin = new Padding(3, 4, 3, 4);
+            textBoxEmail.Location = new Point(26, 263);
             textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(332, 32);
+            textBoxEmail.Size = new Size(291, 29);
             textBoxEmail.TabIndex = 9;
             // 
             // textBoxAddres
             // 
             textBoxAddres.Font = new Font("Segoe UI", 12F);
-            textBoxAddres.Location = new Point(129, 402);
-            textBoxAddres.Margin = new Padding(3, 4, 3, 4);
+            textBoxAddres.Location = new Point(26, 319);
             textBoxAddres.Name = "textBoxAddres";
-            textBoxAddres.Size = new Size(332, 32);
+            textBoxAddres.Size = new Size(291, 29);
             textBoxAddres.TabIndex = 10;
-            // 
-            // buttonAdd
-            // 
-            buttonAdd.Font = new Font("Segoe UI", 12F);
-            buttonAdd.Location = new Point(351, 645);
-            buttonAdd.Margin = new Padding(3, 4, 3, 4);
-            buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(139, 89);
-            buttonAdd.TabIndex = 11;
-            buttonAdd.Text = "Add";
-            buttonAdd.UseVisualStyleBackColor = true;
-            // 
-            // buttonBack
-            // 
-            buttonBack.Font = new Font("Segoe UI", 12F);
-            buttonBack.Location = new Point(7, 645);
-            buttonBack.Margin = new Padding(3, 4, 3, 4);
-            buttonBack.Name = "buttonBack";
-            buttonBack.Size = new Size(139, 89);
-            buttonBack.TabIndex = 12;
-            buttonBack.Text = "Back";
-            buttonBack.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label);
+            groupBox1.BackColor = SystemColors.ControlLightLight;
             groupBox1.Controls.Add(buttonBack);
-            groupBox1.Controls.Add(labelCompany);
             groupBox1.Controls.Add(buttonAdd);
+            groupBox1.Controls.Add(label);
+            groupBox1.Controls.Add(labelCompany);
             groupBox1.Controls.Add(labelContactPersom);
             groupBox1.Controls.Add(textBoxAddres);
             groupBox1.Controls.Add(labelPhone);
@@ -188,21 +162,43 @@
             groupBox1.Controls.Add(textBoxCompany);
             groupBox1.Controls.Add(textBoxContactPerson);
             groupBox1.Location = new Point(0, 0);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(497, 741);
+            groupBox1.Size = new Size(340, 615);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             // 
+            // buttonBack
+            // 
+            buttonBack.BackColor = SystemColors.ControlLightLight;
+            buttonBack.FlatStyle = FlatStyle.Flat;
+            buttonBack.Font = new Font("Segoe UI", 12F);
+            buttonBack.Location = new Point(9, 559);
+            buttonBack.Name = "buttonBack";
+            buttonBack.Size = new Size(100, 50);
+            buttonBack.TabIndex = 14;
+            buttonBack.Text = "Back";
+            buttonBack.UseVisualStyleBackColor = false;
+            // 
+            // buttonAdd
+            // 
+            buttonAdd.BackColor = Color.SpringGreen;
+            buttonAdd.FlatStyle = FlatStyle.Flat;
+            buttonAdd.Font = new Font("Segoe UI", 12F);
+            buttonAdd.Location = new Point(237, 559);
+            buttonAdd.Name = "buttonAdd";
+            buttonAdd.Size = new Size(100, 50);
+            buttonAdd.TabIndex = 13;
+            buttonAdd.Text = "Add";
+            buttonAdd.UseVisualStyleBackColor = false;
+            // 
             // ProviderAddController
             // 
-            AutoScaleDimensions = new SizeF(8F, 19F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             Controls.Add(groupBox1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ProviderAddController";
-            Size = new Size(497, 741);
+            Size = new Size(340, 615);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -221,8 +217,8 @@
         private TextBox textBoxPhone;
         private TextBox textBoxEmail;
         private TextBox textBoxAddres;
-        private Button buttonAdd;
-        private Button buttonBack;
         private GroupBox groupBox1;
+        private Button buttonBack;
+        private Button buttonAdd;
     }
 }

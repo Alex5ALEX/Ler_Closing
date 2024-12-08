@@ -25,8 +25,7 @@ public partial class CustomerControl : UserControl
         InitializeData();
         UpdateData();
 
-
-        buttonMenu.Click += CallMenu;
+        buttonMenu.Click += mainForm.ShowMenuButton;
 
         buttonAddNew.Click += AddNew;
         buttonEdit.Click += Edit;
@@ -40,14 +39,6 @@ public partial class CustomerControl : UserControl
         customerController = new CustomerController(mainForm.httpClient);
         customerAdd = new CustomerAddController(this);
     }
-
-
-
-    private void CallMenu(object sender, EventArgs e)
-    {
-        mainForm.ShowMenuControl();
-    }
-
 
 
     public async void UpdateData()
@@ -68,11 +59,12 @@ public partial class CustomerControl : UserControl
     public void HideActionGroupBox()
     {
         groupBoxAction.Controls.Clear();
-
+        pictureBox1.Visible = true;
     }
 
     private void AddNew(object? sender, EventArgs e)
     {
+        pictureBox1.Visible = false;
         groupBoxAction.Controls.Clear();
         groupBoxAction.Controls.Add(customerAdd);
     }
@@ -80,9 +72,10 @@ public partial class CustomerControl : UserControl
     private void Edit(object? sender, EventArgs e)
     {
         if (choisedCustomer.Id == Guid.Empty) { return; }
-
+        
+        pictureBox1.Visible = false;
         groupBoxAction.Controls.Clear();
-        groupBoxAction.Controls.Add(new CustomerEditController(this,choisedCustomer));
+        groupBoxAction.Controls.Add(new CustomerEditController(this, choisedCustomer));
     }
 
 

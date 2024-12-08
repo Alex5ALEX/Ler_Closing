@@ -46,7 +46,6 @@ public partial class ProductEditController : UserControl
 
     private async void InitializeData()
     {
-        richTextBoxId.Text = product.Id.ToString();
         textBoxName.Text = product.Name;
         textBoxPrice.Text = product.Price.ToString();
     }

@@ -1,30 +1,22 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-
+﻿using WarehousClosingClient.Logic;
 using WarehousClosingClient.Models;
+
+
 namespace WarehousClosingClient.Views.EmployeeView;
 
 public partial class EmployeeEditController : UserControl
 {
     private EmployeeControl mainController;
     private Employee employee;
-
+    private Validation validation;
 
 
     public EmployeeEditController(EmployeeControl mainController, Employee employee)
     {
         this.mainController = mainController;
         this.employee = employee;
+        validation = new Validation();
+
 
         InitializeComponent();
         InitializeData();
@@ -46,7 +38,6 @@ public partial class EmployeeEditController : UserControl
 
     private async void InitializeData()
     {
-        richTextBoxId.Text = employee.Id.ToString();
         textBoxName.Text = employee.Name;
         textBoxSurname.Text = employee.Surname;
         textBoxJobtitle.Text = employee.JobTitle;
@@ -69,6 +60,9 @@ public partial class EmployeeEditController : UserControl
             MessageBox.Show("Пожалуйста, заполните все поля.");
             return;
         }
+
+        if (!validation.ValidatePhone(textBoxPhone.Text)) { MessageBox.Show("Телефон введен не верно!"); return; };
+        if (!validation.ValidateEmail(textBoxEmail.Text)) { MessageBox.Show("Email введен не верно!"); return; };
 
 
         employee.Name = textBoxName.Text;

@@ -1,24 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using System.Xml.Linq;
+﻿using WarehousClosingClient.Views.OrderView.Rows;
 using WarehousClosingClient.Models;
-using WarehousClosingClient.Controllers;
-using System.Windows.Forms.VisualStyles;
-using System.Net.Http;
-using System.Security.Policy;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Reflection.Metadata;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace WarehousClosingClient.Views.OrderView;
 
@@ -26,7 +8,13 @@ public partial class OrderAddController : UserControl
 {
 
     private OrderControl mainController;
-    private List<ProductAddRowControl> productRow { get; set; } = [];
+    private List<ProductShortRow> productRow { get; set; } = [];
+    private List<CustomerShortRow> customerRow { get; set; } = [];
+    private List<EmployeeShortRow> employeeRow { get; set; } = [];
+
+    public Customer choisedCustomer { get; set; } = new Customer() {Id = Guid.Empty };
+    public Employee choisedEmployee { get; set; } = new Employee() { Id = Guid.Empty };
+
 
 
     public OrderAddController(OrderControl mainController)
@@ -34,121 +22,128 @@ public partial class OrderAddController : UserControl
         this.mainController = mainController;
 
         InitializeComponent();
-        InitializeData();
-       
+        InitData();
+
 
         buttonBack.Click += Back;
         buttonAdd.Click += AddItem;
     }
 
+    //memu
     private void Back(object? sender, EventArgs e)
     {
         mainController.HideActionGroupBox();
     }
 
 
-    public async void InitializeData()
+
+    //data
+    public async void InitData()
     {
-        flowLayoutPanel1.Controls.Clear();
+        InitProducts();
+        InitCustomers();
+        InitEmployee();
+    }
+
+
+    public async void InitProducts()
+    {
+        flowLayoutPanelProducts.Controls.Clear();
+        productRow.Clear();
 
         var products = await mainController.productController.GetAllProductsAsync();
 
         foreach (var item in products)
         {
-            var token = new ProductAddRowControl(item);
+            var token = new ProductShortRow(item);
             productRow.Add(token);
-            flowLayoutPanel1.Controls.Add(token);
+            flowLayoutPanelProducts.Controls.Add(token);
         }
-
+        
     }
 
-  
+    public async void InitCustomers()
+    {
+        flowLayoutPanelCustomers.Controls.Clear();
+        customerRow.Clear();
+
+        var customers = await mainController.customerController.GetAllCustomersAsync();
+
+        foreach (var item in customers)
+        {
+            var token = new CustomerShortRow(this, item);
+            customerRow.Add(token);
+            flowLayoutPanelCustomers.Controls.Add(token);
+        }
+    }
+
+    public async void InitEmployee()
+    {
+        flowLayoutPanelEmployers.Controls.Clear();
+        employeeRow.Clear();
+
+        var employee = await mainController.employeeController.GetAllEmployersAsync();
+
+        foreach (var item in employee)
+        {
+            var token = new EmployeeShortRow(this, item);
+            employeeRow.Add(token);
+            flowLayoutPanelEmployers.Controls.Add(token);
+        }
+    }
+
+
+
+    //action
+
+    public void ShowCustomer()
+    {
+        label1.Text = choisedCustomer.Name;
+        label2.Text = choisedCustomer.Surname;
+        label3.Text = choisedCustomer.Phone;
+        label4.Text = choisedCustomer.Email;
+    }
+
+    public void ShowEmployee()
+    {
+        label8.Text = choisedEmployee.Name;
+        label7.Text = choisedEmployee.Surname;
+        label6.Text = choisedEmployee.Phone;
+        label5.Text = choisedEmployee.Email;
+    }
+
+
+
 
     private async void AddItem(object? sender, EventArgs e)
     {
         //проверка что пользователь ввел все поля
-        if (string.IsNullOrWhiteSpace(textBoxDate.Text) ||
-        string.IsNullOrWhiteSpace(textBoxCustomer.Text) ||
-        string.IsNullOrWhiteSpace(textBoxEmployee.Text))
+        if (choisedCustomer.Id == Guid.Empty ||
+        choisedEmployee.Id == Guid.Empty)
         {
-            MessageBox.Show("Пожалуйста, заполните все поля.");
+            MessageBox.Show("Пожалуйста, выберите работника/покупателя.");
             return;
         }
 
 
-        //проверка на правильный ввод даты
-        DateTime date = DateTime.Now;
-
-        if (!DateTime.TryParseExact(textBoxDate.Text, "d M yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date))
-        {
-            MessageBox.Show("Дата введена не верно. Введите в формате: dd MM yyyy");
-            return;
-        }
-
-
-        //проверка на наличие клиента/ работника
-        Guid idEmployee = Guid.Empty;
-        Guid idCustomer = Guid.Empty;
-
-        if(!Guid.TryParse(textBoxEmployee.Text, out idEmployee)||
-            !Guid.TryParse(textBoxCustomer.Text, out idCustomer))
-        {
-            MessageBox.Show("id введен ен верно");
-            return;
-        }
-        
-        if (! await mainController.employeeController.employeeExist(idEmployee))
-        {
-            MessageBox.Show("Работника не существует");
-            return;
-        }
-        
-        if (! await mainController.customerController.customerExist(idCustomer))
-        {
-            MessageBox.Show("Клиента не существует");
-            return;
-        }
-
-
-
-        if(await createOrder(date, idCustomer, idEmployee))
-        {
-            textBoxDate.Text = string.Empty;
-            textBoxCustomer.Text = string.Empty;
-            textBoxEmployee.Text = string.Empty;
-
-            InitializeData();
-            mainController.UpdateData();
-        }
-       
-
-    }
-
-
-
-    private async Task<bool> createOrder(DateTime date,Guid idCustomer, Guid idEmployee)
-    {
         Order order = new Order()
         {
             Id = Guid.NewGuid(),
-            Date = date,
-            Id_Customer = idCustomer,
-            Id_Employee = idEmployee,
+            Date = dateTimePicker.Value,
+            Id_Customer = choisedCustomer.Id,
+            Id_Employee = choisedEmployee.Id
         };
-
-
-        Guid newOrderId = Guid.Empty;
 
         var response = await mainController.orderController.PostOrder(order);
 
         if (!response.IsSuccessStatusCode)
         {
-            return false;
+            return;
         }
 
-        foreach(var item in productRow)
+        foreach (var item in productRow)
         {
-            if(item.GetQuantity() > 0)
+            if (item.GetQuantity() > 0)
             {
                 OrderCompaund compaund = new OrderCompaund()
                 {
@@ -157,21 +152,30 @@ public partial class OrderAddController : UserControl
                     Quantity = item.GetQuantity()
                 };
 
-                
+
                 var responseCompaund = await mainController.orderCompaundController.PostOrderCompaund(compaund);
 
                 if (responseCompaund.IsSuccessStatusCode) { continue; }
-                
+
             }
         }
 
 
-        return true;//вернуть если успешно
+        dateTimePicker.Value = DateTime.Now;
+        choisedCustomer = new Customer();    
+        choisedEmployee = new Employee();
+        ShowCustomer();
+        ShowEmployee();
+        InitData();
+        mainController.UpdateData();
+
+
+
+        }
+
+
     }
 
 
 
 
-
-
-}

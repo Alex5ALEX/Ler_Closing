@@ -27,45 +27,51 @@ public partial class OrderRowControl : UserControl
 
 
         InitializeComponent();
-        InitializeData();
+        InitData();
 
-
-        buttonCopy.Click += CopyId;
-        buttonCopyCustomer.Click += CopyIdCustomer;
-        buttonCopyEmployee.Click += CopyIdEmployee;
         groupBox1.Click += change_selected_Id;
-        Click += change_selected_Id;
+        groupBox2.Click += change_selected_Id;
+        groupBox3.Click += change_selected_Id;
+        labelDate.Click += change_selected_Id;
+        labelDateText.Click += change_selected_Id;
+        label1.Click += change_selected_Id;
+        label2.Click += change_selected_Id;
+        label3.Click += change_selected_Id;
+        label4.Click += change_selected_Id;
+        label5.Click += change_selected_Id;
+        label6.Click += change_selected_Id;
+        label7.Click += change_selected_Id;
     }
 
 
-    private void InitializeData()
+    private void InitData()
     {
-        labelIdText.Text = order.Id.ToString();
         labelDateText.Text = order.Date.ToString("dd MM yyyy");
-        labelCustomerText.Text = order.Id_Customer.ToString();
-        labelEmployeeText.Text = order.Id_Employee.ToString();
+
+        InitCustomer();
+        InitEmployee();
     }
 
-
-    private void CopyId(object sender, EventArgs e)
+    private async void InitCustomer()
     {
-        // Копирование текста в буфер обмена
-        Clipboard.SetText(order.Id.ToString());
+        Customer customer = await mainController.customerController.GetCustomerById(order.Id_Customer);
+    
+        label1.Text = customer.Name;
+        label2.Text = customer.Surname;
+        label3.Text = customer.Phone;
     }
 
-
-    private void CopyIdCustomer(object sender, EventArgs e)
+    private async void InitEmployee()
     {
-        // Копирование текста в буфер обмена
-        Clipboard.SetText(order.Id_Customer.ToString());
+        Employee employee = await mainController.employeeController.GetEmployeeById(order.Id_Employee);
+
+        label4.Text = employee.Name;
+        label5.Text = employee.Surname;
+        label6.Text = employee.JobTitle;
+        label7.Text = employee.Phone;
+
     }
 
-
-    private void CopyIdEmployee(object sender, EventArgs e)
-    {
-        // Копирование текста в буфер обмена
-        Clipboard.SetText(order.Id_Employee.ToString());
-    }
 
 
     private void change_selected_Id(object sender, EventArgs e)

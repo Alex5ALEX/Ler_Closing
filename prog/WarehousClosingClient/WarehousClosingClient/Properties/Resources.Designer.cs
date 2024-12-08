@@ -63,6 +63,16 @@ namespace WarehousClosingClient.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap client {
+            get {
+                object obj = ResourceManager.GetObject("client", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap copy_picture {
             get {
                 object obj = ResourceManager.GetObject("copy_picture", resourceCulture);
@@ -76,6 +86,66 @@ namespace WarehousClosingClient.Properties {
         internal static System.Drawing.Bitmap copy1_picture {
             get {
                 object obj = ResourceManager.GetObject("copy1_picture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Employee {
+            get {
+                object obj = ResourceManager.GetObject("Employee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Order {
+            get {
+                object obj = ResourceManager.GetObject("Order", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Product {
+            get {
+                object obj = ResourceManager.GetObject("Product", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Provider {
+            get {
+                object obj = ResourceManager.GetObject("Provider", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Report {
+            get {
+                object obj = ResourceManager.GetObject("Report", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Supply {
+            get {
+                object obj = ResourceManager.GetObject("Supply", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

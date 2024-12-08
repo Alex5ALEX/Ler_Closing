@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using System.Xml.Linq;
+﻿
 using WarehousClosingClient.Models;
+using WarehousClosingClient.Logic;
 
 namespace WarehousClosingClient.Views.CustomerView;
 
 public partial class CustomerAddController : UserControl
 {
     private CustomerControl mainController;
+    private Validation validation;
 
     public CustomerAddController(CustomerControl mainController)
     {
         this.mainController = mainController;
+        validation = new Validation();
+
 
         InitializeComponent();
 
@@ -45,6 +39,10 @@ public partial class CustomerAddController : UserControl
             MessageBox.Show("Пожалуйста, заполните все поля.");
             return;
         }
+
+
+        if (!validation.ValidatePhone(textBoxPhone.Text)) { MessageBox.Show("Телефон введен не верно!"); return; };
+        if (!validation.ValidateEmail(textBoxEmail.Text)) { MessageBox.Show("Email введен не верно!");  return; };
 
 
         Customer customer = new Customer()

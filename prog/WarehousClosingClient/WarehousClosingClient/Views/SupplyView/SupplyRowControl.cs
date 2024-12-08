@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,36 +27,39 @@ public partial class SupplyRowControl : UserControl
   
 
         InitializeComponent();
-        InitializeData();
+        InitData();
 
 
-        buttonCopy.Click += CopyId;
-        buttonCopyProvider.Click += CopyIdProvider;
+
         groupBox1.Click += change_selected_Id;
-        Click += change_selected_Id;
+        groupBox2.Click += change_selected_Id;
+        labelDate.Click += change_selected_Id;
+        labelDateText.Click += change_selected_Id;
+        labelPrice.Click += change_selected_Id;
+        labelPriceText.Click += change_selected_Id;
+        label1.Click += change_selected_Id;
+        label2.Click += change_selected_Id;
+        label3.Click += change_selected_Id;
     }
 
 
-    private void InitializeData()
+    private void InitData()
     {
-        labelIdText.Text = supply.Id.ToString();
         labelDateText.Text = supply.Date.ToString("dd MM yyyy");
         labelPriceText.Text = supply.Price.ToString();
-        labelProviderText.Text = supply.Id_Provider.ToString();
+
+        InitProvider();
     }
 
 
-    private void CopyId(object sender, EventArgs e)
+    private async void InitProvider()
     {
-        // Копирование текста в буфер обмена
-        Clipboard.SetText(supply.Id.ToString());
-    }
+        Provider provider = await mainController.providerController.GetProviderById(supply.Id_Provider);
 
+        label1.Text = provider.Company;
+        label2.Text = provider.ContactPerson;
+        label3.Text = provider.Phone;
 
-    private void CopyIdProvider(object sender, EventArgs e)
-    {
-        // Копирование текста в буфер обмена
-        Clipboard.SetText(supply.Id_Provider.ToString());
     }
 
 

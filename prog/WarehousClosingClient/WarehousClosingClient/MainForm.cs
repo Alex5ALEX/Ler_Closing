@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-
-using WarehousClosingClient.Views.CustomerView;
+﻿using WarehousClosingClient.Views.CustomerView;
 using WarehousClosingClient.Views.EmployeeView;
 using WarehousClosingClient.Views.OrderView;
 using WarehousClosingClient.Views.ProductView;
 using WarehousClosingClient.Views.ProviderView;
 using WarehousClosingClient.Views.SupplyView;
-
+using WarehousClosingClient.Views.ReportView;
 
 
 namespace WarehousClosingClient;
@@ -31,6 +20,7 @@ public partial class MainForm : Form
     ProductControl productControl;
     ProviderControl providerControl;
     SupplyControl supplyControl;
+    ReportControl reportControl;
 
 
     public MainForm()
@@ -40,9 +30,9 @@ public partial class MainForm : Form
 
         this.FormClosing += new FormClosingEventHandler(Form_FormClosing);
 
-        buttonMenu.Click += CallMenu;
-        buttonHideMenu.Click += ClearMenu;
-        labelMenu.Click += ClearMenu;
+        buttonMenu.Click += ShowMenuButton;
+        groupBoxMenu.Click += HideMenuButton;
+        labelMenu.Click += HideMenuButton;
 
         customerOption.Click += InitCustomerControl;
         employeeOption.Click += InitEmployeeControl;
@@ -50,7 +40,7 @@ public partial class MainForm : Form
         productOption.Click += InitProductControl;
         providerOption.Click += InitProviderControl;
         supplyOption.Click += InitSupplyControl;
-
+        ReportOption.Click += InitReportControl;
     }
 
 
@@ -65,69 +55,105 @@ public partial class MainForm : Form
         productControl = new ProductControl(this);
         providerControl = new ProviderControl(this);
         supplyControl = new SupplyControl(this);
+        reportControl = new ReportControl(this);
 
-        groupBoxMenu.Visible = false;
+        Controls.Add(customerControl);
+        Controls.Add(employeeControl);
+        Controls.Add(orderControl);
+        Controls.Add(productControl);
+        Controls.Add(providerControl);
+        Controls.Add(supplyControl);
+        Controls.Add(reportControl);
+
+        HideMainControls();
+        HideMenuControl();
     }
 
 
     //menu options
     private void InitCustomerControl(object sender, EventArgs e)
     {
-        HideMenuControl();
-        groupBoxMain.Controls.Clear();
-        groupBoxMain.Controls.Add(customerControl);
+        HideAllControls();
+        customerControl.Visible = true;
     }
 
     private void InitEmployeeControl(object sender, EventArgs e)
     {
-        HideMenuControl();
-        groupBoxMain.Controls.Clear();
-        groupBoxMain.Controls.Add(employeeControl);
+        HideAllControls();
+        employeeControl.Visible = true;
     }
 
     private void InitOrderControl(object sender, EventArgs e)
     {
-        HideMenuControl();
-        groupBoxMain.Controls.Clear();
-        groupBoxMain.Controls.Add(orderControl);
+        HideAllControls();
+        orderControl.Visible = true;
     }
 
     private void InitProductControl(object sender, EventArgs e)
     {
-        HideMenuControl();
-        groupBoxMain.Controls.Clear();
-        groupBoxMain.Controls.Add(productControl);
+        HideAllControls();
+        productControl.Visible = true;
     }
 
     private void InitProviderControl(object sender, EventArgs e)
     {
-        HideMenuControl();
-        groupBoxMain.Controls.Clear();
-        groupBoxMain.Controls.Add(providerControl);
+        HideAllControls();
+        providerControl.Visible = true;
     }
 
     private void InitSupplyControl(object sender, EventArgs e)
     {
+        HideAllControls();
+        supplyControl.Visible = true;
+    }
+
+    private void InitReportControl(object sender, EventArgs e)
+    {
+        HideAllControls();
+        reportControl.Visible = true;
+    }
+
+    //controls
+
+
+
+    private void HideAllControls()
+    {
         HideMenuControl();
-        groupBoxMain.Controls.Clear();
-        groupBoxMain.Controls.Add(supplyControl);
+        buttonMenu.Visible = false;
+        labelHello.Visible = false;
+
+        HideMainControls();
     }
 
 
+    private void HideMainControls()
+    {
+        customerControl.Visible = false;
+        employeeControl.Visible = false;
+        orderControl.Visible = false;
+        productControl.Visible = false;
+        providerControl.Visible = false;
+        supplyControl.Visible = false;
+        reportControl.Visible = false;
+    }
+
+
+
     //menu
-    private void CallMenu(object sender, EventArgs e)
+    public void ShowMenuButton(object sender, EventArgs e)
     {
         ShowMenuControl();
     }
 
-    private void ClearMenu(object sender, EventArgs e)
+    public void HideMenuButton(object sender, EventArgs e)
     {
         HideMenuControl();
     } 
 
     public void ShowMenuControl()
     {
-        groupBoxMenu.BringToFront();
+        //groupBoxMenu.BringToFront();
         groupBoxMenu.Visible = true;
     }
 

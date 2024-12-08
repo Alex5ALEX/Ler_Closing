@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using System.Xml.Linq;
+﻿using WarehousClosingClient.Logic;
 using WarehousClosingClient.Models;
 
 namespace WarehousClosingClient.Views.ProviderView;
@@ -16,10 +6,13 @@ namespace WarehousClosingClient.Views.ProviderView;
 public partial class ProviderAddController : UserControl
 {
     private ProviderControl mainController;
+    private Validation validation;
 
     public ProviderAddController(ProviderControl mainController)
     {
         this.mainController = mainController;
+        validation = new Validation();
+
 
         InitializeComponent();
 
@@ -46,6 +39,9 @@ public partial class ProviderAddController : UserControl
             return;
         }
 
+
+        if (!validation.ValidatePhone(textBoxPhone.Text)) { MessageBox.Show("Телефон введен не верно!"); return; };
+        if (!validation.ValidateEmail(textBoxEmail.Text)) { MessageBox.Show("Email введен не верно!"); return; };
 
         Provider provider = new Provider()
         {
