@@ -78,7 +78,8 @@ public partial class FinanceControl : UserControl
             ChartType = SeriesChartType.Column // Столбчатая диаграмма
         };
 
-        
+        Dictionary<int , decimal> quantPerYear = new Dictionary<int , decimal>();
+
         foreach  (Order  order in orders)
         {
             decimal profit = 0;
@@ -91,8 +92,22 @@ public partial class FinanceControl : UserControl
                 profit += compaund.Quantity * product.Price;
             }
 
-            series.Points.AddXY(order.Date.Year, profit);
+            if (quantPerYear.ContainsKey(order.Date.Year))
+            {
+                quantPerYear[order.Date.Year] += profit;
+            }
+            else
+            {
+                quantPerYear.Add(order.Date.Year, profit);
+            }
+
         }
+
+        foreach(var item in quantPerYear)
+        {
+            series.Points.AddXY(item.Key, item.Value);
+        }
+
 
         chart1.Series.Add(series);
 
@@ -118,9 +133,26 @@ public partial class FinanceControl : UserControl
         };
 
 
+        Dictionary<int, decimal> quantPerYear = new Dictionary<int, decimal>();
+
         foreach (Supply supply in supplies)
         {
-            series.Points.AddXY(supply.Date.Year, supply.Price);
+            if (quantPerYear.ContainsKey(supply.Date.Year))
+            {
+                quantPerYear[supply.Date.Year] += supply.Price;
+            }
+            else
+            {
+                quantPerYear.Add(supply.Date.Year, supply.Price);
+            }
+
+           
+        }
+
+
+        foreach (var item in quantPerYear)
+        {
+            series.Points.AddXY(item.Key, item.Value);
         }
 
         chart2.Series.Add(series);
