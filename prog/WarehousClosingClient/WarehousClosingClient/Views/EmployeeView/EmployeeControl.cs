@@ -26,7 +26,7 @@ public partial class EmployeeControl : UserControl
         UpdateData();
 
 
-        buttonMenu.Click += CallMenu;
+        buttonMenu.Click += mainForm.ShowMenuButton;
 
         buttonAddNew.Click += AddNew;
         buttonEdit.Click += Edit;

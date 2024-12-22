@@ -111,6 +111,7 @@ public class CustomerController
 
     public async Task<bool> customerExist(Guid Id)
     {
+
         var response = await GetCustomerById(Id);
 
         if (response.Id == Guid.Empty)

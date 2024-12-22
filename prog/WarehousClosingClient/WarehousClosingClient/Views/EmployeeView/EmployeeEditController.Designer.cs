@@ -40,11 +40,11 @@ partial class EmployeeEditController
         labelName = new Label();
         label = new Label();
         groupBox1 = new GroupBox();
-        labelJobtitle = new Label();
-        textBoxJobtitle = new TextBox();
         buttonDelete = new Button();
         buttonBack = new Button();
         buttonEdit = new Button();
+        labelJobtitle = new Label();
+        textBoxJobtitle = new TextBox();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -172,24 +172,6 @@ partial class EmployeeEditController
         groupBox1.TabIndex = 29;
         groupBox1.TabStop = false;
         // 
-        // labelJobtitle
-        // 
-        labelJobtitle.AutoSize = true;
-        labelJobtitle.Font = new Font("Segoe UI", 12F);
-        labelJobtitle.Location = new Point(24, 189);
-        labelJobtitle.Name = "labelJobtitle";
-        labelJobtitle.Size = new Size(63, 21);
-        labelJobtitle.TabIndex = 30;
-        labelJobtitle.Text = "Jobttile:";
-        // 
-        // textBoxJobtitle
-        // 
-        textBoxJobtitle.Font = new Font("Segoe UI", 12F);
-        textBoxJobtitle.Location = new Point(25, 213);
-        textBoxJobtitle.Name = "textBoxJobtitle";
-        textBoxJobtitle.Size = new Size(290, 29);
-        textBoxJobtitle.TabIndex = 31;
-        // 
         // buttonDelete
         // 
         buttonDelete.BackColor = Color.Red;
@@ -224,6 +206,24 @@ partial class EmployeeEditController
         buttonEdit.TabIndex = 32;
         buttonEdit.Text = "Edit";
         buttonEdit.UseVisualStyleBackColor = false;
+        // 
+        // labelJobtitle
+        // 
+        labelJobtitle.AutoSize = true;
+        labelJobtitle.Font = new Font("Segoe UI", 12F);
+        labelJobtitle.Location = new Point(24, 189);
+        labelJobtitle.Name = "labelJobtitle";
+        labelJobtitle.Size = new Size(63, 21);
+        labelJobtitle.TabIndex = 30;
+        labelJobtitle.Text = "Jobttile:";
+        // 
+        // textBoxJobtitle
+        // 
+        textBoxJobtitle.Font = new Font("Segoe UI", 12F);
+        textBoxJobtitle.Location = new Point(25, 213);
+        textBoxJobtitle.Name = "textBoxJobtitle";
+        textBoxJobtitle.Size = new Size(290, 29);
+        textBoxJobtitle.TabIndex = 31;
         // 
         // EmployeeEditController
         // 

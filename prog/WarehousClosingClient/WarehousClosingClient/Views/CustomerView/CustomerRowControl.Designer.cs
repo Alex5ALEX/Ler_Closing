@@ -144,6 +144,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = SystemColors.ControlLightLight;
             groupBox1.Controls.Add(labelPhoneText);
             groupBox1.Controls.Add(labelAddresText);
             groupBox1.Controls.Add(labelPhone);
